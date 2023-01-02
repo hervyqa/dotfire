@@ -20,7 +20,7 @@
         ms-toolsai.vscode-jupyter-cell-tags
         ms-toolsai.vscode-jupyter-slideshow
         ms-vscode.anycode
-        mskelton.one-dark-theme
+        ms-vscode.theme-tomorrowkit
         pkief.material-icon-theme
         scala-lang.scala
         shardulm94.trailing-spaces
