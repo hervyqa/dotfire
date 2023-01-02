@@ -137,7 +137,6 @@
     qtcreator # qt c++
     rstudio # R
     spyder # python
-    texstudio # latex
     vscodium # general
 
     # python packages
@@ -160,26 +159,10 @@
     python310Packages.tableaudocumentapi
     python3Full
 
-    # Web dev
-    deno
-    nodePackages.eslint
-    nodePackages.javascript-typescript-langserver
-    nodePackages.nijs
-    nodePackages.npm
-    nodePackages.prisma
-    nodePackages.react-native-cli
-    nodePackages.react-tools
-    nodePackages.sass
-    nodePackages.three
-    nodePackages.typescript
-    nodejs
-    purescript
-    rslint
-
     # R packages
     R
-    #rPackages.caret
-    #rPackages.data_table
+    rPackages.caret
+    rPackages.data_table
     #rPackages.dplyr
     #rPackages.knitr
     #rPackages.mlr3
