@@ -121,8 +121,6 @@
     luigi
     metabase
     paraview
-    pspp
-    qvge
     sqlitebrowser
     tabula
     visidata
@@ -135,7 +133,6 @@
     rakudo
 
     # IDE
-    jetbrains.pycharm-community # python
     libsForQt5.kdevelop # qt c++
     qtcreator # qt c++
     rstudio # R
