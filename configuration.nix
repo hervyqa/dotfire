@@ -250,13 +250,13 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      ll = "ls -lh";
-      la = "ls -lha";
-      disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
-      clean = "sudo nix-store --gc";
       build = "sudo nixos-rebuild switch --show-trace";
-      search = "nix-env -qaP";
+      clean = "sudo nix-store --gc";
+      disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
+      la = "ls -lha";
+      ll = "ls -lh";
       query = "nix-shell -p nix-info --run 'nix-info -m'";
+      search = "nix-env -qaP";
     };
   };
 
