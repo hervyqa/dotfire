@@ -1,12 +1,14 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./vscodium.nix
-      ./vim.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./vscodium.nix
+    ./vim.nix
+  ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
   nixpkgs.config.allowUnfree = false;
@@ -97,7 +99,7 @@
   users.users.hervyqa = {
     isNormalUser = true;
     description = "Hervy Qurrotul Ainur Rozi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       kate
     ];
@@ -108,7 +110,6 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-
     # data science
     clickhouse
     datasette
@@ -134,13 +135,13 @@
     rakudo
 
     # IDE
-    jetbrains.pycharm-community   # python
-    libsForQt5.kdevelop           # qt c++
-    qtcreator                     # qt c++
-    rstudio                       # R
-    spyder                        # python
-    texstudio                     # latex
-    vscodium                      # general
+    jetbrains.pycharm-community # python
+    libsForQt5.kdevelop # qt c++
+    qtcreator # qt c++
+    rstudio # R
+    spyder # python
+    texstudio # latex
+    vscodium # general
 
     # python packages
     codebraid
@@ -323,5 +324,4 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
   system.stateVersion = "22.11";
-
 }
