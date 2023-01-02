@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./vscodium.nix
       ./vim.nix
     ];
 
@@ -102,6 +103,9 @@
     ];
   };
 
+  # VS Code under Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
 
@@ -157,6 +161,22 @@
     python310Packages.spyder
     python310Packages.tableaudocumentapi
     python3Full
+
+    # Web dev
+    deno
+    nodePackages.eslint
+    nodePackages.javascript-typescript-langserver
+    nodePackages.nijs
+    nodePackages.npm
+    nodePackages.prisma
+    nodePackages.react-native-cli
+    nodePackages.react-tools
+    nodePackages.sass
+    nodePackages.three
+    nodePackages.typescript
+    nodejs
+    purescript
+    rslint
 
     # R packages
     R
