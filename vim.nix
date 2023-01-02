@@ -12,15 +12,18 @@
           fzf-vim
           jedi-vim
           nerdtree
+          purescript-vim
           rust-vim
           statix
           supertab
+          typescript-vim
           vim-airline
           vim-airline-themes
           vim-fish
           vim-fugitive
           vim-gitgutter
           vim-go
+          vim-javascript
           vim-lastplace
           vim-lsp
           vim-nix
