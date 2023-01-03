@@ -118,7 +118,7 @@
     datasette
     dbeaver
     duckdb
-    gnuplot_qt
+    gnuplot
     julia
     kaggle
     luigi
@@ -136,8 +136,6 @@
     rakudo
 
     # IDE
-    libsForQt5.kdevelop # qt c++
-    qtcreator # qt c++
     rstudio # R
     spyder # python
     vscodium # general
@@ -157,7 +155,6 @@
     postgresql
     spark
     sqlite
-    sqlite-jdbc
     sqlite-utils
 
     # cli packages
@@ -169,16 +166,18 @@
     exa
     fish
     git
+    gitui
     home-manager
     htop
     inxi
     macchina
+    nixos-option
+    ranger
     tmux
     vim
     wget
 
     # kde plasma
-    kdiff3
     kfind
     libsForQt5.applet-window-buttons
     libsForQt5.kdeconnect-kde
@@ -203,7 +202,6 @@
     # productivity
     libreoffice
     libreoffice-qt
-    mindforger
 
     # communication
     tdesktop
@@ -212,9 +210,6 @@
     lxappearance
     papirus-icon-theme
 
-    # cpu control
-    corectrl
-
     # printer driver
     epson-escpr
     epson-escpr2
@@ -222,7 +217,7 @@
     foomatic-filters
   ];
 
-  # Fish shell
+  # Shell
   users.defaultUserShell = pkgs.fish;
   programs.fish = {
     enable = true;

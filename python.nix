@@ -25,6 +25,10 @@
     spyder
     statsmodels
     tableaudocumentapi
+    tensorflow
+    tensorflow-metadata
+    tensorflow-probability
+    trfl
     #torch
     #torchaudio-bin
     #torchvision

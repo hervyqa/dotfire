@@ -13,6 +13,7 @@
             fzf-vim
             jedi-vim
             nerdtree
+            python-mode
             statix
             supertab
             vim-airline
