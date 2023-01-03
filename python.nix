@@ -16,5 +16,9 @@
     seaborn
     spyder
     tableaudocumentapi
+    torch
+    torchaudio
+    torchinfo
+    torchvision
   ];
 }
