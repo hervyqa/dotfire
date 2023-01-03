@@ -10,7 +10,9 @@
         editorconfig.editorconfig
         esbenp.prettier-vscode
         formulahendry.code-runner
+        grapecity.gc-excelviewer
         kamadorueda.alejandra
+        mechatroner.rainbow-csv
         mhutchie.git-graph
         ms-pyright.pyright
         ms-python.python
