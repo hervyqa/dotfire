@@ -6,8 +6,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./vscodium.nix
+    ./python.nix
     ./vim.nix
+    ./vscodium.nix
   ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
@@ -143,20 +144,6 @@
     codebraid
     conda
     jupyter
-    python310Packages.google-cloud-bigquery
-    python310Packages.ibm-watson
-    python310Packages.ipython
-    python310Packages.jupyterhub
-    python310Packages.jupyterlab
-    python310Packages.keras
-    python310Packages.matplotlib
-    python310Packages.numpy
-    python310Packages.pandas
-    python310Packages.pyzmq
-    python310Packages.scikit-learn
-    python310Packages.scipy
-    python310Packages.spyder
-    python310Packages.tableaudocumentapi
     python3Full
 
     # R packages
