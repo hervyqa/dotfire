@@ -1,24 +1,34 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs.python310Packages; [
+    altair
+    bokeh
+    catboost
     google-cloud-bigquery
     ibm-watson
     ipython
     jupyterhub
     jupyterlab
     keras
+    lightgbm
     matplotlib
+    mayavi
     numpy
     pandas
+    plotly
+    plotnine
+    polars
     pyzmq
     requests
     scikit-learn
     scipy
     seaborn
     spyder
+    statsmodels
     tableaudocumentapi
     torch
     torchaudio
     torchinfo
     torchvision
+    xgboost
   ];
 }
