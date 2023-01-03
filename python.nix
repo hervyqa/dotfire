@@ -14,6 +14,7 @@
     mayavi
     numpy
     pandas
+    pip
     plotly
     plotnine
     pyzmq
