@@ -225,7 +225,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      build = "sudo nixos-rebuild switch --show-trace";
+      rebuild = "sudo nixos-rebuild switch --show-trace";
       clean = "sudo nix-store --gc";
       disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
       la = "ls -lha";
