@@ -7,6 +7,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./python.nix
+    ./r.nix
     ./vim.nix
     ./vscodium.nix
   ];
@@ -146,19 +147,6 @@
     jupyter
     python3Full
 
-    # R packages
-    R
-    rPackages.caret
-    rPackages.data_table
-    #rPackages.dplyr
-    #rPackages.knitr
-    #rPackages.mlr3
-    #rPackages.plotly
-    #rPackages.qtl2ggplot
-    #rPackages.shiny
-    #rPackages.tidyr
-    #rPackages.xgboost
-
     # devops
     apache-airflow
     hadoop
@@ -242,7 +230,7 @@
       disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
       la = "ls -lha";
       ll = "ls -lh";
-      query = "nix-shell -p nix-info --run 'nix-info -m'";
+      sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
       search = "nix-env -qaP";
     };
   };
