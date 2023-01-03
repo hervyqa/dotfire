@@ -113,6 +113,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     # data science
+    R
     clickhouse
     datasette
     dbeaver
@@ -180,6 +181,7 @@
     kdiff3
     kfind
     libsForQt5.applet-window-buttons
+    libsForQt5.kdeconnect-kde
     libsForQt5.ktouch
     libsForQt5.sddm-kcm
     wacomtablet

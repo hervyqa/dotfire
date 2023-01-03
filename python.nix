@@ -16,7 +16,6 @@
     pandas
     plotly
     plotnine
-    polars
     pyzmq
     requests
     scikit-learn
@@ -25,10 +24,8 @@
     spyder
     statsmodels
     tableaudocumentapi
-    torch
-    torchaudio
-    torchinfo
-    torchvision
-    xgboost
+    #torch
+    #torchaudio-bin
+    #torchvision
   ];
 }

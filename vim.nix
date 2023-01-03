@@ -9,14 +9,15 @@
           start = [
             ale
             emmet-vim
+            ferret
             fzf-vim
             jedi-vim
             nerdtree
+            statix
             supertab
             vim-airline
             vim-airline-themes
             vim-fish
-            vim-fugitive
             vim-gitgutter
             vim-lastplace
             vim-lsp
@@ -27,7 +28,6 @@
             vim-tmux-focus-events
             vim-tmux-navigator
             vim-toml
-            vim-tpipeline
             vim-trailing-whitespace
             vim-unimpaired
             vim-vsnip
