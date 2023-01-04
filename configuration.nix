@@ -13,7 +13,7 @@
   ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
-  nixpkgs.config.allowUnfree = false;
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -206,6 +206,7 @@
 
     # communication
     tdesktop
+    discord
 
     # theme
     lxappearance
