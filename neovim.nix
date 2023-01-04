@@ -1,9 +1,10 @@
 {pkgs, ...}: {
-  environment.variables = {EDITOR = "nvim";};
-
+  environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
     (
       neovim.override {
+        defaultEditor = true;
+        withNodeJs = true;
         vimAlias = true;
         configure = {
           packages.myPlugins = with pkgs.vimPlugins; {

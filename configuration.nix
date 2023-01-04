@@ -173,6 +173,7 @@
     macchina
     neovim
     nixos-option
+    nodejs
     ranger
     tmux
     wget
