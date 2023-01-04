@@ -9,6 +9,7 @@
         configure = {
           packages.myPlugins = with pkgs.vimPlugins; {
             start = [
+              statix
               coc-clangd
               coc-clap
               coc-cmake
@@ -61,8 +62,9 @@
               tabline-nvim
               vim-airline
               vim-airline-themes
+              vim-lastplace
               vim-lightline-coc
-              vim-statix
+              vim-nix
             ];
             opt = [];
           };
