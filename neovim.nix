@@ -79,6 +79,8 @@
             set hlsearch
             set ignorecase
             set incsearch
+            set linebreak breakindent
+            set list listchars=tab:>>,trail:~
             set nobackup
             set nocompatible
             set nowrap
@@ -89,8 +91,41 @@
             set showmatch
             set showmode
             set smartcase
+            set smarttab
+            set splitbelow
+            set splitright
+            set t_Co=256
             set tabstop=2
+            set undofile
+            set undolevels=50000
+            set updatetime=100
             syntax on
+
+            let g:mapleader = "\<Space>"
+
+            nnoremap <C-J> <C-W><C-J>
+            nnoremap <C-K> <C-W><C-K>
+            nnoremap <C-L> <C-W><C-L>
+            nnoremap <C-H> <C-W><C-H>
+            nnoremap <BS> <C-W><C-H>
+
+            nnoremap <silent> <Left> :vertical resize +2<CR>
+            nnoremap <silent> <Right> :vertical resize -2<CR>
+            nnoremap <silent> <Up> :resize +2<CR>
+            nnoremap <silent> <Down> :resize -2<CR>
+
+            nnoremap _ <C-W>s<C-W><Down>
+            nnoremap <Bar> <C-W>v<C-W><Right>
+
+            map = <C-w>=
+
+            vnoremap > >gv
+            vnoremap < <gv
+
+            nnoremap <silent> <leader>w :w<CR>
+
+            vnoremap <leader>y "qygv<ESC>
+            vnoremap <leader>x "+ygvd<ESC>
           '';
         };
       }
