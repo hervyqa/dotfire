@@ -8,7 +8,7 @@
     ./hardware-configuration.nix
     ./python.nix
     ./r.nix
-    ./vim.nix
+    ./neovim.nix
     ./vscodium.nix
   ];
 
@@ -171,10 +171,10 @@
     htop
     inxi
     macchina
+    neovim
     nixos-option
     ranger
     tmux
-    vim
     wget
 
     # kde plasma
