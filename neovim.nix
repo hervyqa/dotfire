@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     (
       neovim.override {
-        defaultEditor = true;
         withNodeJs = true;
         vimAlias = true;
         configure = {

@@ -6,6 +6,8 @@
     google-cloud-bigquery
     ibm-watson
     ipython
+    jedi
+    jedi-language-server
     jupyterhub
     jupyterlab
     keras
