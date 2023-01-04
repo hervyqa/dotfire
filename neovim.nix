@@ -59,7 +59,10 @@
               scrollbar-nvim
               surround-nvim
               tabline-nvim
+              vim-airline
+              vim-airline-themes
               vim-lightline-coc
+              vim-statix
             ];
             opt = [];
           };
