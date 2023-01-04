@@ -32,6 +32,8 @@
     tensorflow-metadata
     tensorflow-probability
     trfl
+    virtualenv
+    virtualenvwrapper
     #torch
     #torchaudio-bin
     #torchvision
