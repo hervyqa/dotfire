@@ -19,6 +19,7 @@
     pip
     plotly
     plotnine
+    pynvim
     pyzmq
     requests
     scikit-learn
