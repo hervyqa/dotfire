@@ -9,7 +9,8 @@
     ./python.nix
     ./r.nix
     ./neovim.nix
-    ./vscodium.nix
+    # ./vim.nix
+    # ./vscodium.nix
   ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
@@ -220,6 +221,10 @@
     epson-escpr2
     foomatic-db
     foomatic-filters
+
+    # fonts
+    google-fonts
+    font-awesome
   ];
 
   # Shell
