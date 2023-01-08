@@ -120,6 +120,7 @@
     dbeaver
     duckdb
     gnuplot
+    grafana
     julia
     kaggle
     luigi
@@ -284,6 +285,6 @@
 
   # System upgrade
   system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade.allowReboot = false;
   system.stateVersion = "22.11";
 }
