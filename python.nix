@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs.python310Packages; [
     altair
+    beautifulsoup4
     bokeh
     catboost
     google-cloud-bigquery
@@ -14,6 +15,8 @@
     lightgbm
     matplotlib
     mayavi
+    networkx
+    nltk
     numpy
     pandas
     pip
