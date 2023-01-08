@@ -181,6 +181,7 @@
     nixos-option
     ranger
     tmux
+    translate-shell
     wget
 
     # kde plasma
