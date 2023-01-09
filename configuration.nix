@@ -9,6 +9,7 @@
     ./python.nix
     ./r.nix
     ./neovim.nix
+    ./nonfree.nix
     # ./vim.nix
     # ./vscodium.nix
   ];
@@ -212,7 +213,6 @@
 
     # communication
     tdesktop
-    discord
 
     # theme
     lxappearance
