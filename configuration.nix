@@ -177,10 +177,10 @@
     home-manager
     htop
     inxi
+    joshuto
     macchina
     neovim
     nixos-option
-    ranger
     tmux
     translate-shell
     wget
@@ -234,13 +234,14 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --show-trace";
       clean = "sudo nix-store --gc";
       disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
       la = "ls -lha";
       ll = "ls -lh";
-      sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
+      n = "nvim";
+      rebuild = "sudo nixos-rebuild switch --show-trace";
       search = "nix-env -qaP";
+      sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
     };
   };
 
