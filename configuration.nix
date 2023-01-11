@@ -6,12 +6,12 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./python.nix
-    ./r.nix
     ./neovim.nix
     ./nonfree.nix
-    # ./vim.nix
-    # ./vscodium.nix
+    ./python-pkgs.nix
+    #./r-pkgs.nix
+    #./vim.nix
+    #./vscodium.nix
   ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
@@ -122,7 +122,6 @@
     duckdb
     gnuplot
     grafana
-    julia
     kaggle
     luigi
     metabase
@@ -131,6 +130,9 @@
     tabula
     visidata
     wxmaxima
+
+    # julia
+    #julia #compiling
 
     # scala
     scala
@@ -145,6 +147,7 @@
     # IDE
     rstudio # R
     spyder # python
+    texstudio # latex
     vscodium # general
 
     # python packages
@@ -181,6 +184,7 @@
     macchina
     neovim
     nixos-option
+    texlab
     tmux
     translate-shell
     wget
@@ -242,6 +246,7 @@
       rebuild = "sudo nixos-rebuild switch --show-trace";
       search = "nix-env -qaP";
       sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
+      garbage = "sudo nix-collect-garbage -d";
     };
   };
 
@@ -267,7 +272,10 @@
   };
 
   # Enable Earlyoom
-  services.earlyoom.enable = true;
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 5;
+  };
 
   # Enable Mariadb (mysql)
   services.mysql.package = pkgs.mariadb;
