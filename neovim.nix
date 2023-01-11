@@ -9,7 +9,6 @@
         configure = {
           packages.myPlugins = with pkgs.vimPlugins; {
             start = [
-              statix
               coc-clangd
               coc-clap
               coc-cmake
@@ -48,6 +47,7 @@
               coc-sqlfluff
               coc-stylelint
               coc-sumneko-lua
+              coc-texlab
               coc-toml
               coc-tslint
               coc-ultisnips
@@ -58,6 +58,7 @@
               coc-yank
               scope-nvim
               scrollbar-nvim
+              statix
               surround-nvim
               tabline-nvim
               vim-airline
