@@ -3,7 +3,7 @@
     Cairo
     DT
     DataExplorer
-    Hmisc
+    #Hmisc #failed to compiling
     RColorBrewer
     XML
     #arrow #failed to compiling
@@ -22,7 +22,7 @@
     forecast
     fst
     geofacet
-    ggforce
+    #ggforce #failed to compiling
     ggiraph
     ggplot2
     githubinstall
@@ -52,7 +52,7 @@
     plotly
     plumber
     profvis
-    prophet
+    #prophet # stan failed to compiling
     purrr
     quantmod
     reactable
