@@ -9,7 +9,7 @@
     ./neovim.nix
     ./nonfree.nix
     ./python-pkgs.nix
-    #./r-pkgs.nix
+    ./r-pkgs.nix
     #./vim.nix
     #./vscodium.nix
   ];
@@ -118,7 +118,6 @@
     R
     clickhouse
     datasette
-    dbeaver
     duckdb
     gnuplot
     grafana
@@ -126,13 +125,12 @@
     luigi
     metabase
     paraview
-    sqlitebrowser
     tabula
     visidata
     wxmaxima
 
     # julia
-    #julia #compiling
+    # julia # long time compiling
 
     # scala
     scala
@@ -145,8 +143,10 @@
     yarn
 
     # IDE
+    dbeaver # database
     rstudio # R
     spyder # python
+    sqlitebrowser # sqlite
     texstudio # latex
     vscodium # general
 
@@ -192,6 +192,7 @@
     # kde plasma
     kfind
     libsForQt5.applet-window-buttons
+    libsForQt5.falkon
     libsForQt5.kdeconnect-kde
     libsForQt5.ktouch
     libsForQt5.sddm-kcm
