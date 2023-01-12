@@ -170,6 +170,7 @@
     # cli packages
     bottom
     direnv
+    disfetch
     dnscrypt-proxy2
     earlyoom
     efibootmgr
@@ -194,7 +195,10 @@
     libsForQt5.applet-window-buttons
     libsForQt5.falkon
     libsForQt5.kdeconnect-kde
+    libsForQt5.keysmith
     libsForQt5.ktouch
+    libsForQt5.lightly
+    libsForQt5.neochat
     libsForQt5.sddm-kcm
     wacomtablet
 
