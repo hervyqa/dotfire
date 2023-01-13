@@ -9,9 +9,9 @@
     ./neovim.nix
     ./nonfree.nix
     ./python-pkgs.nix
-    ./r-pkgs.nix
-    #./vim.nix
-    #./vscodium.nix
+    # ./r-pkgs.nix
+    # ./vim.nix
+    # ./vscodium.nix
   ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
@@ -130,7 +130,7 @@
     wxmaxima
 
     # julia
-    # julia # long time compiling
+    julia
 
     # scala
     scala
@@ -198,7 +198,6 @@
     libsForQt5.keysmith
     libsForQt5.ktouch
     libsForQt5.lightly
-    libsForQt5.neochat
     libsForQt5.sddm-kcm
     wacomtablet
 
@@ -243,15 +242,15 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      clean = "sudo nix-store --gc";
-      disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
-      la = "ls -lha";
-      ll = "ls -lh";
       n = "nvim";
-      rebuild = "sudo nixos-rebuild switch --show-trace";
+      ll = "ls -lha";
       search = "nix-env -qaP";
-      sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
+      clean = "sudo nix-store --gc";
+      update = "sudo nix-channel --update";
+      rebuild = "sudo nixos-rebuild switch";
       garbage = "sudo nix-collect-garbage -d";
+      sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
+      disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
     };
   };
 
