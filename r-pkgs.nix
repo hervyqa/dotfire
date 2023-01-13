@@ -22,7 +22,7 @@
     forecast
     fst
     geofacet
-    #ggforce #failed to compiling
+    # ggforce #failed to compiling
     ggiraph
     ggplot2
     githubinstall
@@ -52,7 +52,7 @@
     plotly
     plumber
     profvis
-    #prophet # stan failed to compiling
+    # prophet # r-stan failed to compiling
     purrr
     quantmod
     reactable
@@ -81,8 +81,8 @@
     tidyr
     tidytext
     tidyxl
-    tmap
-    tmaptools
+    # tmap # r-terra, r-raster, r-leafem, leaflet failed to compiling
+    # tmaptools
     tsbox
     usethis
     validate
