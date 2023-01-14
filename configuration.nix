@@ -249,6 +249,7 @@
       update = "sudo nix-channel --update";
       rebuild = "sudo nixos-rebuild switch";
       garbage = "sudo nix-collect-garbage -d";
+      drybuild = "sudo nixos-rebuild dry-build";
       sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
       disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
     };
@@ -256,6 +257,8 @@
 
   # Dconf for gtk theme
   programs.dconf.enable = true;
+  # KDE Partition
+  programs.partition-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
