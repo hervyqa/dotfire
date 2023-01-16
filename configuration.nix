@@ -110,6 +110,7 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+
     # data science
     R
     clickhouse
@@ -121,7 +122,6 @@
     luigi
     metabase
     paraview
-    rstudioWrapper
     tabula
     visidata
     wxmaxima
@@ -141,7 +141,7 @@
 
     # IDE
     dbeaver # database
-    rstudio # R
+    rstudio rstudioWrapper # R
     spyder # python
     sqlitebrowser # sqlite
     texstudio # latex
@@ -231,7 +231,7 @@
     discord
     zoom-us
 
-    # python packages
+    # python310 system wide
     (python310.withPackages(ps: with ps; [
       altair
       beautifulsoup4
@@ -259,6 +259,7 @@
       pyls-spyder
       pynvim
       pyzmq
+      qdarkstyle
       requests
       scikit-learn
       scipy
@@ -278,7 +279,135 @@
       #torchvision
     ]))
 
-    # neovim packages
+    # rstudio system wide
+    (rstudioWrapper.override {
+      packages = with rPackages; [
+        # Cairo
+        # DT
+        # DataExplorer
+        # Hmisc # failed to compiling
+        # RColorBrewer
+        # XML
+        # arrow # failed to compiling
+        # beepr
+        # colourpicker
+        # dataCompareR
+        # data_table
+        # datapasta
+        # diffobj
+        # dygraphs
+        # echarts4r
+        # esquisse
+        # flexdashboard
+        # forecast
+        # foreign
+        # fst
+        # geofacet
+        # ggforce # failed to compiling
+        # ggiraph
+        # githubinstall
+        # glue
+        # gmodels
+        # googleAnalyticsR
+        # googleAuthR
+        # gridExtra
+        # here
+        # httr
+        # installr
+        # janitor
+        # jsonlite
+        # knitr
+        # leaflet
+        # listviewer
+        # lme4
+        # lubridate
+        # magrittr
+        # mapsapi
+        # officer
+        # openxlsx
+        # optparse
+        # pacman
+        # paletteer
+        # patchwork
+        # plumber
+        # profvis
+        # prophet # r-stan failed to compiling
+        # purrr
+        # quantmod
+        # reactable
+        # readr
+        # readxl
+        # remedy
+        # remotes
+        # reshape2
+        # reticulate
+        # rio
+        # rmarkdown
+        # roxygen2
+        # rvest
+        # scales
+        # sf
+        # shinyjs
+        # spatstat
+        # splitstackshape
+        # sqldf
+        # stringr
+        # testthat
+        # tidycensus
+        # tidygeocoder
+        # tidymodels
+        # tidyquant
+        # tidyr
+        # tidytext
+        # tidyxl
+        # tmap # r-terra, r-raster, r-leafem, leaflet failed to compiling
+        # tmaptools # tools from tmap
+        # tsbox
+        # usethis
+        # validate
+        # vroom
+        # yaml
+        # ymlthis
+        # zoo
+        devtools
+        dplyr
+        ggplot2
+        plotly
+        shiny
+      ];
+    })
+
+    # vscodium system wide
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions; [
+        azdavis.millet
+        b4dm4n.vscode-nixpkgs-fmt
+        bbenoist.nix
+        bmalehorn.vscode-fish
+        editorconfig.editorconfig
+        esbenp.prettier-vscode
+        formulahendry.code-runner
+        grapecity.gc-excelviewer
+        kamadorueda.alejandra
+        mechatroner.rainbow-csv
+        mhutchie.git-graph
+        ms-pyright.pyright
+        ms-python.python
+        ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-vscode.anycode
+        pkief.material-icon-theme
+        scala-lang.scala
+        shardulm94.trailing-spaces
+        streetsidesoftware.code-spell-checker
+      ];
+    })
+
+    # neovim system wide
     (neovim.override {
       withNodeJs = true;
       vimAlias = true;
