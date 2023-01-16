@@ -139,37 +139,27 @@
 
     # IDE
     dbeaver # database
-    rstudio rstudioWrapper # R
+    rstudio # R
     spyder # python
     sqlitebrowser # sqlite
     texstudio # latex
     vscodium # general
 
     # python packages
-    codebraid
-    conda
     jupyter
-    python3Full
 
     # devops
-    apache-airflow
-    hadoop
-    kafkactl
     mariadb
     mongodb
     postgresql
-    spark
     sqlite
-    sqlite-utils
 
     # cli packages
     bottom
     direnv
-    disfetch
     dnscrypt-proxy2
     earlyoom
     efibootmgr
-    exa
     fish
     git
     gitui
@@ -194,12 +184,10 @@
     firefox
 
     # design
-    gimp
     inkscape
     krita
 
     # multimedia
-    carla
     qpwgraph
     vlc
     vokoscreen
@@ -229,20 +217,12 @@
     discord
     zoom-us
 
-    # python310 system wide
-    (python310.withPackages(ps: with ps; [
-      altair
-      beautifulsoup4
-      bokeh
-      catboost
-      google-cloud-bigquery
-      ibm-watson
+    # python3 system wide
+    (python3.withPackages(ps: with ps; [
       ipykernel
       ipython
       jedi
       jedi-language-server
-      jupyterhub
-      jupyterlab
       keras
       lightgbm
       matplotlib
@@ -256,14 +236,11 @@
       plotnine
       pyls-spyder
       pynvim
-      pyzmq
       qdarkstyle
       requests
       scikit-learn
       scipy
       seaborn
-      spyder
-      spyder-kernels
       statsmodels
       tableaudocumentapi
       tensorflow
@@ -272,9 +249,8 @@
       trfl
       virtualenv
       virtualenvwrapper
-      #torch
-      #torchaudio-bin
-      #torchvision
+      torch
+      torchvision
     ]))
 
     # rstudio system wide
@@ -284,6 +260,7 @@
         # DT
         # DataExplorer
         # Hmisc # failed to compiling
+        # Julia
         # RColorBrewer
         # XML
         # arrow # failed to compiling
@@ -303,11 +280,8 @@
         # geofacet
         # ggforce # failed to compiling
         # ggiraph
-        # githubinstall
         # glue
         # gmodels
-        # googleAnalyticsR
-        # googleAuthR
         # gridExtra
         # here
         # httr
@@ -340,7 +314,6 @@
         # reshape2
         # reticulate
         # rio
-        # rmarkdown
         # roxygen2
         # rvest
         # scales
@@ -370,38 +343,9 @@
         dplyr
         ggplot2
         plotly
+        rmarkdown
         shiny
         tidyxl
-      ];
-    })
-
-    # vscodium system wide
-    (vscode-with-extensions.override {
-      vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        azdavis.millet
-        b4dm4n.vscode-nixpkgs-fmt
-        bbenoist.nix
-        bmalehorn.vscode-fish
-        editorconfig.editorconfig
-        esbenp.prettier-vscode
-        formulahendry.code-runner
-        grapecity.gc-excelviewer
-        kamadorueda.alejandra
-        mechatroner.rainbow-csv
-        mhutchie.git-graph
-        ms-pyright.pyright
-        ms-python.python
-        ms-toolsai.jupyter
-        ms-toolsai.jupyter-keymap
-        ms-toolsai.jupyter-renderers
-        ms-toolsai.vscode-jupyter-cell-tags
-        ms-toolsai.vscode-jupyter-slideshow
-        ms-vscode.anycode
-        pkief.material-icon-theme
-        scala-lang.scala
-        shardulm94.trailing-spaces
-        streetsidesoftware.code-spell-checker
       ];
     })
 
@@ -598,9 +542,9 @@
     };
   };
 
-  # Dconf for gtk theme
+  # Programs
   programs.dconf.enable = true;
-  # KDE Partition
+  programs.neovim.defaultEditor = true;
   programs.partition-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -629,7 +573,7 @@
 
   # Enable Mariadb (mysql)
   services.mysql.package = pkgs.mariadb;
-  services.mysql.enable = false;
+  services.mysql.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -644,7 +588,5 @@
   hardware.bluetooth.enable = true;
 
   # System upgrade
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
   system.stateVersion = "22.11";
 }
