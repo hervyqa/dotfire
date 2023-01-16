@@ -6,11 +6,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # ./nonfree.nix
-    # ./neovim.nix
-    # ./python-pkgs.nix
     # ./r-pkgs.nix
-    # ./vim.nix
     # ./vscodium.nix
   ];
 
