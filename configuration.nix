@@ -165,6 +165,7 @@
     texlab
     tmux
     translate-shell
+    vulkan-tools
     wget
 
     # kde plasma
