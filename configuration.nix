@@ -141,7 +141,6 @@
     dbeaver # database
     sqlitebrowser # sqlite
     texstudio # latex
-    vscodium # general
 
     # devops
     mariadb
@@ -252,6 +251,36 @@
       ])
     )
 
+    # vscodium system wide
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions; [
+        azdavis.millet
+        b4dm4n.vscode-nixpkgs-fmt
+        bbenoist.nix
+        bmalehorn.vscode-fish
+        editorconfig.editorconfig
+        esbenp.prettier-vscode
+        formulahendry.code-runner
+        grapecity.gc-excelviewer
+        kamadorueda.alejandra
+        mechatroner.rainbow-csv
+        mhutchie.git-graph
+        ms-pyright.pyright
+        ms-python.python
+        ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-vscode.anycode
+        pkief.material-icon-theme
+        scala-lang.scala
+        shardulm94.trailing-spaces
+        streetsidesoftware.code-spell-checker
+      ];
+    })
+
     # rstudio system wide
     (rstudioWrapper.override {
       packages = with rPackages; [
@@ -351,8 +380,9 @@
 
     # neovim system wide
     (neovim.override {
-      withNodeJs = true;
+      viAlias = true;
       vimAlias = true;
+      withNodeJs = true;
       configure = {
         packages.myPlugins = with pkgs.vimPlugins; {
           start = [
@@ -440,8 +470,8 @@
           set list listchars=tab:>>,trail:~
           set nobackup
           set nocompatible
-          set nowrap
           set nomodified
+          set nowrap
           set number relativenumber
           set scrolloff=10
           set shiftwidth=2
@@ -457,10 +487,16 @@
           set undofile
           set undolevels=50000
           set updatetime=100
+          set encoding=utf-8
+          set nobackup
+          set nowritebackup
+          set signcolumn=yes
           syntax on
 
+          " Default leader
           let g:mapleader = "\<Space>"
 
+          " Navigation
           tnoremap <Esc> <C-\><C-n>
           tnoremap <A-h> <C-\><C-N><C-w>h
           tnoremap <A-j> <C-\><C-N><C-w>j
@@ -475,36 +511,40 @@
           nnoremap <A-k> <C-w>k
           nnoremap <A-l> <C-w>l
 
+          " Resize panes
           nnoremap <silent> <Left> :vertical resize +2<CR>
           nnoremap <silent> <Right> :vertical resize -2<CR>
           nnoremap <silent> <Up> :resize +2<CR>
           nnoremap <silent> <Down> :resize -2<CR>
           nnoremap <silent> = <C-w>=
 
+          " Visua; select
           vnoremap <silent> > >gv
           vnoremap <silent> < <gv
 
+          " Split pane
           nnoremap <silent> _ <C-W>s<C-W><Down>
           nnoremap <silent> <Bar> <C-W>v<C-W><Right>
 
+          " Quit
           nnoremap <silent> <Leader>q :q<CR>
           nnoremap <silent> <leader>Q :bd<CR>
 
+          " Save
           nnoremap <silent> <leader>w :w<CR>
 
+          " Clipboard
           vnoremap <leader>y "qygv<ESC>
           vnoremap <leader>x "+ygvd<ESC>
 
+          " Terminal
           nnoremap <silent> <Leader>t :terminal<CR>
 
+          " Open explorer
           nnoremap <silent> <leader>e :CocCommand explorer
             \ --sources=buffer+,file+<CR>
 
-          function! CheckBackspace() abort
-            let col = col('.') - 1
-            return !col || getline('.')[col - 1]  =~# '\s'
-          endfunction
-
+          " Use tab for trigger completion with characters ahead and navigate
           inoremap <silent><expr> <Tab>
             \ coc#pum#visible() ? coc#pum#next(1) :
             \ CheckBackspace() ? "\<Tab>" :
@@ -517,6 +557,19 @@
 
           inoremap <silent><expr> <CR>
             \ coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+          function! CheckBackspace() abort
+            let col = col('.') - 1
+            return !col || getline('.')[col - 1]  =~# '\s'
+          endfunction
+
+          " Use <c-space> to trigger completion
+          if has('nvim')
+            inoremap <silent><expr> <c-space> coc#refresh()
+          else
+            inoremap <silent><expr> <c-@> coc#refresh()
+          endif
+
           '';
         };
       }
