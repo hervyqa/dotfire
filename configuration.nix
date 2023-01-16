@@ -6,8 +6,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # ./r-pkgs.nix
-    # ./vscodium.nix
   ];
 
   # Allow proprietary software (such as the NVIDIA drivers).
@@ -359,7 +357,6 @@
         # tidyquant
         # tidyr
         # tidytext
-        # tidyxl
         # tmap # r-terra, r-raster, r-leafem, leaflet failed to compiling
         # tmaptools # tools from tmap
         # tsbox
@@ -374,6 +371,7 @@
         ggplot2
         plotly
         shiny
+        tidyxl
       ];
     })
 
