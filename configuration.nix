@@ -139,14 +139,9 @@
 
     # IDE
     dbeaver # database
-    rstudio # R
-    spyder # python
     sqlitebrowser # sqlite
     texstudio # latex
     vscodium # general
-
-    # python packages
-    jupyter
 
     # devops
     mariadb
@@ -167,7 +162,6 @@
     htop
     inxi
     joshuto
-    neovim
     nixos-option
     texlab
     tmux
@@ -217,21 +211,23 @@
     discord
     zoom-us
 
-    # python3 system wide
-    (python3.withPackages(ps: with ps; [
+    # python310 system wide
+    (python310.withPackages(ps: with ps; [
       ipykernel
       ipython
       jedi
       jedi-language-server
+      jupyter
+      jupyterlab
+      jupyterlab-lsp
+      jupyterlab-pygments
       keras
       lightgbm
       matplotlib
-      mayavi
       networkx
       nltk
       numpy
       pandas
-      pip
       plotly
       plotnine
       pyls-spyder
@@ -241,111 +237,115 @@
       scikit-learn
       scipy
       seaborn
+      spyder
+      spyder-kernels
       statsmodels
       tableaudocumentapi
       tensorflow
       tensorflow-metadata
       tensorflow-probability
+      torch
+      torchvision
       trfl
       virtualenv
       virtualenvwrapper
-      torch
-      torchvision
-    ]))
+      ])
+    )
 
     # rstudio system wide
     (rstudioWrapper.override {
       packages = with rPackages; [
-        # Cairo
-        # DT
-        # DataExplorer
+        Cairo
+        DT
+        DataExplorer
         # Hmisc # failed to compiling
-        # Julia
-        # RColorBrewer
-        # XML
+        JuliaCall
+        JuliaConnectoR
+        RColorBrewer
+        XML
         # arrow # failed to compiling
-        # beepr
-        # colourpicker
-        # dataCompareR
-        # data_table
-        # datapasta
-        # diffobj
-        # dygraphs
-        # echarts4r
-        # esquisse
-        # flexdashboard
-        # forecast
-        # foreign
-        # fst
-        # geofacet
+        beepr
+        colourpicker
+        dataCompareR
+        data_table
+        datapasta
+        devtools
+        diffobj
+        dplyr
+        dygraphs
+        echarts4r
+        esquisse
+        flexdashboard
+        forecast
+        foreign
+        fst
+        geofacet
         # ggforce # failed to compiling
-        # ggiraph
-        # glue
-        # gmodels
-        # gridExtra
-        # here
-        # httr
-        # installr
-        # janitor
-        # jsonlite
-        # knitr
-        # leaflet
-        # listviewer
-        # lme4
-        # lubridate
-        # magrittr
-        # mapsapi
-        # officer
-        # openxlsx
-        # optparse
-        # pacman
-        # paletteer
-        # patchwork
-        # plumber
-        # profvis
+        ggiraph
+        ggplot2
+        glue
+        gmodels
+        gridExtra
+        here
+        httr
+        installr
+        janitor
+        jsonlite
+        knitr
+        leaflet
+        listviewer
+        lme4
+        lubridate
+        magrittr
+        mapsapi
+        officer
+        openxlsx
+        optparse
+        pacman
+        paletteer
+        patchwork
+        plotly
+        plumber
+        profvis
         # prophet # r-stan failed to compiling
-        # purrr
-        # quantmod
-        # reactable
-        # readr
-        # readxl
-        # remedy
-        # remotes
-        # reshape2
-        # reticulate
-        # rio
-        # roxygen2
-        # rvest
-        # scales
-        # sf
-        # shinyjs
-        # spatstat
-        # splitstackshape
-        # sqldf
-        # stringr
-        # testthat
-        # tidycensus
-        # tidygeocoder
-        # tidymodels
-        # tidyquant
-        # tidyr
-        # tidytext
+        purrr
+        quantmod
+        reactable
+        readr
+        readxl
+        remedy
+        remotes
+        reshape2
+        reticulate
+        rio
+        rmarkdown
+        roxygen2
+        rvest
+        scales
+        sf
+        shiny
+        shinyjs
+        spatstat
+        splitstackshape
+        sqldf
+        stringr
+        testthat
+        tidycensus
+        tidygeocoder
+        tidymodels
+        tidyquant
+        tidyr
+        tidytext
+        tidyxl
         # tmap # r-terra, r-raster, r-leafem, leaflet failed to compiling
         # tmaptools # tools from tmap
-        # tsbox
-        # usethis
-        # validate
-        # vroom
-        # yaml
-        # ymlthis
-        # zoo
-        devtools
-        dplyr
-        ggplot2
-        plotly
-        rmarkdown
-        shiny
-        tidyxl
+        tsbox
+        usethis
+        validate
+        vroom
+        yaml
+        ymlthis
+        zoo
       ];
     })
 
@@ -521,7 +521,6 @@
         };
       }
     )
-
   ];
 
   # Shell
