@@ -216,6 +216,7 @@
       Theano
       beautifulsoup4
       bokeh
+      datasette
       flask
       imbalanced-learn
       ipykernel
