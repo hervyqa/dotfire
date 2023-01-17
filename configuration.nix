@@ -213,6 +213,11 @@
 
     # python310 system wide
     (python310.withPackages(ps: with ps; [
+      Theano
+      beautifulsoup4
+      bokeh
+      flask
+      imbalanced-learn
       ipykernel
       ipython
       jedi
@@ -223,20 +228,29 @@
       jupyterlab-pygments
       keras
       lightgbm
+      mahotas
       matplotlib
       networkx
       nltk
       numpy
+      opencv4
+      openpyxl
       pandas
+      pillow
       plotly
       plotnine
+      pydot
       pyls-spyder
       pynvim
+      pytest
       qdarkstyle
       requests
       scikit-learn
       scipy
+      scrapy
       seaborn
+      selenium
+      spacy
       spyder
       spyder-kernels
       statsmodels
@@ -249,6 +263,7 @@
       trfl
       virtualenv
       virtualenvwrapper
+      wordcloud
       ])
     )
 
