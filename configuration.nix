@@ -112,7 +112,6 @@
     # data science
     R
     clickhouse
-    datasette
     duckdb
     gnuplot
     grafana
@@ -137,7 +136,7 @@
     nodejs
     yarn
 
-    # IDE
+    # IDE unwrapped
     dbeaver # database
     sqlitebrowser # sqlite
     texstudio # latex
@@ -163,14 +162,14 @@
     joshuto
     nixos-option
     texlab
-    tmux
     translate-shell
     vulkan-tools
     wget
 
     # kde plasma
-    libsForQt5.kdeconnect-kde
+    libsForQt5.ark
     libsForQt5.ktouch
+    libsForQt5.quazip
     libsForQt5.sddm-kcm
     wacomtablet
 
@@ -211,11 +210,27 @@
     discord
     zoom-us
 
+    # compression
+    bzip2
+    gzip
+    libarchive
+    lz4
+    lzip
+    lzo
+    lzop
+    p7zip
+    rzip
+    unzip
+    xz
+    zip
+    zstd
+
     # python310 system wide
     (python310.withPackages(ps: with ps; [
       Theano
       beautifulsoup4
       bokeh
+      dask
       datasette
       flask
       imbalanced-learn
@@ -265,6 +280,7 @@
       virtualenv
       virtualenvwrapper
       wordcloud
+      xarray
       ])
     )
 
@@ -299,17 +315,17 @@
     })
 
     # rstudio system wide
+    # failed to compiling:
+    # arrow, Hmisc (interp), ggforce, prophet
     (rstudioWrapper.override {
       packages = with rPackages; [
         Cairo
         DT
         DataExplorer
-        # Hmisc # failed to compiling
         JuliaCall
         JuliaConnectoR
         RColorBrewer
         XML
-        # arrow # failed to compiling
         beepr
         colourpicker
         dataCompareR
@@ -326,7 +342,6 @@
         foreign
         fst
         geofacet
-        # ggforce # failed to compiling
         ggiraph
         ggplot2
         glue
@@ -353,7 +368,6 @@
         plotly
         plumber
         profvis
-        # prophet # r-stan failed to compiling
         purrr
         quantmod
         reactable
@@ -383,8 +397,8 @@
         tidyr
         tidytext
         tidyxl
-        # tmap # r-terra, r-raster, r-leafem, leaflet failed to compiling
-        # tmaptools # tools from tmap
+        tmap
+        tmaptools
         tsbox
         usethis
         validate
@@ -597,8 +611,86 @@
   users.defaultUserShell = pkgs.fish;
   programs.fish = {
     enable = true;
-    shellAliases = {
+    shellAbbrs = {
       n = "nvim";
+      v = "vim";
+      g = "git";
+
+      ga = "git add";
+      gaa = "git add --all";
+      gapa = "git add --patch";
+
+      gb = "git branch";
+      gba = "git branch -a";
+      gbdam = "git branch --merged";
+      gbl = "git blame -b -w";
+      gbnm = "git branch --no-merged";
+      gbr = "git branch --remote";
+
+      gc = "git commit -v";
+      gca = "git commit -v --amend";
+      gcna = "git commit -v --no-edit --amend";
+      gca = "git commit -v -a";
+      gcaa = "git commit -v -a --amend";
+      gcaan = "git commit -v -a --no-edit --amend";
+      gcaans = "git commit -v -a -s --no-edit --amend";
+      gcam = "git commit -a -m";
+      gcb = "git checkout -b";
+      gcf = "git config --list";
+      gcl = "git clone --recursive";
+      gclean = "git clean -fd";
+      gcm = "git checkout master";
+      gcmsg = "git commit -m";
+      gco = "git checkout";
+      gcp = "git cherry-pick";
+      gcs = "git commit -S";
+
+      gd = "git diff";
+      gdca = "git diff --cached";
+
+      gf = "git fetch";
+      gfa = "git fetch --all --prune";
+      gfo = "git fetch origin";
+
+      gignore = "git update-index --assume-unchanged";
+
+      gl = "git pull";
+      glg = "git log --stat";
+      glgp = "git log --stat -p";
+      glgg = "git log --graph";
+      glgga = "git log --graph --decorate --all";
+      glgm = "git log --graph --max-count=10";
+      glo = "git log --oneline --decorate";
+      glol = "git log --graph --abbrev-commit";
+      glola = "git log --graph --abbrev-commit --all";
+      glog = "git log --oneline --decorate --graph";
+      gloga = "git log --oneline --decorate --graph --all";
+
+      gm = "git merge";
+      gmom = "git merge origin/master";
+      gmon = "git merge origin/main";
+      gmt = "git mergetool --no-prompt";
+
+      gp = "git push";
+      gpd = "git push --dry-run";
+      gpv = "git push -v";
+
+      gr = "git remote";
+      gra = "git remote add";
+      grh = "git reset HEAD";
+      grhh = "git reset HEAD --hard";
+
+      gsb = "git status -sb";
+      gsps = "git show --pretty=short --show-signature";
+      gss = "git status -s";
+      gst = "git status";
+      gsts = "git stash show --text";
+      gsu = "git submodule update";
+
+      gts = "git tag -s";
+    };
+
+    shellAliases = {
       ll = "ls -lha";
       search = "nix-env -qaP";
       clean = "sudo nix-store --gc";
@@ -611,8 +703,33 @@
     };
   };
 
-  # Programs
+  # Git
+  programs.git = {
+    enable = true;
+    config = {
+      init = {
+        defaultBranch = "main";
+      };
+      url = {
+        "https://github.com/" = {
+          insteadOf = [
+            "gh:"
+            "github:"
+          ];
+        };
+      };
+    };
+  };
+
+  # Tmux
+  programs.tmux = {
+    enable = true;
+    terminal = "screen-256color";
+  };
+
   programs.dconf.enable = true;
+  programs.java.enable = true;
+  programs.kdeconnect.enable = true;
   programs.neovim.defaultEditor = true;
   programs.partition-manager.enable = true;
 
