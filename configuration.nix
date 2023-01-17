@@ -617,6 +617,8 @@
       g = "git";
 
       ll = "ls -lha";
+      lsf = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
+
       ncg = "sudo nix-collect-garbage -d";
       ncu = "sudo nix-channel --update";
       neq = "nix-env -qaP";
@@ -624,7 +626,6 @@
       nrd = "sudo nixos-rebuild dry-build --show-trace";
       nrs = "sudo nixos-rebuild switch";
       nsgc = "sudo nix-store --gc";
-      lsf = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
 
       ga = "git add";
       gaa = "git add --all";
@@ -638,14 +639,14 @@
       gbr = "git branch --remote";
 
       gc = "git commit -v";
-      gca = "git commit -v --amend";
-      gcna = "git commit -v --no-edit --amend";
       gca = "git commit -v -a";
-      gcaa = "git commit -v -a --amend";
+      gcam = "git commit -a -m";
+      gcms = "git commit -m";
       gcaan = "git commit -v -a --no-edit --amend";
       gcaans = "git commit -v -a -s --no-edit --amend";
-      gcam = "git commit -a -m";
-      gcmsg = "git commit -m";
+      gcamn = "git commit -v --amend";
+      gcaamn = "git commit -v -a --amend";
+      gcna = "git commit -v --no-edit --amend";
 
       gcb = "git checkout -b";
       gcf = "git config --list";
@@ -684,6 +685,8 @@
       gmt = "git mergetool --no-prompt";
 
       gp = "git push";
+      gpom = "git push -u origin main";
+      gpoms = "git push -u origin master";
       gpd = "git push --dry-run";
       gpv = "git push -v";
 
