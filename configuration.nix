@@ -616,6 +616,16 @@
       v = "vim";
       g = "git";
 
+      ll = "ls -lha";
+      ncg = "sudo nix-collect-garbage -d";
+      ncu = "sudo nix-channel --update";
+      neq = "nix-env -qaP";
+      nim = "nix-shell -p nix-info --run 'nix-info -m'";
+      nrd = "sudo nixos-rebuild dry-build --show-trace";
+      nrs = "sudo nixos-rebuild switch";
+      nsgc = "sudo nix-store --gc";
+      lsf = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
+
       ga = "git add";
       gaa = "git add --all";
       gapa = "git add --patch";
@@ -635,12 +645,14 @@
       gcaan = "git commit -v -a --no-edit --amend";
       gcaans = "git commit -v -a -s --no-edit --amend";
       gcam = "git commit -a -m";
+      gcmsg = "git commit -m";
+
       gcb = "git checkout -b";
       gcf = "git config --list";
       gcl = "git clone --recursive";
       gclean = "git clean -fd";
-      gcm = "git checkout master";
-      gcmsg = "git commit -m";
+      gcm = "git checkout main";
+      gcmt = "git checkout master";
       gco = "git checkout";
       gcp = "git cherry-pick";
       gcs = "git commit -S";
@@ -691,15 +703,6 @@
     };
 
     shellAliases = {
-      ll = "ls -lha";
-      search = "nix-env -qaP";
-      clean = "sudo nix-store --gc";
-      update = "sudo nix-channel --update";
-      rebuild = "sudo nixos-rebuild switch";
-      garbage = "sudo nix-collect-garbage -d";
-      sysinfo = "nix-shell -p nix-info --run 'nix-info -m'";
-      drybuild = "sudo nixos-rebuild dry-build --show-trace";
-      disk = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
     };
   };
 
@@ -707,6 +710,13 @@
   programs.git = {
     enable = true;
     config = {
+      core = {
+        editor = "nvim";
+      };
+      user = {
+        email = "hervyqa@proton.me";
+        name = "Hervy Qurrotul Ainur Rozi";
+      };
       init = {
         defaultBranch = "main";
       };
@@ -718,6 +728,9 @@
           ];
         };
       };
+      status = {
+        short = true;
+      };
     };
   };
 
@@ -725,6 +738,7 @@
   programs.tmux = {
     enable = true;
     terminal = "screen-256color";
+    historyLimit = 5000;
   };
 
   programs.dconf.enable = true;
