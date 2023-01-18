@@ -97,7 +97,19 @@
   users.users.hervyqa = {
     isNormalUser = true;
     description = "Hervy Qurrotul Ainur Rozi";
-    extraGroups = ["networkmanager" "disk" "audio" "video" "input" "systemd-journal" "networkmanager" "network" "wheel"];
+    extraGroups = [
+      "audio"
+      "disk"
+      "input"
+      "lp"
+      "network"
+      "networkmanager"
+      "scanner"
+      "sound"
+      "systemd-journal"
+      "video"
+      "wheel"
+    ];
   };
   nix.trustedUsers = [ "root" "hervyqa"];
 
