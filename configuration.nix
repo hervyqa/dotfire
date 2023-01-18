@@ -111,11 +111,10 @@
       "wheel"
     ];
   };
-  nix.trustedUsers = [ "root" "hervyqa"];
+  nix.settings.trusted-users = [ "root" "hervyqa"];
 
   # Fonts
   fonts.fonts = with pkgs; [
-    cooper-hewitt
     fira
     fira-code
     font-awesome
@@ -189,6 +188,7 @@
 
     # kde plasma
     libsForQt5.ark
+    libsForQt5.kate
     libsForQt5.ktouch
     libsForQt5.quazip
     libsForQt5.sddm-kcm
