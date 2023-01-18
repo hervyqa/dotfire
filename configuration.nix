@@ -155,6 +155,7 @@
 
     # IDE unwrapped
     dbeaver # database
+    octaveFull # matlab
     sqlitebrowser # sqlite
     texstudio # latex
 
@@ -182,6 +183,8 @@
     translate-shell
     vulkan-tools
     wget
+    wl-clipboard
+    xclip
 
     # kde plasma
     libsForQt5.ark
@@ -504,6 +507,7 @@
             vim-lastplace
             vim-lightline-coc
             vim-nix
+            vim-wayland-clipboard
           ];
           opt = [];
         };
@@ -511,6 +515,8 @@
           filetype indent on
           filetype on
           set backspace=indent,eol,start
+          set clipboard+=unnamedplus
+          set encoding=utf-8
           set expandtab
           set history=1000
           set hlsearch
@@ -519,15 +525,18 @@
           set linebreak breakindent
           set list listchars=tab:>>,trail:~
           set nobackup
+          set nobackup
           set nocompatible
           set nomodified
           set nowrap
+          set nowritebackup
           set number relativenumber
           set scrolloff=10
           set shiftwidth=2
           set showcmd
           set showmatch
           set showmode
+          set signcolumn=yes
           set smartcase
           set smarttab
           set splitbelow
@@ -537,10 +546,6 @@
           set undofile
           set undolevels=50000
           set updatetime=100
-          set encoding=utf-8
-          set nobackup
-          set nowritebackup
-          set signcolumn=yes
           syntax on
 
           " Default leader
@@ -584,8 +589,12 @@
           nnoremap <silent> <leader>w :w<CR>
 
           " Clipboard
-          vnoremap <leader>y "qygv<ESC>
-          vnoremap <leader>x "+ygvd<ESC>
+          vnoremap <leader>p "+p
+          nnoremap <leader>P "+P
+          vnoremap <leader>P "+P
+          nnoremap <leader>y "+y
+          vnoremap <leader>y "+y
+          nnoremap <leader>Y "+y$
 
           " Terminal
           nnoremap <silent> <Leader>t :terminal<CR>
