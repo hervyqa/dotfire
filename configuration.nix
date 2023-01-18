@@ -101,6 +101,17 @@
   };
   nix.trustedUsers = [ "root" "hervyqa"];
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+    cooper-hewitt
+    fira
+    fira-code
+    font-awesome
+    google-fonts
+    ibm-plex
+    jetbrains-mono
+  ];
+
   # VS Code under Wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -199,10 +210,6 @@
     epson-escpr2
     foomatic-db
     foomatic-filters
-
-    # fonts
-    font-awesome
-    google-fonts
 
     # nonfree
     discord
