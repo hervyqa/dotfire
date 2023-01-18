@@ -653,6 +653,8 @@
       nim = "nix-shell -p nix-info --run 'nix-info -m'";
       nrd = "sudo nixos-rebuild dry-build --show-trace";
       nrs = "sudo nixos-rebuild switch";
+      nrt = "sudo nixos-rebuild test";
+      nrb = "sudo nixos-rebuild boot";
       nsgc = "sudo nix-store --gc";
 
       ga = "git add";
@@ -802,9 +804,17 @@
     freeMemThreshold = 5;
   };
 
-  # Enable Mariadb (mysql)
-  services.mysql.package = pkgs.mariadb;
-  services.mysql.enable = true;
+  # Mariadb (mysql)
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
+  # Posgresql
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_11;
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
