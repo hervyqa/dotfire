@@ -225,6 +225,11 @@
     zip
     zstd
 
+    # ssg
+    hugo
+    mdbook
+    mdbook-linkcheck
+
     # python310 system wide
     (python310.withPackages(ps: with ps; [
       Theano
@@ -474,6 +479,7 @@
             coc-wxml
             coc-yaml
             coc-yank
+            julia-vim
             scope-nvim
             scrollbar-nvim
             statix
