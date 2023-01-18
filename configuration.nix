@@ -97,11 +97,9 @@
   users.users.hervyqa = {
     isNormalUser = true;
     description = "Hervy Qurrotul Ainur Rozi";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      kate
-    ];
+    extraGroups = ["networkmanager" "disk" "audio" "video" "input" "systemd-journal" "networkmanager" "network" "wheel"];
   };
+  nix.trustedUsers = [ "root" "hervyqa"];
 
   # VS Code under Wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -203,8 +201,8 @@
     foomatic-filters
 
     # fonts
-    google-fonts
     font-awesome
+    google-fonts
 
     # nonfree
     discord
