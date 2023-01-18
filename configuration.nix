@@ -117,6 +117,12 @@
   # VS Code under Wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Remove kde apps
+  services.xserver.desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
+    oxygen
+    plasma-browser-integration
+  ];
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
 
@@ -193,7 +199,6 @@
     krita
 
     # multimedia
-    qpwgraph
     vlc
     vokoscreen
 
