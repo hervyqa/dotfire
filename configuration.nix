@@ -745,7 +745,6 @@ in
         gcl = "git clone --recursive";
         gclean = "git clean -fd";
         gcm = "git checkout main";
-        gcmt = "git checkout master";
         gco = "git checkout";
         gcp = "git cherry-pick";
         gcs = "git commit -S";
@@ -772,13 +771,11 @@ in
         gloga = "git log --oneline --decorate --graph --all";
 
         gm = "git merge";
-        gmom = "git merge origin/master";
-        gmon = "git merge origin/main";
+        gmom = "git merge origin/main";
         gmt = "git mergetool --no-prompt";
 
         gp = "git push";
         gpom = "git push -u origin main";
-        gpoms = "git push -u origin master";
         gpd = "git push --dry-run";
         gpv = "git push -v";
 
