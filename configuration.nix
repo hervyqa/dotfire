@@ -77,7 +77,18 @@
     defaultUserShell = pkgs.fish;
   };
 
-  nix.settings.trusted-users = [ "root" "hervyqa"];
+  # Nix settings
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    settings = {
+      auto-optimise-store = true;
+      trusted-users = [ "root" "hervyqa"];
+    };
+  };
 
   # Fonts.
   fonts.fonts = with pkgs; [
