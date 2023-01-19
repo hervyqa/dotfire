@@ -228,16 +228,24 @@
         python310.withPackages (ps:
           with ps; [
             Theano
+            av
             beautifulsoup4
             bokeh
+            cython
+            click
             dask
             datasette
+            dill
             flask
+            future
+            h5py
             imbalanced-learn
             ipykernel
             ipython
+            ipywidgets
             jedi
             jedi-language-server
+            joblib
             jupyter
             jupyterlab
             jupyterlab-lsp
@@ -246,22 +254,30 @@
             lightgbm
             mahotas
             matplotlib
+            moviepy
+            mypy
+            nbdime
             networkx
             nltk
+            nose
             numpy
             opencv4
             openpyxl
             pandas
             pillow
+            pims
             plotly
             plotnine
             pydot
             pyls-spyder
             pynvim
             pytest
+            pytorch
+            pyyaml
             qdarkstyle
             requests
             scikit-learn
+            scikitimage
             scipy
             scrapy
             seaborn
@@ -271,11 +287,14 @@
             spyder-kernels
             statsmodels
             tableaudocumentapi
+            tables
             tensorflow
             tensorflow-metadata
             tensorflow-probability
+            tifffile
             torch
             torchvision
+            tqdm
             trfl
             virtualenv
             virtualenvwrapper
@@ -324,7 +343,10 @@
           DataExplorer
           JuliaCall
           JuliaConnectoR
+          MASS
+          RANN
           RColorBrewer
+          Rcpp
           XML
           beepr
           colourpicker
@@ -340,6 +362,7 @@
           flexdashboard
           forecast
           foreign
+          freqparcoord
           fst
           geofacet
           ggiraph
@@ -396,6 +419,7 @@
           tidyquant
           tidyr
           tidytext
+          tidyverse
           tidyxl
           tmap
           tmaptools
@@ -403,6 +427,7 @@
           usethis
           validate
           vroom
+          xts
           yaml
           ymlthis
           zoo
