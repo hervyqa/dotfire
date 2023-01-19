@@ -12,61 +12,71 @@
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
-  # Setup keyfile.
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+    initrd.secrets = {
+      "/crypto_keyfile.bin" = null;
+    };
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    networkmanager.enable = true;
+    wireless.enable = false;  # Enables via wpa_supplicant.
+    # Configure network proxy if necessary
+    # proxy = {
+    #   default = "http://user:password@proxy:port/";
+    #   noProxy = "127.0.0.1,localhost,internal.domain";
+    # };
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "id_ID.UTF-8";
-    LC_IDENTIFICATION = "id_ID.UTF-8";
-    LC_MEASUREMENT = "id_ID.UTF-8";
-    LC_MONETARY = "id_ID.UTF-8";
-    LC_NAME = "id_ID.UTF-8";
-    LC_NUMERIC = "id_ID.UTF-8";
-    LC_PAPER = "id_ID.UTF-8";
-    LC_TELEPHONE = "id_ID.UTF-8";
-    LC_TIME = "id_ID.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "id_ID.UTF-8";
+      LC_IDENTIFICATION = "id_ID.UTF-8";
+      LC_MEASUREMENT = "id_ID.UTF-8";
+      LC_MONETARY = "id_ID.UTF-8";
+      LC_NAME = "id_ID.UTF-8";
+      LC_NUMERIC = "id_ID.UTF-8";
+      LC_PAPER = "id_ID.UTF-8";
+      LC_TELEPHONE = "id_ID.UTF-8";
+      LC_TIME = "id_ID.UTF-8";
+    };
   };
 
   # Define a user account.
-  users.users.hervyqa = {
-    isNormalUser = true;
-    description = "Hervy Qurrotul Ainur Rozi";
-    extraGroups = [
-      "audio"
-      "disk"
-      "input"
-      "lp"
-      "network"
-      "networkmanager"
-      "scanner"
-      "sound"
-      "systemd-journal"
-      "video"
-      "wheel"
-    ];
+  users = {
+    users.hervyqa = {
+      isNormalUser = true;
+      description = "Hervy Qurrotul Ainur Rozi";
+      extraGroups = [
+        "audio"
+        "disk"
+        "input"
+        "lp"
+        "network"
+        "networkmanager"
+        "scanner"
+        "sound"
+        "systemd-journal"
+        "video"
+        "wheel"
+      ];
+    };
+    defaultUserShell = pkgs.fish;
   };
+
   nix.settings.trusted-users = [ "root" "hervyqa"];
 
   # Fonts.
@@ -79,521 +89,518 @@
     jetbrains-mono
   ];
 
-  # VS Code under Wayland.
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+    systemPackages = with pkgs; [
+      # Data science
+      R
+      clickhouse
+      duckdb
+      gnuplot
+      grafana
+      kaggle
+      luigi
+      metabase
+      paraview
+      tabula
+      visidata
+      wxmaxima
 
-  # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
+      # Julia
+      julia
 
-    # Data science
-    R
-    clickhouse
-    duckdb
-    gnuplot
-    grafana
-    kaggle
-    luigi
-    metabase
-    paraview
-    tabula
-    visidata
-    wxmaxima
+      # Scala
+      scala
 
-    # Julia
-    julia
+      # Rakudo
+      rakudo
 
-    # Scala
-    scala
+      # Node
+      nodejs
+      yarn
 
-    # Rakudo
-    rakudo
+      # IDE unwrapped
+      dbeaver # database
+      octaveFull # matlab
+      sqlitebrowser # sqlite
+      texstudio # latex
 
-    # Node
-    nodejs
-    yarn
+      # Devops
+      mongodb
+      sqlite
 
-    # IDE unwrapped
-    dbeaver # database
-    octaveFull # matlab
-    sqlitebrowser # sqlite
-    texstudio # latex
+      # CLI packages
+      bottom
+      direnv
+      dnscrypt-proxy2
+      earlyoom
+      efibootmgr
+      fish
+      git
+      gitui
+      home-manager
+      htop
+      inxi
+      joshuto
+      nixos-option
+      texlab
+      translate-shell
+      vulkan-tools
+      wget
+      wl-clipboard
+      xclip
 
-    # Devops
-    mongodb
-    sqlite
+      # KDE plasma
+      libsForQt5.ark
+      libsForQt5.kate
+      libsForQt5.ktouch
+      libsForQt5.quazip
+      libsForQt5.sddm-kcm
+      wacomtablet
 
-    # CLI packages
-    bottom
-    direnv
-    dnscrypt-proxy2
-    earlyoom
-    efibootmgr
-    fish
-    git
-    gitui
-    home-manager
-    htop
-    inxi
-    joshuto
-    nixos-option
-    texlab
-    translate-shell
-    vulkan-tools
-    wget
-    wl-clipboard
-    xclip
+      # Browser
+      firefox
 
-    # KDE plasma
-    libsForQt5.ark
-    libsForQt5.kate
-    libsForQt5.ktouch
-    libsForQt5.quazip
-    libsForQt5.sddm-kcm
-    wacomtablet
+      # Design
+      inkscape
+      krita
 
-    # Browser
-    firefox
+      # Multimedia
+      vlc
+      vokoscreen
 
-    # Design
-    inkscape
-    krita
+      # Office
+      libreoffice
+      libreoffice-qt
 
-    # Multimedia
-    vlc
-    vokoscreen
+      # Communication
+      tdesktop
 
-    # Office
-    libreoffice
-    libreoffice-qt
+      # Theme/Icon
+      lxappearance
+      papirus-icon-theme
 
-    # Communication
-    tdesktop
+      # Printer driver
+      epson-escpr
+      epson-escpr2
+      foomatic-db
+      foomatic-filters
 
-    # Theme/Icon
-    lxappearance
-    papirus-icon-theme
+      # Nonfree
+      discord
+      zoom-us
 
-    # Printer driver
-    epson-escpr
-    epson-escpr2
-    foomatic-db
-    foomatic-filters
+      # Compression
+      bzip2
+      gzip
+      libarchive
+      lz4
+      lzip
+      lzo
+      lzop
+      p7zip
+      rzip
+      unzip
+      xz
+      zip
+      zstd
 
-    # Nonfree
-    discord
-    zoom-us
+      # SSG
+      hugo
+      mdbook
+      mdbook-linkcheck
 
-    # Compression
-    bzip2
-    gzip
-    libarchive
-    lz4
-    lzip
-    lzo
-    lzop
-    p7zip
-    rzip
-    unzip
-    xz
-    zip
-    zstd
-
-    # SSG
-    hugo
-    mdbook
-    mdbook-linkcheck
-
-    # Python310 system wide
-    (python310.withPackages(ps: with ps; [
-      Theano
-      beautifulsoup4
-      bokeh
-      dask
-      datasette
-      flask
-      imbalanced-learn
-      ipykernel
-      ipython
-      jedi
-      jedi-language-server
-      jupyter
-      jupyterlab
-      jupyterlab-lsp
-      jupyterlab-pygments
-      keras
-      lightgbm
-      mahotas
-      matplotlib
-      networkx
-      nltk
-      numpy
-      opencv4
-      openpyxl
-      pandas
-      pillow
-      plotly
-      plotnine
-      pydot
-      pyls-spyder
-      pynvim
-      pytest
-      qdarkstyle
-      requests
-      scikit-learn
-      scipy
-      scrapy
-      seaborn
-      selenium
-      spacy
-      spyder
-      spyder-kernels
-      statsmodels
-      tableaudocumentapi
-      tensorflow
-      tensorflow-metadata
-      tensorflow-probability
-      torch
-      torchvision
-      trfl
-      virtualenv
-      virtualenvwrapper
-      wordcloud
-      xarray
-      ])
-    )
-
-    # VSCodium system wide
-    (vscode-with-extensions.override {
-      vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        azdavis.millet
-        b4dm4n.vscode-nixpkgs-fmt
-        bbenoist.nix
-        bmalehorn.vscode-fish
-        editorconfig.editorconfig
-        esbenp.prettier-vscode
-        formulahendry.code-runner
-        grapecity.gc-excelviewer
-        kamadorueda.alejandra
-        mechatroner.rainbow-csv
-        mhutchie.git-graph
-        ms-pyright.pyright
-        ms-python.python
-        ms-toolsai.jupyter
-        ms-toolsai.jupyter-keymap
-        ms-toolsai.jupyter-renderers
-        ms-toolsai.vscode-jupyter-cell-tags
-        ms-toolsai.vscode-jupyter-slideshow
-        ms-vscode.anycode
-        pkief.material-icon-theme
-        scala-lang.scala
-        shardulm94.trailing-spaces
-        streetsidesoftware.code-spell-checker
-      ];
-    })
-
-    # RStudio system wide
-    # failed to compiling:
-    # arrow, Hmisc (interp), ggforce, prophet
-    (rstudioWrapper.override {
-      packages = with rPackages; [
-        Cairo
-        DT
-        DataExplorer
-        JuliaCall
-        JuliaConnectoR
-        RColorBrewer
-        XML
-        beepr
-        colourpicker
-        dataCompareR
-        data_table
-        datapasta
-        devtools
-        diffobj
-        dplyr
-        dygraphs
-        echarts4r
-        esquisse
-        flexdashboard
-        forecast
-        foreign
-        fst
-        geofacet
-        ggiraph
-        ggplot2
-        glue
-        gmodels
-        gridExtra
-        here
-        httr
-        installr
-        janitor
-        jsonlite
-        knitr
-        leaflet
-        listviewer
-        lme4
-        lubridate
-        magrittr
-        mapsapi
-        officer
-        openxlsx
-        optparse
-        pacman
-        paletteer
-        patchwork
+      # Python310 system wide
+      (python310.withPackages(ps: with ps; [
+        Theano
+        beautifulsoup4
+        bokeh
+        dask
+        datasette
+        flask
+        imbalanced-learn
+        ipykernel
+        ipython
+        jedi
+        jedi-language-server
+        jupyter
+        jupyterlab
+        jupyterlab-lsp
+        jupyterlab-pygments
+        keras
+        lightgbm
+        mahotas
+        matplotlib
+        networkx
+        nltk
+        numpy
+        opencv4
+        openpyxl
+        pandas
+        pillow
         plotly
-        plumber
-        profvis
-        purrr
-        quantmod
-        reactable
-        readr
-        readxl
-        remedy
-        remotes
-        reshape2
-        reticulate
-        rio
-        rmarkdown
-        roxygen2
-        rvest
-        scales
-        sf
-        shiny
-        shinyjs
-        spatstat
-        splitstackshape
-        sqldf
-        stringr
-        testthat
-        tidycensus
-        tidygeocoder
-        tidymodels
-        tidyquant
-        tidyr
-        tidytext
-        tidyxl
-        tmap
-        tmaptools
-        tsbox
-        usethis
-        validate
-        vroom
-        yaml
-        ymlthis
-        zoo
-      ];
-    })
+        plotnine
+        pydot
+        pyls-spyder
+        pynvim
+        pytest
+        qdarkstyle
+        requests
+        scikit-learn
+        scipy
+        scrapy
+        seaborn
+        selenium
+        spacy
+        spyder
+        spyder-kernels
+        statsmodels
+        tableaudocumentapi
+        tensorflow
+        tensorflow-metadata
+        tensorflow-probability
+        torch
+        torchvision
+        trfl
+        virtualenv
+        virtualenvwrapper
+        wordcloud
+        xarray
+        ])
+      )
 
-    # Neovim system wide
-    (neovim.override {
-      viAlias = true;
-      vimAlias = true;
-      withNodeJs = true;
-      configure = {
-        packages.myPlugins = with pkgs.vimPlugins; {
-          start = [
-            coc-clangd
-            coc-clap
-            coc-cmake
-            coc-css
-            coc-denite
-            coc-diagnostic
-            coc-docker
-            coc-emmet
-            coc-eslint
-            coc-explorer
-            coc-flutter
-            coc-fzf
-            coc-git
-            coc-go
-            coc-haxe
-            coc-highlight
-            coc-html
-            coc-java
-            coc-jest
-            coc-json
-            coc-lists
-            coc-lua
-            coc-markdownlint
-            coc-metals
-            coc-neco
-            coc-nginx
-            coc-nvim
-            coc-pairs
-            coc-prettier
-            coc-pyright
-            coc-python
-            coc-r-lsp
-            coc-rls
-            coc-rust-analyzer
-            coc-sh
-            coc-smartf
-            coc-snippets
-            coc-solargraph
-            coc-spell-checker
-            coc-sqlfluff
-            coc-stylelint
-            coc-sumneko-lua
-            coc-svelte
-            coc-tabnine
-            coc-tailwindcss
-            coc-texlab
-            coc-toml
-            coc-tslint
-            coc-tslint-plugin
-            coc-tsserver
-            coc-ultisnips
-            coc-vetur
-            coc-vimlsp
-            coc-vimtex
-            coc-wxml
-            coc-yaml
-            coc-yank
-            julia-vim
-            scope-nvim
-            scrollbar-nvim
-            statix
-            surround-nvim
-            tabline-nvim
-            vim-airline
-            vim-airline-themes
-            vim-commentary
-            vim-lastplace
-            vim-lightline-coc
-            vim-nix
-            vim-wayland-clipboard
-          ];
-          opt = [];
-        };
-        customRC = ''
-          filetype indent on
-          filetype on
-          set backspace=indent,eol,start
-          set clipboard+=unnamedplus
-          set encoding=utf-8
-          set expandtab
-          set history=1000
-          set hlsearch
-          set ignorecase
-          set incsearch
-          set linebreak breakindent
-          set list listchars=tab:>>,trail:~
-          set nobackup
-          set nobackup
-          set nocompatible
-          set nomodified
-          set nowrap
-          set nowritebackup
-          set number relativenumber
-          set scrolloff=10
-          set shiftwidth=2
-          set showcmd
-          set showmatch
-          set showmode
-          set signcolumn=yes
-          set smartcase
-          set smarttab
-          set splitbelow
-          set splitright
-          set t_Co=256
-          set tabstop=2
-          set undofile
-          set undolevels=50000
-          set updatetime=100
-          syntax on
+      # VSCodium system wide
+      (vscode-with-extensions.override {
+        vscode = vscodium;
+        vscodeExtensions = with vscode-extensions; [
+          azdavis.millet
+          b4dm4n.vscode-nixpkgs-fmt
+          bbenoist.nix
+          bmalehorn.vscode-fish
+          editorconfig.editorconfig
+          esbenp.prettier-vscode
+          formulahendry.code-runner
+          grapecity.gc-excelviewer
+          kamadorueda.alejandra
+          mechatroner.rainbow-csv
+          mhutchie.git-graph
+          ms-pyright.pyright
+          ms-python.python
+          ms-toolsai.jupyter
+          ms-toolsai.jupyter-keymap
+          ms-toolsai.jupyter-renderers
+          ms-toolsai.vscode-jupyter-cell-tags
+          ms-toolsai.vscode-jupyter-slideshow
+          ms-vscode.anycode
+          pkief.material-icon-theme
+          scala-lang.scala
+          shardulm94.trailing-spaces
+          streetsidesoftware.code-spell-checker
+        ];
+      })
 
-          " Default leader
-          let g:mapleader = "\<Space>"
+      # RStudio system wide
+      # failed to compiling:
+      # arrow, Hmisc (interp), ggforce, prophet
+      (rstudioWrapper.override {
+        packages = with rPackages; [
+          Cairo
+          DT
+          DataExplorer
+          JuliaCall
+          JuliaConnectoR
+          RColorBrewer
+          XML
+          beepr
+          colourpicker
+          dataCompareR
+          data_table
+          datapasta
+          devtools
+          diffobj
+          dplyr
+          dygraphs
+          echarts4r
+          esquisse
+          flexdashboard
+          forecast
+          foreign
+          fst
+          geofacet
+          ggiraph
+          ggplot2
+          glue
+          gmodels
+          gridExtra
+          here
+          httr
+          installr
+          janitor
+          jsonlite
+          knitr
+          leaflet
+          listviewer
+          lme4
+          lubridate
+          magrittr
+          mapsapi
+          officer
+          openxlsx
+          optparse
+          pacman
+          paletteer
+          patchwork
+          plotly
+          plumber
+          profvis
+          purrr
+          quantmod
+          reactable
+          readr
+          readxl
+          remedy
+          remotes
+          reshape2
+          reticulate
+          rio
+          rmarkdown
+          roxygen2
+          rvest
+          scales
+          sf
+          shiny
+          shinyjs
+          spatstat
+          splitstackshape
+          sqldf
+          stringr
+          testthat
+          tidycensus
+          tidygeocoder
+          tidymodels
+          tidyquant
+          tidyr
+          tidytext
+          tidyxl
+          tmap
+          tmaptools
+          tsbox
+          usethis
+          validate
+          vroom
+          yaml
+          ymlthis
+          zoo
+        ];
+      })
 
-          " Navigation
-          tnoremap <Esc> <C-\><C-n>
-          tnoremap <A-h> <C-\><C-N><C-w>h
-          tnoremap <A-j> <C-\><C-N><C-w>j
-          tnoremap <A-k> <C-\><C-N><C-w>k
-          tnoremap <A-l> <C-\><C-N><C-w>l
-          inoremap <A-h> <C-\><C-N><C-w>h
-          inoremap <A-j> <C-\><C-N><C-w>j
-          inoremap <A-k> <C-\><C-N><C-w>k
-          inoremap <A-l> <C-\><C-N><C-w>l
-          nnoremap <A-h> <C-w>h
-          nnoremap <A-j> <C-w>j
-          nnoremap <A-k> <C-w>k
-          nnoremap <A-l> <C-w>l
+      # Neovim system wide
+      (neovim.override {
+        viAlias = true;
+        vimAlias = true;
+        withNodeJs = true;
+        configure = {
+          packages.myPlugins = with pkgs.vimPlugins; {
+            start = [
+              coc-clangd
+              coc-clap
+              coc-cmake
+              coc-css
+              coc-denite
+              coc-diagnostic
+              coc-docker
+              coc-emmet
+              coc-eslint
+              coc-explorer
+              coc-flutter
+              coc-fzf
+              coc-git
+              coc-go
+              coc-haxe
+              coc-highlight
+              coc-html
+              coc-java
+              coc-jest
+              coc-json
+              coc-lists
+              coc-lua
+              coc-markdownlint
+              coc-metals
+              coc-neco
+              coc-nginx
+              coc-nvim
+              coc-pairs
+              coc-prettier
+              coc-pyright
+              coc-python
+              coc-r-lsp
+              coc-rls
+              coc-rust-analyzer
+              coc-sh
+              coc-smartf
+              coc-snippets
+              coc-solargraph
+              coc-spell-checker
+              coc-sqlfluff
+              coc-stylelint
+              coc-sumneko-lua
+              coc-svelte
+              coc-tabnine
+              coc-tailwindcss
+              coc-texlab
+              coc-toml
+              coc-tslint
+              coc-tslint-plugin
+              coc-tsserver
+              coc-ultisnips
+              coc-vetur
+              coc-vimlsp
+              coc-vimtex
+              coc-wxml
+              coc-yaml
+              coc-yank
+              julia-vim
+              scope-nvim
+              scrollbar-nvim
+              statix
+              surround-nvim
+              tabline-nvim
+              vim-airline
+              vim-airline-themes
+              vim-commentary
+              vim-lastplace
+              vim-lightline-coc
+              vim-nix
+              vim-wayland-clipboard
+            ];
+            opt = [];
+          };
+          customRC = ''
+            filetype indent on
+            filetype on
+            set backspace=indent,eol,start
+            set clipboard+=unnamedplus
+            set encoding=utf-8
+            set expandtab
+            set history=1000
+            set hlsearch
+            set ignorecase
+            set incsearch
+            set linebreak breakindent
+            set list listchars=tab:>>,trail:~
+            set nobackup
+            set nobackup
+            set nocompatible
+            set nomodified
+            set nowrap
+            set nowritebackup
+            set number relativenumber
+            set scrolloff=10
+            set shiftwidth=2
+            set showcmd
+            set showmatch
+            set showmode
+            set signcolumn=yes
+            set smartcase
+            set smarttab
+            set splitbelow
+            set splitright
+            set t_Co=256
+            set tabstop=2
+            set undofile
+            set undolevels=50000
+            set updatetime=100
+            syntax on
 
-          " Resize panes
-          nnoremap <silent> <Left> :vertical resize +2<CR>
-          nnoremap <silent> <Right> :vertical resize -2<CR>
-          nnoremap <silent> <Up> :resize +2<CR>
-          nnoremap <silent> <Down> :resize -2<CR>
-          nnoremap <silent> = <C-w>=
+            " Default leader
+            let g:mapleader = "\<Space>"
 
-          " Visua; select
-          vnoremap <silent> > >gv
-          vnoremap <silent> < <gv
+            " Navigation
+            tnoremap <Esc> <C-\><C-n>
+            tnoremap <A-h> <C-\><C-N><C-w>h
+            tnoremap <A-j> <C-\><C-N><C-w>j
+            tnoremap <A-k> <C-\><C-N><C-w>k
+            tnoremap <A-l> <C-\><C-N><C-w>l
+            inoremap <A-h> <C-\><C-N><C-w>h
+            inoremap <A-j> <C-\><C-N><C-w>j
+            inoremap <A-k> <C-\><C-N><C-w>k
+            inoremap <A-l> <C-\><C-N><C-w>l
+            nnoremap <A-h> <C-w>h
+            nnoremap <A-j> <C-w>j
+            nnoremap <A-k> <C-w>k
+            nnoremap <A-l> <C-w>l
 
-          " Split pane
-          nnoremap <silent> _ <C-W>s<C-W><Down>
-          nnoremap <silent> <Bar> <C-W>v<C-W><Right>
+            " Resize panes
+            nnoremap <silent> <Left> :vertical resize +2<CR>
+            nnoremap <silent> <Right> :vertical resize -2<CR>
+            nnoremap <silent> <Up> :resize +2<CR>
+            nnoremap <silent> <Down> :resize -2<CR>
+            nnoremap <silent> = <C-w>=
 
-          " Quit
-          nnoremap <silent> <Leader>q :q<CR>
-          nnoremap <silent> <leader>Q :bd<CR>
+            " Visua; select
+            vnoremap <silent> > >gv
+            vnoremap <silent> < <gv
 
-          " Save
-          nnoremap <silent> <leader>w :w<CR>
+            " Split pane
+            nnoremap <silent> _ <C-W>s<C-W><Down>
+            nnoremap <silent> <Bar> <C-W>v<C-W><Right>
 
-          " Clipboard
-          vnoremap <leader>p "+p
-          nnoremap <leader>P "+P
-          vnoremap <leader>P "+P
-          nnoremap <leader>y "+y
-          vnoremap <leader>y "+y
-          nnoremap <leader>Y "+y$
+            " Quit
+            nnoremap <silent> <Leader>q :q<CR>
+            nnoremap <silent> <leader>Q :bd<CR>
 
-          " Terminal
-          nnoremap <silent> <Leader>t :terminal<CR>
+            " Save
+            nnoremap <silent> <leader>w :w<CR>
 
-          " Open explorer
-          nnoremap <silent> <leader>e :CocCommand explorer
-            \ --sources=buffer+,file+<CR>
+            " Clipboard
+            vnoremap <leader>p "+p
+            nnoremap <leader>P "+P
+            vnoremap <leader>P "+P
+            nnoremap <leader>y "+y
+            vnoremap <leader>y "+y
+            nnoremap <leader>Y "+y$
 
-          " Use tab for trigger completion with characters ahead and navigate
-          inoremap <silent><expr> <Tab>
-            \ coc#pum#visible() ? coc#pum#next(1) :
-            \ CheckBackspace() ? "\<Tab>" :
-            \ coc#refresh()
+            " Terminal
+            nnoremap <silent> <Leader>t :terminal<CR>
 
-          inoremap <expr> <Tab>
-            \ coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
-          inoremap <expr> <S-Tab>
-            \ coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+            " Open explorer
+            nnoremap <silent> <leader>e :CocCommand explorer
+              \ --sources=buffer+,file+<CR>
 
-          inoremap <silent><expr> <CR>
-            \ coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+            " Use tab for trigger completion with characters ahead and navigate
+            inoremap <silent><expr> <Tab>
+              \ coc#pum#visible() ? coc#pum#next(1) :
+              \ CheckBackspace() ? "\<Tab>" :
+              \ coc#refresh()
 
-          function! CheckBackspace() abort
-            let col = col('.') - 1
-            return !col || getline('.')[col - 1]  =~# '\s'
-          endfunction
+            inoremap <expr> <Tab>
+              \ coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+            inoremap <expr> <S-Tab>
+              \ coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
-          " Use <c-space> to trigger completion
-          if has('nvim')
-            inoremap <silent><expr> <c-space> coc#refresh()
-          else
-            inoremap <silent><expr> <c-@> coc#refresh()
-          endif
+            inoremap <silent><expr> <CR>
+              \ coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
-          '';
-        };
-      }
-    )
-  ];
+            function! CheckBackspace() abort
+              let col = col('.') - 1
+              return !col || getline('.')[col - 1]  =~# '\s'
+            endfunction
 
-  # Shell
-  users.defaultUserShell = pkgs.fish;
+            " Use <c-space> to trigger completion
+            if has('nvim')
+              inoremap <silent><expr> <c-space> coc#refresh()
+            else
+              inoremap <silent><expr> <c-@> coc#refresh()
+            endif
+
+            '';
+          };
+        }
+      )
+    ];
+  };
 
   # Programs
   programs = {
@@ -738,6 +745,7 @@
         gsu = "git submodule update";
 
         gts = "git tag -s";
+        gta = "git tag -a";
       };
 
       shellAliases = {
