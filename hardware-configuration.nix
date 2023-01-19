@@ -42,5 +42,4 @@
   hardware.opengl.extraPackages = with pkgs; [
     amdvlk
   ];
-
 }
