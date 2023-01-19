@@ -8,7 +8,7 @@
     ./hardware-configuration.nix
   ];
 
-  # Allow proprietary software (such as the NVIDIA drivers).
+  # Allow proprietary software.
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -16,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  # Setup keyfile
+  # Setup keyfile.
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
@@ -49,42 +49,7 @@
     LC_TIME = "id_ID.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # Media session
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users.hervyqa = {
     isNormalUser = true;
     description = "Hervy Qurrotul Ainur Rozi";
@@ -104,7 +69,7 @@
   };
   nix.settings.trusted-users = [ "root" "hervyqa"];
 
-  # Fonts
+  # Fonts.
   fonts.fonts = with pkgs; [
     fira
     fira-code
@@ -114,19 +79,13 @@
     jetbrains-mono
   ];
 
-  # VS Code under Wayland
+  # VS Code under Wayland.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Remove kde apps
-  services.xserver.desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
-    oxygen
-    plasma-browser-integration
-  ];
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
 
-    # data science
+    # Data science
     R
     clickhouse
     duckdb
@@ -140,16 +99,16 @@
     visidata
     wxmaxima
 
-    # julia
+    # Julia
     julia
 
-    # scala
+    # Scala
     scala
 
-    # rakudo
+    # Rakudo
     rakudo
 
-    # node
+    # Node
     nodejs
     yarn
 
@@ -159,13 +118,11 @@
     sqlitebrowser # sqlite
     texstudio # latex
 
-    # devops
-    mariadb
+    # Devops
     mongodb
-    postgresql
     sqlite
 
-    # cli packages
+    # CLI packages
     bottom
     direnv
     dnscrypt-proxy2
@@ -186,7 +143,7 @@
     wl-clipboard
     xclip
 
-    # kde plasma
+    # KDE plasma
     libsForQt5.ark
     libsForQt5.kate
     libsForQt5.ktouch
@@ -194,39 +151,39 @@
     libsForQt5.sddm-kcm
     wacomtablet
 
-    # browser
+    # Browser
     firefox
 
-    # design
+    # Design
     inkscape
     krita
 
-    # multimedia
+    # Multimedia
     vlc
     vokoscreen
 
-    # productivity
+    # Office
     libreoffice
     libreoffice-qt
 
-    # communication
+    # Communication
     tdesktop
 
-    # theme
+    # Theme/Icon
     lxappearance
     papirus-icon-theme
 
-    # printer driver
+    # Printer driver
     epson-escpr
     epson-escpr2
     foomatic-db
     foomatic-filters
 
-    # nonfree
+    # Nonfree
     discord
     zoom-us
 
-    # compression
+    # Compression
     bzip2
     gzip
     libarchive
@@ -241,12 +198,12 @@
     zip
     zstd
 
-    # ssg
+    # SSG
     hugo
     mdbook
     mdbook-linkcheck
 
-    # python310 system wide
+    # Python310 system wide
     (python310.withPackages(ps: with ps; [
       Theano
       beautifulsoup4
@@ -305,7 +262,7 @@
       ])
     )
 
-    # vscodium system wide
+    # VSCodium system wide
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
@@ -335,7 +292,7 @@
       ];
     })
 
-    # rstudio system wide
+    # RStudio system wide
     # failed to compiling:
     # arrow, Hmisc (interp), ggforce, prophet
     (rstudioWrapper.override {
@@ -430,7 +387,7 @@
       ];
     })
 
-    # neovim system wide
+    # Neovim system wide
     (neovim.override {
       viAlias = true;
       vimAlias = true;
@@ -637,187 +594,222 @@
 
   # Shell
   users.defaultUserShell = pkgs.fish;
-  programs.fish = {
-    enable = true;
-    shellAbbrs = {
-      n = "nvim";
-      v = "vim";
-      g = "git";
 
-      ll = "ls -lha";
-      lsf = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
+  # Programs
+  programs = {
+    dconf.enable = true;
+    java.enable = true;
+    kdeconnect.enable = true;
+    neovim.defaultEditor = true;
+    partition-manager.enable = true;
+    mtr.enable = true;
 
-      ncg = "sudo nix-collect-garbage -d";
-      ncu = "sudo nix-channel --update";
-      neq = "nix-env -qaP";
-      nim = "nix-shell -p nix-info --run 'nix-info -m'";
-      nrd = "sudo nixos-rebuild dry-build --show-trace";
-      nrs = "sudo nixos-rebuild switch";
-      nrt = "sudo nixos-rebuild test";
-      nrb = "sudo nixos-rebuild boot";
-      nsgc = "sudo nix-store --gc";
-
-      ga = "git add";
-      gaa = "git add --all";
-      gapa = "git add --patch";
-
-      gb = "git branch";
-      gba = "git branch -a";
-      gbdam = "git branch --merged";
-      gbl = "git blame -b -w";
-      gbnm = "git branch --no-merged";
-      gbr = "git branch --remote";
-
-      gc = "git commit -v";
-      gca = "git commit -v -a";
-      gcam = "git commit -a -m";
-      gcms = "git commit -m";
-      gcaan = "git commit -v -a --no-edit --amend";
-      gcaans = "git commit -v -a -s --no-edit --amend";
-      gcamn = "git commit -v --amend";
-      gcaamn = "git commit -v -a --amend";
-      gcna = "git commit -v --no-edit --amend";
-
-      gcb = "git checkout -b";
-      gcf = "git config --list";
-      gcl = "git clone --recursive";
-      gclean = "git clean -fd";
-      gcm = "git checkout main";
-      gcmt = "git checkout master";
-      gco = "git checkout";
-      gcp = "git cherry-pick";
-      gcs = "git commit -S";
-
-      gd = "git diff";
-      gdca = "git diff --cached";
-
-      gf = "git fetch";
-      gfa = "git fetch --all --prune";
-      gfo = "git fetch origin";
-
-      gignore = "git update-index --assume-unchanged";
-
-      gl = "git pull";
-      glg = "git log --stat";
-      glgp = "git log --stat -p";
-      glgg = "git log --graph";
-      glgga = "git log --graph --decorate --all";
-      glgm = "git log --graph --max-count=10";
-      glo = "git log --oneline --decorate";
-      glol = "git log --graph --abbrev-commit";
-      glola = "git log --graph --abbrev-commit --all";
-      glog = "git log --oneline --decorate --graph";
-      gloga = "git log --oneline --decorate --graph --all";
-
-      gm = "git merge";
-      gmom = "git merge origin/master";
-      gmon = "git merge origin/main";
-      gmt = "git mergetool --no-prompt";
-
-      gp = "git push";
-      gpom = "git push -u origin main";
-      gpoms = "git push -u origin master";
-      gpd = "git push --dry-run";
-      gpv = "git push -v";
-
-      gr = "git remote";
-      gra = "git remote add";
-      grh = "git reset HEAD";
-      grhh = "git reset HEAD --hard";
-
-      gsb = "git status -sb";
-      gsps = "git show --pretty=short --show-signature";
-      gss = "git status -s";
-      gst = "git status";
-      gsts = "git stash show --text";
-      gsu = "git submodule update";
-
-      gts = "git tag -s";
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
     };
 
-    shellAliases = {
+    tmux = {
+      enable = true;
+      terminal = "screen-256color";
+      historyLimit = 5000;
+    };
+
+    git = {
+      enable = true;
+      config = {
+        core = {
+          editor = "nvim";
+        };
+        user = {
+          email = "hervyqa@proton.me";
+          name = "Hervy Qurrotul Ainur Rozi";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        url = {
+          "https://github.com/" = {
+            insteadOf = [
+              "gh:"
+              "github:"
+            ];
+          };
+        };
+        status = {
+          short = true;
+        };
+      };
+    };
+
+    fish = {
+      enable = true;
+      shellAbbrs = {
+        n = "nvim";
+        v = "vim";
+        g = "git";
+
+        ll = "ls -lha";
+        lsf = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
+
+        ncg = "sudo nix-collect-garbage -d";
+        ncu = "sudo nix-channel --update";
+        neq = "nix-env -qaP";
+        nim = "nix-shell -p nix-info --run 'nix-info -m'";
+        nrd = "sudo nixos-rebuild dry-build --show-trace";
+        nrs = "sudo nixos-rebuild switch";
+        nrt = "sudo nixos-rebuild test";
+        nrb = "sudo nixos-rebuild boot";
+        nsgc = "sudo nix-store --gc";
+
+        ga = "git add";
+        gaa = "git add --all";
+        gapa = "git add --patch";
+
+        gb = "git branch";
+        gba = "git branch -a";
+        gbdam = "git branch --merged";
+        gbl = "git blame -b -w";
+        gbnm = "git branch --no-merged";
+        gbr = "git branch --remote";
+
+        gc = "git commit -v";
+        gca = "git commit -v -a";
+        gcam = "git commit -a -m";
+        gcms = "git commit -m";
+        gcaan = "git commit -v -a --no-edit --amend";
+        gcaans = "git commit -v -a -s --no-edit --amend";
+        gcamn = "git commit -v --amend";
+        gcaamn = "git commit -v -a --amend";
+        gcna = "git commit -v --no-edit --amend";
+
+        gcb = "git checkout -b";
+        gcf = "git config --list";
+        gcl = "git clone --recursive";
+        gclean = "git clean -fd";
+        gcm = "git checkout main";
+        gcmt = "git checkout master";
+        gco = "git checkout";
+        gcp = "git cherry-pick";
+        gcs = "git commit -S";
+
+        gd = "git diff";
+        gdca = "git diff --cached";
+
+        gf = "git fetch";
+        gfa = "git fetch --all --prune";
+        gfo = "git fetch origin";
+
+        gignore = "git update-index --assume-unchanged";
+
+        gl = "git pull";
+        glg = "git log --stat";
+        glgp = "git log --stat -p";
+        glgg = "git log --graph";
+        glgga = "git log --graph --decorate --all";
+        glgm = "git log --graph --max-count=10";
+        glo = "git log --oneline --decorate";
+        glol = "git log --graph --abbrev-commit";
+        glola = "git log --graph --abbrev-commit --all";
+        glog = "git log --oneline --decorate --graph";
+        gloga = "git log --oneline --decorate --graph --all";
+
+        gm = "git merge";
+        gmom = "git merge origin/master";
+        gmon = "git merge origin/main";
+        gmt = "git mergetool --no-prompt";
+
+        gp = "git push";
+        gpom = "git push -u origin main";
+        gpoms = "git push -u origin master";
+        gpd = "git push --dry-run";
+        gpv = "git push -v";
+
+        gr = "git remote";
+        gra = "git remote add";
+        grh = "git reset HEAD";
+        grhh = "git reset HEAD --hard";
+
+        gsb = "git status -sb";
+        gsps = "git show --pretty=short --show-signature";
+        gss = "git status -s";
+        gst = "git status";
+        gsts = "git stash show --text";
+        gsu = "git submodule update";
+
+        gts = "git tag -s";
+      };
+
+      shellAliases = {
+      };
     };
   };
 
-  # Git
-  programs.git = {
-    enable = true;
-    config = {
-      core = {
-        editor = "nvim";
+  # Services
+  services = {
+    dnscrypt-proxy2 = {
+      enable = true;
+      settings = {
+        ipv6_servers = true;
+        require_dnssec = true;
       };
-      user = {
-        email = "hervyqa@proton.me";
-        name = "Hervy Qurrotul Ainur Rozi";
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      url = {
-        "https://github.com/" = {
-          insteadOf = [
-            "gh:"
-            "github:"
+    };
+
+    earlyoom = {
+      enable = true;
+      freeMemThreshold = 5;
+    };
+
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
+
+    postgresql = {
+      enable = true;
+    };
+
+    openssh = {
+      enable = false;
+    };
+
+    xserver = {
+      enable = true;
+      desktopManager = {
+        plasma5 = {
+          enable = true;
+          excludePackages = with pkgs.libsForQt5; [
+            oxygen
+            plasma-browser-integration
           ];
         };
       };
-      status = {
-        short = true;
+      displayManager.sddm.enable = true;
+      layout = "us";
+      libinput.enable = true;
+      xkbVariant = "";
+    };
+
+    printing = {
+      enable = true;
+    };
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
       };
+      jack.enable = false;
+      media-session.enable = false;
+      pulse.enable = true;
     };
   };
 
-  # Tmux
-  programs.tmux = {
-    enable = true;
-    terminal = "screen-256color";
-    historyLimit = 5000;
-  };
-
-  programs.dconf.enable = true;
-  programs.java.enable = true;
-  programs.kdeconnect.enable = true;
-  programs.neovim.defaultEditor = true;
-  programs.partition-manager.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  # List services that you want to enable:
-
-  services.dnscrypt-proxy2 = {
-    enable = true;
-    settings = {
-      ipv6_servers = true;
-      require_dnssec = true;
-    };
-  };
-
-  # Enable Earlyoom
-  services.earlyoom = {
-    enable = true;
-    freeMemThreshold = 5;
-  };
-
-  # Mariadb (mysql)
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
-
-  # Posgresql
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_11;
-  };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
