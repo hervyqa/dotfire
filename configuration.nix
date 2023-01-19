@@ -773,12 +773,27 @@
       package = pkgs.mariadb;
     };
 
+    openssh = {
+      enable = false;
+    };
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      jack.enable = false;
+      media-session.enable = false;
+      pulse.enable = true;
+    };
+
     postgresql = {
       enable = true;
     };
 
-    openssh = {
-      enable = false;
+    printing = {
+      enable = true;
     };
 
     xserver = {
@@ -796,21 +811,6 @@
       layout = "us";
       libinput.enable = true;
       xkbVariant = "";
-    };
-
-    printing = {
-      enable = true;
-    };
-
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      jack.enable = false;
-      media-session.enable = false;
-      pulse.enable = true;
     };
   };
 
