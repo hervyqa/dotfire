@@ -2,7 +2,15 @@
   config,
   pkgs,
   ...
-}: {
+}:
+
+let
+  name = "hervyqa";
+  fullname = "Hervy Qurrotul Ainur Rozi";
+  email = "hervyqa@proton.me";
+in
+
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -18,6 +26,9 @@
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
+      };
+      grub = {
+        useOSProber = false; # false default
       };
     };
     initrd.secrets = {
@@ -57,9 +68,9 @@
 
   # Define a user account.
   users = {
-    users.hervyqa = {
+    users.${name} = {
       isNormalUser = true;
-      description = "Hervy Qurrotul Ainur Rozi";
+      description = "${fullname}";
       extraGroups = [
         "audio"
         "disk"
@@ -86,7 +97,7 @@
     };
     settings = {
       auto-optimise-store = true;
-      trusted-users = ["root" "hervyqa"];
+      trusted-users = ["root" "${name}"];
     };
   };
 
@@ -668,8 +679,8 @@
           editor = "nvim";
         };
         user = {
-          email = "hervyqa@proton.me";
-          name = "Hervy Qurrotul Ainur Rozi";
+          email = "${email}";
+          name = "${fullname}";
         };
         init = {
           defaultBranch = "main";
@@ -853,9 +864,17 @@
     };
   };
 
-  # Enable sound with pipewire.
+  # Enable sound
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth = {
+      enable = true;
+      hsphfpd.enable = true;
+    };
+  };
+
+  # Security
   security.rtkit.enable = true;
 
   # Open ports in the firewall.
@@ -863,9 +882,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
 
   # System upgrade
   system.stateVersion = "22.11";
