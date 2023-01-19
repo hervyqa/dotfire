@@ -856,7 +856,11 @@ in
             plasma-browser-integration
           ];
         };
+        xterm.enable = false;
       };
+      excludePackages = with pkgs; [
+        xterm
+      ];
       displayManager.sddm.enable = true;
       layout = "us";
       libinput.enable = true;
