@@ -734,31 +734,20 @@ in
 
         ga = "git add";
         gaa = "git add --all";
-        gapa = "git add --patch";
 
         gb = "git branch";
-        gba = "git branch -a";
-        gbdam = "git branch --merged";
         gbl = "git blame -b -w";
-        gbnm = "git branch --no-merged";
         gbr = "git branch --remote";
 
-        gc = "git commit -v";
-        gca = "git commit -v -a";
-        gcam = "git commit -a -m";
-        gcms = "git commit -m";
-        gcaan = "git commit -v -a --no-edit --amend";
-        gcaans = "git commit -v -a -s --no-edit --amend";
-        gcamn = "git commit -v --amend";
-        gcaamn = "git commit -v -a --amend";
-        gcna = "git commit -v --no-edit --amend";
+        gc = "git commit";
+        gcm = "git commit -m";
+        gcam = "git commit --amend";
 
         gcb = "git checkout -b";
         gcf = "git config --list";
+        gck = "git checkout main";
         gcl = "git clone --recursive";
-        gclean = "git clean -fd";
-        gcm = "git checkout main";
-        gco = "git checkout";
+        gcln = "git clean -fd";
         gcp = "git cherry-pick";
         gcs = "git commit -S";
 
@@ -772,16 +761,12 @@ in
         gignore = "git update-index --assume-unchanged";
 
         gl = "git pull";
-        glg = "git log --stat";
-        glgp = "git log --stat -p";
-        glgg = "git log --graph";
-        glgga = "git log --graph --decorate --all";
-        glgm = "git log --graph --max-count=10";
+        gls = "git log --stat";
+        glsp = "git log --stat -p";
+        glg = "git log --graph";
+        glga = "git log --graph --decorate --all";
         glo = "git log --oneline --decorate";
-        glol = "git log --graph --abbrev-commit";
-        glola = "git log --graph --abbrev-commit --all";
-        glog = "git log --oneline --decorate --graph";
-        gloga = "git log --oneline --decorate --graph --all";
+        gloa = "git log --oneline --decorate --graph --all";
 
         gm = "git merge";
         gmom = "git merge origin/main";
@@ -797,7 +782,7 @@ in
         grh = "git reset HEAD";
         grhh = "git reset HEAD --hard";
 
-        gsb = "git status -sb";
+        gs = "git status -sbu";
         gsps = "git show --pretty=short --show-signature";
         gss = "git status -s";
         gst = "git status";
