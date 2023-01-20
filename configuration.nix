@@ -163,14 +163,17 @@ in
       fish
       git
       gitui
+      glxinfo
       gnumake
       home-manager
       htop
       inxi
       joshuto
+      mesa-demos
       nixos-option
       texlab
       translate-shell
+      virtualgl
       vulkan-tools
       wget
       wl-clipboard
@@ -313,139 +316,144 @@ in
             virtualenvwrapper
             wordcloud
             xarray
-          ])
+          ]
+        )
       )
 
       # VSCodium system wide
-      (vscode-with-extensions.override {
-        vscode = vscodium;
-        vscodeExtensions = with vscode-extensions; [
-          azdavis.millet
-          b4dm4n.vscode-nixpkgs-fmt
-          bbenoist.nix
-          bmalehorn.vscode-fish
-          editorconfig.editorconfig
-          esbenp.prettier-vscode
-          formulahendry.code-runner
-          grapecity.gc-excelviewer
-          kamadorueda.alejandra
-          mechatroner.rainbow-csv
-          mhutchie.git-graph
-          ms-pyright.pyright
-          ms-python.python
-          ms-toolsai.jupyter
-          ms-toolsai.jupyter-keymap
-          ms-toolsai.jupyter-renderers
-          ms-toolsai.vscode-jupyter-cell-tags
-          ms-toolsai.vscode-jupyter-slideshow
-          ms-vscode.anycode
-          pkief.material-icon-theme
-          scala-lang.scala
-          shardulm94.trailing-spaces
-          streetsidesoftware.code-spell-checker
-        ];
-      })
+      (
+        vscode-with-extensions.override {
+          vscode = vscodium;
+          vscodeExtensions = with vscode-extensions; [
+            azdavis.millet
+            b4dm4n.vscode-nixpkgs-fmt
+            bbenoist.nix
+            bmalehorn.vscode-fish
+            editorconfig.editorconfig
+            esbenp.prettier-vscode
+            formulahendry.code-runner
+            grapecity.gc-excelviewer
+            kamadorueda.alejandra
+            mechatroner.rainbow-csv
+            mhutchie.git-graph
+            ms-pyright.pyright
+            ms-python.python
+            ms-toolsai.jupyter
+            ms-toolsai.jupyter-keymap
+            ms-toolsai.jupyter-renderers
+            ms-toolsai.vscode-jupyter-cell-tags
+            ms-toolsai.vscode-jupyter-slideshow
+            ms-vscode.anycode
+            pkief.material-icon-theme
+            scala-lang.scala
+            shardulm94.trailing-spaces
+            streetsidesoftware.code-spell-checker
+          ];
+        }
+      )
 
       # RStudio system wide
       # failed to compiling:
       # arrow, Hmisc (interp), ggforce, prophet
-      (rstudioWrapper.override {
-        packages = with rPackages; [
-          Cairo
-          DT
-          DataExplorer
-          JuliaCall
-          JuliaConnectoR
-          MASS
-          RANN
-          RColorBrewer
-          Rcpp
-          XML
-          beepr
-          colourpicker
-          dataCompareR
-          data_table
-          datapasta
-          devtools
-          diffobj
-          dplyr
-          dygraphs
-          echarts4r
-          esquisse
-          flexdashboard
-          forecast
-          foreign
-          freqparcoord
-          fst
-          geofacet
-          ggiraph
-          ggplot2
-          glue
-          gmodels
-          gridExtra
-          here
-          httr
-          installr
-          janitor
-          jsonlite
-          knitr
-          leaflet
-          listviewer
-          lme4
-          lubridate
-          magrittr
-          mapsapi
-          officer
-          openxlsx
-          optparse
-          pacman
-          paletteer
-          patchwork
-          plotly
-          plumber
-          profvis
-          purrr
-          quantmod
-          reactable
-          readr
-          readxl
-          remedy
-          remotes
-          reshape2
-          reticulate
-          rio
-          rmarkdown
-          roxygen2
-          rvest
-          scales
-          sf
-          shiny
-          shinyjs
-          spatstat
-          splitstackshape
-          sqldf
-          stringr
-          testthat
-          tidycensus
-          tidygeocoder
-          tidymodels
-          tidyquant
-          tidyr
-          tidytext
-          tidyverse
-          tidyxl
-          tmap
-          tmaptools
-          tsbox
-          usethis
-          validate
-          vroom
-          xts
-          yaml
-          ymlthis
-          zoo
-        ];
-      })
+      (
+        rstudioWrapper.override {
+          packages = with rPackages; [
+            Cairo
+            DT
+            DataExplorer
+            JuliaCall
+            JuliaConnectoR
+            MASS
+            RANN
+            RColorBrewer
+            Rcpp
+            XML
+            beepr
+            colourpicker
+            dataCompareR
+            data_table
+            datapasta
+            devtools
+            diffobj
+            dplyr
+            dygraphs
+            echarts4r
+            esquisse
+            flexdashboard
+            forecast
+            foreign
+            freqparcoord
+            fst
+            geofacet
+            ggiraph
+            ggplot2
+            glue
+            gmodels
+            gridExtra
+            here
+            httr
+            installr
+            janitor
+            jsonlite
+            knitr
+            leaflet
+            listviewer
+            lme4
+            lubridate
+            magrittr
+            mapsapi
+            officer
+            openxlsx
+            optparse
+            pacman
+            paletteer
+            patchwork
+            plotly
+            plumber
+            profvis
+            purrr
+            quantmod
+            reactable
+            readr
+            readxl
+            remedy
+            remotes
+            reshape2
+            reticulate
+            rio
+            rmarkdown
+            roxygen2
+            rvest
+            scales
+            sf
+            shiny
+            shinyjs
+            spatstat
+            splitstackshape
+            sqldf
+            stringr
+            testthat
+            tidycensus
+            tidygeocoder
+            tidymodels
+            tidyquant
+            tidyr
+            tidytext
+            tidyverse
+            tidyxl
+            tmap
+            tmaptools
+            tsbox
+            usethis
+            validate
+            vroom
+            xts
+            yaml
+            ymlthis
+            zoo
+          ];
+        }
+      )
 
       # Neovim system wide
       (
