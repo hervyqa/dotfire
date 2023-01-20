@@ -16,9 +16,6 @@ in
     ./hardware-configuration.nix
   ];
 
-  # Allow proprietary software.
-  nixpkgs.config.allowUnfree = true;
-
   # Bootloader.
   boot = {
     loader = {
@@ -88,7 +85,7 @@ in
     defaultUserShell = pkgs.fish;
   };
 
-  # Nix settings
+  # Nix settings.
   nix = {
     gc = {
       automatic = true;
@@ -101,6 +98,11 @@ in
     };
   };
 
+  # Nixpkgs config.
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   # Fonts.
   fonts.fonts = with pkgs; [
     fira
@@ -111,6 +113,7 @@ in
     jetbrains-mono
   ];
 
+  # Packages
   environment = {
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -875,7 +878,7 @@ in
     };
   };
 
-  # Enable sound
+  # Hardware
   sound.enable = true;
   hardware = {
     pulseaudio.enable = false;
@@ -883,16 +886,23 @@ in
       enable = true;
       hsphfpd.enable = true;
     };
+    opengl = {
+      driSupport = true;
+      extraPackages = with pkgs; [
+        amdvlk
+      ];
+    };
   };
 
   # Security
   security.rtkit.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Firewall.
+  networking.firewall = {
+    enable = false;
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
+  };
 
   # System upgrade
   system.stateVersion = "22.11";
