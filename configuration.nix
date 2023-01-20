@@ -155,6 +155,7 @@ in
 
       # CLI packages
       bottom
+      dialog
       direnv
       dnscrypt-proxy2
       earlyoom
@@ -162,6 +163,7 @@ in
       fish
       git
       gitui
+      gnumake
       home-manager
       htop
       inxi
@@ -707,7 +709,7 @@ in
         g = "git";
 
         ll = "ls -lha";
-        lsf = "lsblk -o name,fstype,fsavail,fsused,fsuse%,size,label,mountpoint";
+        lsf = "lsblk -o name,fstype,fsavail,fsused,size,mountpoint";
 
         ncg = "sudo nix-collect-garbage -d";
         ncu = "sudo nix-channel --update";
@@ -836,7 +838,7 @@ in
     };
 
     postgresql = {
-      enable = true;
+      enable = false;
     };
 
     printing = {
