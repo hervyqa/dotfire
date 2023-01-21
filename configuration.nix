@@ -142,6 +142,7 @@ in {
     systemPackages = with pkgs;
     with libsForQt5; [
       # Plasma5 extra
+      applet-window-buttons
       ark
       kate
       ktouch
