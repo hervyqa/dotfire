@@ -3,9 +3,7 @@
   pkgs,
   libs,
   ...
-}:
-
-let
+}: let
   name = "hervyqa";
   fullname = "Hervy Qurrotul Ainur Rozi";
   email = "hervyqa@proton.me";
@@ -16,9 +14,9 @@ let
     executable = true;
 
     text = ''
-    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-    systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-    systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
     '';
   };
 
@@ -32,12 +30,9 @@ let
     in ''
       export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
       gnome_schema=org.gnome.desktop.interface
-      '';
+    '';
   };
-
-in
-
-{
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -158,8 +153,8 @@ in
       source-han-sans
     ];
     fontconfig.defaultFonts = {
-      serif = [ "Noto Serif" "Source Han Serif" ];
-      sansSerif = [ "Noto Sans" "Source Han Sans" ];
+      serif = ["Noto Serif" "Source Han Serif"];
+      sansSerif = ["Noto Sans" "Source Han Sans"];
     };
   };
 
@@ -177,9 +172,16 @@ in
       '';
     };
 
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs;
+    with libsForQt5; [
+      # Plasma5 extra
+      ark
+      kate
+      ktouch
+      quazip
 
       # CLI packages
+      axel
       bottom
       dialog
       direnv
@@ -203,12 +205,6 @@ in
       wget
       wl-clipboard
       xclip
-
-      # Plasma5 extra
-      libsForQt5.ark
-      libsForQt5.kate
-      libsForQt5.ktouch
-      libsForQt5.quazip
 
       # Data science
       R
@@ -300,82 +296,83 @@ in
 
       # Python310 system wide
       (
-        python310.withPackages (ps:
-          with ps; [
-            Theano
-            av
-            beautifulsoup4
-            bokeh
-            cython
-            click
-            dask
-            datasette
-            dill
-            flask
-            future
-            h5py
-            imbalanced-learn
-            ipykernel
-            ipython
-            ipywidgets
-            jedi
-            jedi-language-server
-            joblib
-            jupyter
-            jupyterlab
-            jupyterlab-lsp
-            jupyterlab-pygments
-            keras
-            lightgbm
-            mahotas
-            matplotlib
-            moviepy
-            mypy
-            nbdime
-            networkx
-            nltk
-            nose
-            numpy
-            opencv4
-            openpyxl
-            pandas
-            pillow
-            pims
-            plotly
-            plotnine
-            pydot
-            pyls-spyder
-            pynvim
-            pytest
-            pytorch
-            pyyaml
-            qdarkstyle
-            requests
-            scikit-learn
-            scikitimage
-            scipy
-            scrapy
-            seaborn
-            selenium
-            spacy
-            spyder
-            spyder-kernels
-            statsmodels
-            tableaudocumentapi
-            tables
-            tensorflow
-            tensorflow-metadata
-            tensorflow-probability
-            tifffile
-            torch
-            torchvision
-            tqdm
-            trfl
-            virtualenv
-            virtualenvwrapper
-            wordcloud
-            xarray
-          ]
+        python310.withPackages (
+          ps:
+            with ps; [
+              Theano
+              av
+              beautifulsoup4
+              bokeh
+              cython
+              click
+              dask
+              datasette
+              dill
+              flask
+              future
+              h5py
+              imbalanced-learn
+              ipykernel
+              ipython
+              ipywidgets
+              jedi
+              jedi-language-server
+              joblib
+              jupyter
+              jupyterlab
+              jupyterlab-lsp
+              jupyterlab-pygments
+              keras
+              lightgbm
+              mahotas
+              matplotlib
+              moviepy
+              mypy
+              nbdime
+              networkx
+              nltk
+              nose
+              numpy
+              opencv4
+              openpyxl
+              pandas
+              pillow
+              pims
+              plotly
+              plotnine
+              pydot
+              pyls-spyder
+              pynvim
+              pytest
+              pytorch
+              pyyaml
+              qdarkstyle
+              requests
+              scikit-learn
+              scikitimage
+              scipy
+              scrapy
+              seaborn
+              selenium
+              spacy
+              spyder
+              spyder-kernels
+              statsmodels
+              tableaudocumentapi
+              tables
+              tensorflow
+              tensorflow-metadata
+              tensorflow-probability
+              tifffile
+              torch
+              torchvision
+              tqdm
+              trfl
+              virtualenv
+              virtualenvwrapper
+              wordcloud
+              xarray
+            ]
         )
       )
 
@@ -858,49 +855,47 @@ in
     sway = {
       enable = false;
       wrapperFeatures.gtk = true;
-          extraPackages = with pkgs; [
+      extraPackages = with pkgs; [
+        # Sway config
+        configure-gtk
+        dbus-sway-environment
 
-            # Sway config
-            configure-gtk
-            dbus-sway-environment
+        # Sway packages
+        alacritty # gpu accelerated terminal
+        autotiling # auto tiling for i3/sway
+        dmenu-wayland # menu wayland
+        glib # gsettings
+        gnome3.adwaita-icon-theme # default gnome cursors
+        grim # screenshot functionality
+        kanshi # dynamic display configuration tool
+        mako # notification system developed
+        mpd # music player
+        mpv # video player
+        mupdf # pdf reader
+        ncmpcpp # ncurses based mpd client
+        pcmanfm # file manager gtk
+        qutebrowser # browser
+        slurp # screenshot functionality
+        swayidle # idle management daemon
+        swaykbdd # per-window keyboard layout for sway
+        swaylock # lockscreen sway
+        swaysettings # sway gui settings
+        waybar # wayland sway bar
+        wdisplays # configuring displays
+        wf-recorder # screen recording
+        wmctrl # interact netwm x wm
+        wofi # menu launcher
+        wvkbd # on-screen keyboard for wlroots
+        xdg-utils # for opening default programs when clicking links
 
-            # Sway packages
-            alacritty # gpu accelerated terminal
-            autotiling # auto tiling for i3/sway
-            dmenu-wayland # menu wayland
-            glib # gsettings
-            gnome3.adwaita-icon-theme  # default gnome cursors
-            grim # screenshot functionality
-            kanshi # dynamic display configuration tool
-            mako # notification system developed
-            mpd # music player
-            mpv # video player
-            mupdf # pdf reader
-            ncmpcpp # ncurses based mpd client
-            pcmanfm # file manager gtk
-            qutebrowser # browser
-            slurp # screenshot functionality
-            swayidle # idle management daemon
-            swaykbdd # per-window keyboard layout for sway
-            swaylock # lockscreen sway
-            swaysettings # sway gui settings
-            waybar # wayland sway bar
-            wdisplays # configuring displays
-            wf-recorder # screen recording
-            wmctrl # interact netwm x wm
-            wofi # menu launcher
-            wvkbd # on-screen keyboard for wlroots
-            xdg-utils # for opening default programs when clicking links
+        # Theme
+        lxappearance
+        arc-theme
+        arc-kde-theme
 
-            # Theme
-            lxappearance
-            arc-theme
-            arc-kde-theme
-
-            # Qt
-            libsForQt5.qt5ct
-            libsForQt5.qtstyleplugin-kvantum
-
+        # Qt
+        libsForQt5.qt5ct
+        libsForQt5.qtstyleplugin-kvantum
       ];
       extraSessionCommands = ''
         export SDL_VIDEODRIVER=wayland
@@ -915,7 +910,7 @@ in
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr];
   };
 
   # Services
@@ -1048,8 +1043,8 @@ in
   # Firewall.
   networking.firewall = {
     enable = false;
-    allowedTCPPorts = [ ];
-    allowedUDPPorts = [ ];
+    allowedTCPPorts = [];
+    allowedUDPPorts = [];
   };
 
   # System upgrade
