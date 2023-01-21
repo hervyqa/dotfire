@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  libs,
   ...
 }:
 
@@ -8,6 +9,32 @@ let
   name = "hervyqa";
   fullname = "Hervy Qurrotul Ainur Rozi";
   email = "hervyqa@proton.me";
+
+  dbus-sway-environment = pkgs.writeTextFile {
+    name = "dbus-sway-environment";
+    destination = "/bin/dbus-sway-environment";
+    executable = true;
+
+    text = ''
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+    systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+    '';
+  };
+
+  configure-gtk = pkgs.writeTextFile {
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text = let
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gnome_schema=org.gnome.desktop.interface
+      '';
+  };
+
 in
 
 {
@@ -25,7 +52,7 @@ in
         efiSysMountPoint = "/boot/efi";
       };
       grub = {
-        useOSProber = false; # false default
+        useOSProber = false; # default: false
       };
     };
     initrd.secrets = {
@@ -35,8 +62,24 @@ in
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-    networkmanager.enable = true;
-    wireless.enable = false; # Enables via wpa_supplicant.
+    networkmanager = {
+      enable = true; # Enables via NetworkManager.
+    };
+    wireless = {
+      enable = false; # Enables via wpa_supplicant.
+    };
+    wireless.iwd = {
+      enable = false; # Enables via iwd.
+      settings = {
+        Network = {
+          EnableIPv6 = true;
+          RoutePriorityOffset = 300;
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+      };
+    };
     # Configure network proxy if necessary
     # proxy = {
     #   default = "http://user:password@proxy:port/";
@@ -104,21 +147,69 @@ in
   };
 
   # Fonts.
-  fonts.fonts = with pkgs; [
-    fira
-    fira-code
-    font-awesome
-    google-fonts
-    ibm-plex
-    jetbrains-mono
-  ];
+  fonts = {
+    fonts = with pkgs; [
+      fira
+      fira-code
+      font-awesome
+      google-fonts
+      ibm-plex
+      jetbrains-mono
+      source-han-sans
+    ];
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" "Source Han Serif" ];
+      sansSerif = [ "Noto Sans" "Source Han Sans" ];
+    };
+  };
 
   # Packages
   environment = {
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };
+
+    etc = {
+      "greetd/environments".text = ''
+        sway
+        fish
+        bash
+      '';
+    };
+
     systemPackages = with pkgs; [
+
+      # CLI packages
+      bottom
+      dialog
+      direnv
+      dnscrypt-proxy2
+      earlyoom
+      efibootmgr
+      fish
+      git
+      gitui
+      glxinfo
+      gnumake
+      home-manager
+      htop
+      inxi
+      joshuto
+      nixos-option
+      texlab
+      translate-shell
+      udisks
+      vulkan-tools
+      wget
+      wl-clipboard
+      xclip
+
+      # Plasma5 extra
+      libsForQt5.ark
+      libsForQt5.kate
+      libsForQt5.ktouch
+      libsForQt5.quazip
+
       # Data science
       R
       clickhouse
@@ -156,40 +247,6 @@ in
       mongodb
       sqlite
 
-      # CLI packages
-      bottom
-      dialog
-      direnv
-      dnscrypt-proxy2
-      earlyoom
-      efibootmgr
-      fish
-      git
-      gitui
-      glxinfo
-      gnumake
-      home-manager
-      htop
-      inxi
-      joshuto
-      mesa-demos
-      nixos-option
-      texlab
-      translate-shell
-      virtualgl
-      vulkan-tools
-      wget
-      wl-clipboard
-      xclip
-
-      # KDE plasma
-      libsForQt5.ark
-      libsForQt5.kate
-      libsForQt5.ktouch
-      libsForQt5.quazip
-      libsForQt5.sddm-kcm
-      wacomtablet
-
       # Browser
       firefox
 
@@ -209,7 +266,6 @@ in
       tdesktop
 
       # Theme/Icon
-      lxappearance
       papirus-icon-theme
 
       # Printer driver
@@ -217,10 +273,6 @@ in
       epson-escpr2
       foomatic-db
       foomatic-filters
-
-      # Nonfree
-      discord
-      zoom-us
 
       # Compression
       bzip2
@@ -241,6 +293,10 @@ in
       hugo
       mdbook
       mdbook-linkcheck
+
+      # Nonfree
+      discord
+      zoom-us
 
       # Python310 system wide
       (
@@ -669,8 +725,9 @@ in
   programs = {
     dconf.enable = true;
     java.enable = true;
-    kdeconnect.enable = true;
+    light.enable = true;
     neovim.defaultEditor = true;
+    kdeconnect.enable = true;
     partition-manager.enable = true;
     mtr.enable = true;
 
@@ -796,10 +853,77 @@ in
       shellAliases = {
       };
     };
+
+    # Sway
+    sway = {
+      enable = false;
+      wrapperFeatures.gtk = true;
+          extraPackages = with pkgs; [
+
+            # Sway config
+            configure-gtk
+            dbus-sway-environment
+
+            # Sway packages
+            alacritty # gpu accelerated terminal
+            autotiling # auto tiling for i3/sway
+            dmenu-wayland # menu wayland
+            glib # gsettings
+            gnome3.adwaita-icon-theme  # default gnome cursors
+            grim # screenshot functionality
+            kanshi # dynamic display configuration tool
+            mako # notification system developed
+            mpd # music player
+            mpv # video player
+            mupdf # pdf reader
+            ncmpcpp # ncurses based mpd client
+            pcmanfm # file manager gtk
+            qutebrowser # browser
+            slurp # screenshot functionality
+            swayidle # idle management daemon
+            swaykbdd # per-window keyboard layout for sway
+            swaylock # lockscreen sway
+            swaysettings # sway gui settings
+            waybar # wayland sway bar
+            wdisplays # configuring displays
+            wf-recorder # screen recording
+            wmctrl # interact netwm x wm
+            wofi # menu launcher
+            wvkbd # on-screen keyboard for wlroots
+            xdg-utils # for opening default programs when clicking links
+
+            # Theme
+            lxappearance
+            arc-theme
+            arc-kde-theme
+
+            # Qt
+            libsForQt5.qt5ct
+            libsForQt5.qtstyleplugin-kvantum
+
+      ];
+      extraSessionCommands = ''
+        export SDL_VIDEODRIVER=wayland
+        export QT_QPA_PLATFORM=wayland
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export MOZ_ENABLE_WAYLAND=1
+      '';
+    };
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
   };
 
   # Services
   services = {
+    dbus = {
+      enable = true;
+    };
+
     dnscrypt-proxy2 = {
       enable = true;
       settings = {
@@ -811,6 +935,17 @@ in
     earlyoom = {
       enable = true;
       freeMemThreshold = 5;
+    };
+
+    greetd = {
+      enable = false;
+      settings = rec {
+        initial_session = {
+          command = "${pkgs.sway}/bin/sway";
+          user = "${name}";
+        };
+        default_session = initial_session;
+      };
     };
 
     mysql = {
@@ -856,10 +991,32 @@ in
       excludePackages = with pkgs; [
         xterm
       ];
-      displayManager.sddm.enable = true;
+      displayManager = {
+        defaultSession = "plasmawayland";
+        sddm = {
+          enable = true;
+        };
+        lightdm = {
+          enable = false;
+          greeter.enable = false;
+        };
+        autoLogin = {
+          enable = true;
+          user = "${name}";
+        };
+      };
       layout = "us";
       libinput.enable = true;
       xkbVariant = "";
+    };
+  };
+
+  # Systemd
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
     };
   };
 
@@ -880,7 +1037,13 @@ in
   };
 
   # Security
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    pam.services.kwallet = {
+      name = "kwallet";
+      enableKwallet = true;
+    };
+  };
 
   # Firewall.
   networking.firewall = {
