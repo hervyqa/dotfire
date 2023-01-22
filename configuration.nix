@@ -170,7 +170,6 @@ in {
       direnv
       dnscrypt-proxy2
       efibootmgr
-      fish
       git
       gitui
       glxinfo
