@@ -7,6 +7,9 @@
   name = "hervyqa";
   fullname = "Hervy Qurrotul Ainur Rozi";
   email = "hervyqa@proton.me";
+  timezone = "Asia/Jakarta";
+  defaultLocale = "en_US.UTF-8";
+  extralocale = "id_ID.UTF-8";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -64,21 +67,21 @@ in {
   };
 
   # Set your time zone.
-  time.timeZone = "Asia/Jakarta";
+  time.timeZone = "${timezone}";
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "${defaultlocale}";
     extraLocaleSettings = {
-      LC_ADDRESS = "id_ID.UTF-8";
-      LC_IDENTIFICATION = "id_ID.UTF-8";
-      LC_MEASUREMENT = "id_ID.UTF-8";
-      LC_MONETARY = "id_ID.UTF-8";
-      LC_NAME = "id_ID.UTF-8";
-      LC_NUMERIC = "id_ID.UTF-8";
-      LC_PAPER = "id_ID.UTF-8";
-      LC_TELEPHONE = "id_ID.UTF-8";
-      LC_TIME = "id_ID.UTF-8";
+      LC_ADDRESS = "${extralocale}";
+      LC_IDENTIFICATION = "${extralocale}";
+      LC_MEASUREMENT = "${extralocale}";
+      LC_MONETARY = "${extralocale}";
+      LC_NAME = "${extralocale}";
+      LC_NUMERIC = "${extralocale}";
+      LC_PAPER = "${extralocale}";
+      LC_TELEPHONE = "${extralocale}";
+      LC_TIME = "${extralocale}";
     };
   };
 
@@ -364,6 +367,7 @@ in {
             b4dm4n.vscode-nixpkgs-fmt
             bbenoist.nix
             bmalehorn.vscode-fish
+            davidanson.vscode-markdownlint
             editorconfig.editorconfig
             esbenp.prettier-vscode
             formulahendry.code-runner
@@ -382,6 +386,7 @@ in {
             pkief.material-icon-theme
             scala-lang.scala
             shardulm94.trailing-spaces
+            shd101wyy.markdown-preview-enhanced
             streetsidesoftware.code-spell-checker
           ];
         }
