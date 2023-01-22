@@ -716,6 +716,10 @@ in {
     neovim.defaultEditor = true;
     partition-manager.enable = true;
 
+    firefox = {
+      enable = true;
+    };
+
     gnupg = {
       agent = {
         enable = true;
@@ -868,10 +872,6 @@ in {
     earlyoom = {
       enable = true;
       freeMemThreshold = 5;
-    };
-
-    firefox = {
-      enable = true;
     };
 
     mysql = {
