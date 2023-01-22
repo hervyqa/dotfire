@@ -29,7 +29,9 @@ in {
       "/crypto_keyfile.bin" = null;
     };
     kernel = {
-      sysctl."vm.swappiness" = lib.mkDefault "10";
+      sysctl = {
+        "vm.swappiness" = 10;
+      };
     };
     tmpOnTmpfs = true;
   };
@@ -917,6 +919,8 @@ in {
         CPU_BOOST_ON_BAT = 0;
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        START_CHARGE_THRESH_BAT0 = 40;
+        STOP_CHARGE_THRESH_BAT0 = 50;
       };
     };
 
@@ -969,7 +973,10 @@ in {
 
   # Power Management
   powerManagement = {
-    cpuFreqGovernor = lib.mkDefault "schedutil";
+    enable = true;
+    powertop = {
+      enable = false;
+    };
   };
 
   # Systemd
