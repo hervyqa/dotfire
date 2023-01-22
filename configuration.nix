@@ -120,7 +120,7 @@ in {
     config = {
       allowUnfree = true;
       firefox = {
-        enablePlasmaBrowserIntegration = true;
+        enablePlasmaBrowserIntegration = false;
       };
     };
   };
