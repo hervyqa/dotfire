@@ -764,15 +764,15 @@ in {
         ll = "ls -lha";
         lsf = "lsblk -o name,fstype,fsavail,fsused,size,mountpoint";
 
-        ncg = "sudo nix-collect-garbage -d";
-        ncu = "sudo nix-channel --update";
+        ncg = "doas nix-collect-garbage -d";
+        ncu = "doas nix-channel --update";
         neq = "nix-env -qaP";
         nim = "nix-shell -p nix-info --run 'nix-info -m'";
-        nrd = "sudo nixos-rebuild dry-build --show-trace";
-        nrs = "sudo nixos-rebuild switch";
-        nrt = "sudo nixos-rebuild test";
-        nrb = "sudo nixos-rebuild boot";
-        nsgc = "sudo nix-store --gc";
+        nrd = "doas nixos-rebuild dry-build --show-trace";
+        nrs = "doas nixos-rebuild switch";
+        nrt = "doas nixos-rebuild test";
+        nrb = "doas nixos-rebuild boot";
+        nsgc = "doas nix-store --gc";
 
         ga = "git add";
         gaa = "git add --all";
