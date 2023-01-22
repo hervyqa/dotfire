@@ -8,7 +8,7 @@
   fullname = "Hervy Qurrotul Ainur Rozi";
   email = "hervyqa@proton.me";
   timezone = "Asia/Jakarta";
-  defaultLocale = "en_US.UTF-8";
+  defaultlocale = "en_US.UTF-8";
   extralocale = "id_ID.UTF-8";
 in {
   imports = [
