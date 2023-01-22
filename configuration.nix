@@ -22,7 +22,7 @@ in {
         efiSysMountPoint = "/boot/efi";
       };
       grub = {
-        useOSProber = false; # default: false
+        useOSProber = false; # true: if dual boot.
       };
     };
     initrd.secrets = {
@@ -166,7 +166,6 @@ in {
       dialog
       direnv
       dnscrypt-proxy2
-      earlyoom
       efibootmgr
       fish
       git
