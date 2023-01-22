@@ -274,9 +274,9 @@ in {
       # Force sudo to doas
       (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
 
-      # Python310 system wide
+      # Python3 system wide
       (
-        python310.withPackages (
+        python3.withPackages (
           ps:
             with ps; [
               Theano
