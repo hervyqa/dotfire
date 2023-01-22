@@ -14,12 +14,14 @@ cd nixos-config
 Ganti variabel dibawah ini sesuai dengan data Anda di `configuration.nix`.
 
 ```nix
-name = "hervyqa";
-fullname = "Hervy Qurrotul Ainur Rozi";
-email = "hervyqa@proton.me";
-timezone = "Asia/Jakarta";
-defaultLocale = "en_US.UTF-8";
-extralocale = "id_ID.UTF-8";
+}: let
+  name = "hervyqa";
+  fullname = "Hervy Qurrotul Ainur Rozi";
+  email = "hervyqa@proton.me";
+  timezone = "Asia/Jakarta";
+  defaultLocale = "en_US.UTF-8";
+  extralocale = "id_ID.UTF-8";
+in {
 ```
 
 Timpa ke direktori `/etc/nixos`.
