@@ -852,7 +852,6 @@ in {
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr
     ];
-    gtkUsePortal = true;
   };
 
   # Services
