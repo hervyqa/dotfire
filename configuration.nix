@@ -28,6 +28,10 @@ in {
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
     };
+    kernel = {
+      sysctl."vm.swappiness" = lib.mkDefault "10";
+    };
+    tmpOnTmpfs = true;
   };
 
   networking = {
@@ -50,7 +54,7 @@ in {
         };
       };
     };
-    # Configure network proxy if necessary
+    # Configure network proxy if necessary.
     # proxy = {
     #   default = "http://user:password@proxy:port/";
     #   noProxy = "127.0.0.1,localhost,internal.domain";
@@ -112,8 +116,13 @@ in {
   };
 
   # Nixpkgs config.
-  nixpkgs.config = {
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      firefox = {
+        enablePlasmaBrowserIntegration = true;
+      };
+    };
   };
 
   # Fonts.
@@ -137,6 +146,7 @@ in {
   environment = {
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
     };
 
     systemPackages = with pkgs;
@@ -211,9 +221,6 @@ in {
       mongodb
       sqlite
 
-      # Browser
-      firefox
-
       # Design
       inkscape
       krita
@@ -261,6 +268,9 @@ in {
       # Nonfree
       discord
       zoom-us
+
+      # Force sudo to doas
+      (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
 
       # Python310 system wide
       (
@@ -686,19 +696,29 @@ in {
     ];
   };
 
+  # Zram swap
+  zramSwap = {
+    enable = true;
+    algorithm = "lz4";
+  };
+
   # Programs
   programs = {
+    adb.enable = true;
     dconf.enable = true;
+    gamemode.enable = true;
     java.enable = true;
-    light.enable = true;
-    neovim.defaultEditor = true;
     kdeconnect.enable = true;
-    partition-manager.enable = true;
+    light.enable = true;
     mtr.enable = true;
+    neovim.defaultEditor = true;
+    partition-manager.enable = true;
 
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
     };
 
     tmux = {
@@ -815,15 +835,18 @@ in {
         gta = "git tag -a";
       };
 
-      shellAliases = {
-      };
+      shellAliases = {};
     };
   };
 
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
+    ];
+    gtkUsePortal = true;
   };
 
   # Services
@@ -843,6 +866,10 @@ in {
     earlyoom = {
       enable = true;
       freeMemThreshold = 5;
+    };
+
+    firefox = {
+      enable = true;
     };
 
     mysql = {
@@ -865,12 +892,32 @@ in {
       pulse.enable = true;
     };
 
+    power-profiles-daemon = {
+      enable = false; # switch to tlp
+    };
+
     postgresql = {
       enable = false;
     };
 
     printing = {
       enable = true;
+      stateless = true;
+      webInterface = false;
+    };
+
+    thermald = {
+      enable = true;
+    };
+
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      };
     };
 
     xserver = {
@@ -920,12 +967,40 @@ in {
     };
   };
 
+  # Power Management
+  powerManagement = {
+    cpuFreqGovernor = lib.mkDefault "schedutil";
+  };
+
+  # Systemd
+  systemd = {
+    oomd = {
+      enable = false; # switch to earlyoom
+    };
+  };
+
   # Security
   security = {
-    rtkit.enable = true;
+    rtkit = {
+      enable = true;
+    };
     pam.services.kwallet = {
       name = "kwallet";
       enableKwallet = true;
+    };
+    sudo = {
+      enable = false;
+    };
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = [ "root" ];
+          groups = [ "wheel" ];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
     };
   };
 
