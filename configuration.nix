@@ -10,6 +10,7 @@
   timezone = "Asia/Jakarta";
   defaultlocale = "en_US.UTF-8";
   extralocale = "id_ID.UTF-8";
+  layout = "us";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -897,7 +898,7 @@ in {
     };
 
     power-profiles-daemon = {
-      enable = false; # switch to tlp
+      enable = true;
     };
 
     postgresql = {
@@ -915,7 +916,7 @@ in {
     };
 
     tlp = {
-      enable = true;
+      enable = false;
       settings = {
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
@@ -951,7 +952,7 @@ in {
           user = "${name}";
         };
       };
-      layout = "us";
+      layout = "${layout}";
       libinput.enable = true;
       xkbVariant = "";
     };

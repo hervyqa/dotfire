@@ -2,7 +2,7 @@
 
 ![img](img.webp)
 
-Konfigurasi minimalis sistem operasi Nixos dengan KDE Plasma Wayland untuk kebutuhan Data Sains.
+Konfigurasi minimalis sistem operasi Nixos dengan KDE Plasma Wayland (disk encrypted) untuk kebutuhan Data Sains.
 
 ## Pemasangan
 
@@ -21,6 +21,7 @@ Ganti variabel dibawah ini sesuai dengan data Anda di `configuration.nix`.
   timezone = "Asia/Jakarta";
   defaultlocale = "en_US.UTF-8";
   extralocale = "id_ID.UTF-8";
+  layout = "us";
 in {
 ```
 
@@ -68,10 +69,8 @@ sudo cp configuration.nix /etc/nixos/ -rfv
 | `mysql.enable = true;`                    | Mengaktifkan layanan mysql basisdata.                                                                              |
 | `pipewire.enable = true;`                 | Mengaktifkan layanan pipewire audio.                                                                               |
 | `thermald.enable = true;`                 | Mengaktifkan layanan thermald pengatur suhu.                                                                       |
-| `tlp.enable = true;`                      | Mengaktifkan layanan tlp manajemen baterai.                                                                        |
 | `doas.enable = true;`                     | Mengaktifkan program doas pengganti sudo.                                                                          |
 | `sudo.enable = false;`                    | Menghapus program sudo.                                                                                            |
-| `power-profiles-daemon.enable = false;`   | Menonaktifkan layanan PPD                                                                                          |
 | `systemd.oomd.enable = false;`            | Menonaktifkan layanan systemd-oom karena sudah menggunakan earlyoom.                                               |
 | `defaultSession = "plasmawayland";`       | Plasms Wayland sebagai sesi utama.                                                                                 |
 | `bluetooth.hsphfpd.enable = true;`        | Mengaktifkan fitur hsphfpd bluetooth.                                                                              |
