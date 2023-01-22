@@ -275,6 +275,109 @@ in {
       # Force sudo to doas
       (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
 
+      # RStudio system wide
+      # failed to compiling:
+      # arrow, Hmisc (interp), ggforce, prophet
+      (
+        rstudioWrapper.override {
+          packages = with rPackages; [
+            Cairo
+            DT
+            DataExplorer
+            JuliaCall
+            JuliaConnectoR
+            MASS
+            RANN
+            RColorBrewer
+            Rcpp
+            XML
+            beepr
+            colourpicker
+            dataCompareR
+            data_table
+            datapasta
+            devtools
+            diffobj
+            dplyr
+            dygraphs
+            echarts4r
+            esquisse
+            flexdashboard
+            forecast
+            foreign
+            freqparcoord
+            fst
+            geofacet
+            ggiraph
+            ggplot2
+            glue
+            gmodels
+            gridExtra
+            here
+            httr
+            installr
+            janitor
+            jsonlite
+            knitr
+            leaflet
+            listviewer
+            lme4
+            lubridate
+            magrittr
+            mapsapi
+            officer
+            openxlsx
+            optparse
+            pacman
+            paletteer
+            patchwork
+            plotly
+            plumber
+            profvis
+            purrr
+            quantmod
+            reactable
+            readr
+            readxl
+            remedy
+            remotes
+            reshape2
+            reticulate
+            rio
+            rmarkdown
+            roxygen2
+            rvest
+            scales
+            sf
+            shiny
+            shinyjs
+            spatstat
+            splitstackshape
+            sqldf
+            stringr
+            testthat
+            tidycensus
+            tidygeocoder
+            tidymodels
+            tidyquant
+            tidyr
+            tidytext
+            tidyverse
+            tidyxl
+            tmap
+            tmaptools
+            tsbox
+            usethis
+            validate
+            vroom
+            xts
+            yaml
+            ymlthis
+            zoo
+          ];
+        }
+      )
+
       # Python3 system wide
       (
         python3.withPackages (
@@ -387,109 +490,6 @@ in {
             shardulm94.trailing-spaces
             shd101wyy.markdown-preview-enhanced
             streetsidesoftware.code-spell-checker
-          ];
-        }
-      )
-
-      # RStudio system wide
-      # failed to compiling:
-      # arrow, Hmisc (interp), ggforce, prophet
-      (
-        rstudioWrapper.override {
-          packages = with rPackages; [
-            Cairo
-            DT
-            DataExplorer
-            JuliaCall
-            JuliaConnectoR
-            MASS
-            RANN
-            RColorBrewer
-            Rcpp
-            XML
-            beepr
-            colourpicker
-            dataCompareR
-            data_table
-            datapasta
-            devtools
-            diffobj
-            dplyr
-            dygraphs
-            echarts4r
-            esquisse
-            flexdashboard
-            forecast
-            foreign
-            freqparcoord
-            fst
-            geofacet
-            ggiraph
-            ggplot2
-            glue
-            gmodels
-            gridExtra
-            here
-            httr
-            installr
-            janitor
-            jsonlite
-            knitr
-            leaflet
-            listviewer
-            lme4
-            lubridate
-            magrittr
-            mapsapi
-            officer
-            openxlsx
-            optparse
-            pacman
-            paletteer
-            patchwork
-            plotly
-            plumber
-            profvis
-            purrr
-            quantmod
-            reactable
-            readr
-            readxl
-            remedy
-            remotes
-            reshape2
-            reticulate
-            rio
-            rmarkdown
-            roxygen2
-            rvest
-            scales
-            sf
-            shiny
-            shinyjs
-            spatstat
-            splitstackshape
-            sqldf
-            stringr
-            testthat
-            tidycensus
-            tidygeocoder
-            tidymodels
-            tidyquant
-            tidyr
-            tidytext
-            tidyverse
-            tidyxl
-            tmap
-            tmaptools
-            tsbox
-            usethis
-            validate
-            vroom
-            xts
-            yaml
-            ymlthis
-            zoo
           ];
         }
       )
