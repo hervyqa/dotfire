@@ -1001,8 +1001,8 @@ in {
       enable = true;
       extraRules = [
         {
-          users = [ "root" ];
-          groups = [ "wheel" ];
+          users = ["root"];
+          groups = ["wheel"];
           keepEnv = true;
           persist = true;
         }
