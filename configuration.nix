@@ -92,15 +92,19 @@ in {
       isNormalUser = true;
       description = "${fullname}";
       extraGroups = [
+        "adbusers"
         "audio"
         "disk"
         "input"
         "lp"
+        "mysql"
         "network"
         "networkmanager"
+        "power"
         "scanner"
         "sound"
         "systemd-journal"
+        "users"
         "video"
         "wheel"
       ];
@@ -219,6 +223,7 @@ in {
       octaveFull # matlab
       sqlitebrowser # sqlite
       texstudio # latex
+      thonny # python
 
       # Devops
       mongodb
@@ -953,6 +958,7 @@ in {
       };
       layout = "${layout}";
       libinput.enable = true;
+      videoDrivers = ["amdgpu"];
       xkbVariant = "";
     };
   };
