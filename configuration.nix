@@ -725,10 +725,10 @@ in {
       enable = true;
       policies = {
         CaptivePortal = false;
+        DisableFirefoxAccounts = true;
         DisableFirefoxStudies = true;
         DisablePocket = true;
         DisableTelemetry = true;
-        DisableFirefoxAccounts = true;
         FirefoxHome = {
           Pocket = false;
           Snippets = false;
