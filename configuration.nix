@@ -899,6 +899,10 @@ in {
       enable = true;
     };
 
+    mongodb = {
+      enable = false;
+    };
+
     mysql = {
       enable = true;
       package = pkgs.mariadb;
