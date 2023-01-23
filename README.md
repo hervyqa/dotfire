@@ -47,36 +47,37 @@ sudo cp configuration.nix /etc/nixos/ -rfv
 
 ### Pengaturan
 
-| Konfigurasi                               | Deskripsi                                                                                                          |
-| :---------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
-| `vm.swappiness = 10;`                     | Nilai swappines.                                                                                                   |
-| `tmpOnTmpfs = true;`                      | Pengunaan tmpfs.                                                                                                   |
-| `defaultUserShell = pkgs.fish;`           | Fish sebagai shell utama.                                                                                          |
-| `auto-optimise-store = true;`             | Optimasi berkas/direktori nix store agar penggunaan disk yang minimal.                                             |
-| `allowUnfree = true;`                     | Perizinan memasang aplikasi nonfree.                                                                               |
-| `adb.enable = true;`                      | Menyambungkan perangkat Android.                                                                                   |
-| `dconf.enable = true;`                    | Mengaktifkan tema GTK.                                                                                             |
-| `gamemode.enable = true;`                 | Mengaktifkan layanan `gamemode`.                                                                                   |
-| `java.enable = true;`                     | Lingkungan java.                                                                                                   |
-| `kdeconnect.enable = true;`               | Fitur kde connect untuk transfer berkas secara intan.                                                              |
-| `light.enable = true;`                    | Pengatur kecerahan dengan cli.                                                                                     |
-| `mtr.enable = true;`                      | Mengaktifkan perkakas diagnosa jaringan.                                                                           |
-| `neovim.defaultEditor = true;`            | Penyunting teks cli utama adalah neovim.                                                                           |
-| `enablePlasmaBrowserIntegration = false;` | Menonaktifkan integrasi firefox dengan plasma                                                                      |
-| `autoLogin.enable = true;`                | Otomatis login saat pertama kali booting.                                                                          |
-| `dnscrypt-proxy2.enable = true;`          | Mengaktifkan layanan enkripsi dns.                                                                                 |
-| `earlyoom.enable = true;`                 | Mengaktifkan layanan jika terjadi limit memori.                                                                    |
-| `mysql.enable = true;`                    | Mengaktifkan layanan mysql basisdata.                                                                              |
-| `pipewire.enable = true;`                 | Mengaktifkan layanan pipewire audio.                                                                               |
-| `thermald.enable = true;`                 | Mengaktifkan layanan thermald pengatur suhu.                                                                       |
-| `doas.enable = true;`                     | Mengaktifkan program doas pengganti sudo.                                                                          |
-| `sudo.enable = false;`                    | Menghapus program sudo.                                                                                            |
-| `systemd.oomd.enable = false;`            | Menonaktifkan layanan systemd-oom karena sudah menggunakan earlyoom.                                               |
-| `defaultSession = "plasmawayland";`       | Plasms Wayland sebagai sesi utama.                                                                                 |
-| `bluetooth.hsphfpd.enable = true;`        | Mengaktifkan fitur hsphfpd bluetooth.                                                                              |
-| `opengl.extraPackages = amdvlk`           | Menambahkan ekstra paket untuk dukungan vulkan.                                                                    |
-| `kernelModules = ["amdgpu"];`             | Kernel modul tambahan `amdgpu`, Anda dapat mengubahnya di `hardware-configuration.nix` bila tidak menggunakan AMD. |
-| `system.stateVersion = "22.11";`          | Versi NixOS yang digunakan.                                                                                        |
+| Konfigurasi                               | Deskripsi                                                              |
+| :---------------------------------------- | :--------------------------------------------------------------------- |
+| `vm.swappiness = 10;`                     | Nilai swappines.                                                       |
+| `tmpOnTmpfs = true;`                      | Pengunaan tmpfs.                                                       |
+| `defaultUserShell = pkgs.fish;`           | Fish sebagai shell utama.                                              |
+| `auto-optimise-store = true;`             | Optimasi berkas/direktori nix store agar penggunaan disk yang minimal. |
+| `allowUnfree = true;`                     | Perizinan memasang aplikasi nonfree.                                   |
+| `adb.enable = true;`                      | Menyambungkan perangkat Android.                                       |
+| `dconf.enable = true;`                    | Mengaktifkan tema GTK.                                                 |
+| `gamemode.enable = true;`                 | Mengaktifkan layanan `gamemode`.                                       |
+| `java.enable = true;`                     | Lingkungan java.                                                       |
+| `kdeconnect.enable = true;`               | Fitur kde connect untuk transfer berkas secara intan.                  |
+| `light.enable = true;`                    | Pengatur kecerahan dengan cli.                                         |
+| `mtr.enable = true;`                      | Mengaktifkan perkakas diagnosa jaringan.                               |
+| `neovim.defaultEditor = true;`            | Penyunting teks cli utama adalah neovim.                               |
+| `enablePlasmaBrowserIntegration = false;` | Menonaktifkan integrasi firefox dengan plasma                          |
+| `autoLogin.enable = true;`                | Otomatis login saat pertama kali booting.                              |
+| `dnscrypt-proxy2.enable = true;`          | Mengaktifkan layanan enkripsi dns.                                     |
+| `earlyoom.enable = true;`                 | Mengaktifkan layanan jika terjadi limit memori.                        |
+| `fstrim.enable = true;`                   | Mengaktifkan layanan periodik trim SSD.                                |
+| `mysql.enable = true;`                    | Mengaktifkan layanan mysql basisdata.                                  |
+| `pipewire.enable = true;`                 | Mengaktifkan layanan pipewire audio.                                   |
+| `thermald.enable = true;`                 | Mengaktifkan layanan thermald pengatur suhu.                           |
+| `doas.enable = true;`                     | Mengaktifkan program doas pengganti sudo.                              |
+| `sudo.enable = false;`                    | Menghapus program sudo.                                                |
+| `systemd.oomd.enable = false;`            | Menonaktifkan layanan systemd-oom karena sudah menggunakan earlyoom.   |
+| `defaultSession = "plasmawayland";`       | Plasms Wayland sebagai sesi utama.                                     |
+| `bluetooth.hsphfpd.enable = true;`        | Mengaktifkan fitur hsphfpd bluetooth.                                  |
+| `opengl.extraPackages = amdvlk`           | Menambahkan ekstra paket untuk dukungan vulkan.                        |
+| `kernelModules = ["amdgpu"];`             | Kernel modul tambahan `amdgpu`. (`hardware-configuration.nix`)         |
+| `system.stateVersion = "22.11";`          | Versi NixOS yang digunakan.                                            |
 
 ## Data science
 

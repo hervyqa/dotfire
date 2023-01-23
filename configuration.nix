@@ -880,6 +880,10 @@ in {
       freeMemThreshold = 5;
     };
 
+    fstrim = {
+      enable = true;
+    };
+
     mysql = {
       enable = true;
       package = pkgs.mariadb;
