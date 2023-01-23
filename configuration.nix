@@ -178,7 +178,6 @@ in {
       gitui
       glxinfo
       gnumake
-      home-manager
       htop
       inxi
       joshuto
