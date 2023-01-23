@@ -965,9 +965,6 @@ in {
         };
         xterm.enable = false;
       };
-      excludePackages = with pkgs; [
-        xterm
-      ];
       displayManager = {
         defaultSession = "plasmawayland";
         sddm = {
@@ -978,9 +975,13 @@ in {
           user = "${name}";
         };
       };
+      excludePackages = with pkgs; [
+        xterm
+      ];
       layout = "${layout}";
       libinput.enable = true;
       videoDrivers = ["amdgpu"];
+      wacom.enable = true;
       xkbVariant = "";
     };
   };
