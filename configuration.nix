@@ -784,6 +784,7 @@ in {
 
     fish = {
       enable = true;
+      useBabelfish = true;
       shellAbbrs = {
         n = "nvim";
         v = "vim";
