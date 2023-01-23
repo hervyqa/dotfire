@@ -223,7 +223,6 @@ in {
       octaveFull # matlab
       sqlitebrowser # sqlite
       texstudio # latex
-      thonny # python
 
       # Devops
       mongodb
