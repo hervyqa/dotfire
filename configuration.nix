@@ -185,7 +185,6 @@ in {
       nixos-option
       texlab
       translate-shell
-      udisks
       vulkan-tools
       wget
       wl-clipboard
@@ -722,6 +721,7 @@ in {
     mtr.enable = true;
     neovim.defaultEditor = true;
     partition-manager.enable = true;
+    udisks2.enable = true;
 
     firefox = {
       enable = true;
