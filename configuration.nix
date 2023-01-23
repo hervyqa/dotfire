@@ -1044,6 +1044,14 @@ in {
     allowedUDPPorts = [];
   };
 
-  # System upgrade
-  system.stateVersion = "22.11";
+  # System.
+  system = {
+    autoUpgrade = {
+      allowReboot = true;
+    };
+    autoUpgrade = {
+      enable = true;
+    };
+    stateVersion = "21.11";
+  };
 }
