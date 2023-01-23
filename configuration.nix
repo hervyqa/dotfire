@@ -782,7 +782,7 @@ in {
         ncu = "doas nix-channel --update";
         neq = "nix-env -qaP";
         nim = "nix-shell -p nix-info --run 'nix-info -m'";
-        nrd = "doas nixos-rebuild dry-build --show-trace";
+        nrd = "doas nixos-rebuild dry-build";
         nrs = "doas nixos-rebuild switch";
         nrt = "doas nixos-rebuild test";
         nrb = "doas nixos-rebuild boot";
