@@ -706,7 +706,7 @@ in {
   # Zram swap
   zramSwap = {
     enable = true;
-    algorithm = "lz4";
+    algorithm = "zstd"; # default
   };
 
   # Programs
