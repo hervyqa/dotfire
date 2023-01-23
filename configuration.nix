@@ -721,7 +721,6 @@ in {
     mtr.enable = true;
     neovim.defaultEditor = true;
     partition-manager.enable = true;
-    udisks2.enable = true;
 
     firefox = {
       enable = true;
@@ -948,6 +947,10 @@ in {
         START_CHARGE_THRESH_BAT0 = 40;
         STOP_CHARGE_THRESH_BAT0 = 50;
       };
+    };
+
+    udisks2 = {
+      enable = true;
     };
 
     xserver = {
