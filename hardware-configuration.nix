@@ -12,21 +12,41 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "ehci_pci" "uas" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = ["amdgpu"];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/9395a257-5640-493e-acf9-dcb11761f052";
-    fsType = "ext4";
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "ahci"
+        "ehci_pci"
+        "sd_mod"
+        "uas"
+        "usb_storage"
+        "usbhid"
+        "xhci_pci"
+      ];
+      kernelModules = [
+        "amdgpu"
+      ];
+      luks.devices = {
+        "luks-832b5bb1-889c-407d-972a-db398eab8c59" = {
+          device = "/dev/disk/by-uuid/832b5bb1-889c-407d-972a-db398eab8c59";
+        };
+      };
+    };
+    kernelModules = [
+      "kvm-amd"
+    ];
+    extraModulePackages = [];
   };
 
-  boot.initrd.luks.devices."luks-832b5bb1-889c-407d-972a-db398eab8c59".device = "/dev/disk/by-uuid/832b5bb1-889c-407d-972a-db398eab8c59";
-
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/686D-6983";
-    fsType = "vfat";
+  fileSystems = {
+    "/boot/efi" = {
+      device = "/dev/disk/by-uuid/686D-6983";
+      fsType = "vfat";
+    };
+    "/" = {
+      device = "/dev/disk/by-uuid/9395a257-5640-493e-acf9-dcb11761f052";
+      fsType = "ext4";
+    };
   };
 
   swapDevices = [];
