@@ -749,6 +749,7 @@ in {
 
     tmux = {
       enable = true;
+      clock24 = true;
       terminal = "screen-256color";
       historyLimit = 5000;
     };
@@ -1041,10 +1042,13 @@ in {
   };
 
   # Firewall.
-  networking.firewall = {
-    enable = false;
-    allowedTCPPorts = [];
-    allowedUDPPorts = [];
+  networking = {
+    firewall = {
+      enable = true;
+      allowPing = true;
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
+    };
   };
 
   # System.
