@@ -1032,6 +1032,7 @@ in {
     };
     sudo = {
       enable = false;
+      wheelNeedsPassword = false;
     };
     doas = {
       enable = true;
@@ -1043,6 +1044,7 @@ in {
           persist = true;
         }
       ];
+      wheelNeedsPassword = false;
     };
   };
 
