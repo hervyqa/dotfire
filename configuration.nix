@@ -1063,12 +1063,14 @@ in {
       allowedUDPPorts = [];
       allowedTCPPortRanges = [
         {
-          from = 1714; to = 1764; # kdeconnect
+          from = 1714;
+          to = 1764; # kdeconnect
         }
       ];
       allowedUDPPortRanges = [
         {
-          from = 1714; to = 1764; # kdeconnect
+          from = 1714;
+          to = 1764; # kdeconnect
         }
       ];
     };
