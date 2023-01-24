@@ -972,6 +972,7 @@ in {
         defaultSession = "plasmawayland";
         sddm = {
           enable = true;
+          autoNumlock = true;
         };
         autoLogin = {
           enable = true;
