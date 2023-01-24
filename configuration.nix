@@ -178,10 +178,10 @@ in {
       glxinfo
       gnumake
       htop
+      imagemagick
       inxi
       joshuto
       nixos-option
-      texlab
       translate-shell
       vulkan-tools
       wget
@@ -240,7 +240,9 @@ in {
       # Latex
       kbibtex
       kile
-      texstudio # latex
+      texlab
+      texlive.combined.scheme-medium
+      texstudio
 
       # Communication
       tdesktop
