@@ -234,6 +234,8 @@ in {
       vokoscreen
 
       # Office
+      kbibtex
+      kile
       libreoffice
       libreoffice-qt
       zotero
