@@ -17,7 +17,7 @@ in {
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
+  # Bootloader
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -67,10 +67,10 @@ in {
     # };
   };
 
-  # Set your time zone.
+  # Set your time zone
   time.timeZone = "${timezone}";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties
   i18n = {
     defaultLocale = "${defaultlocale}";
     extraLocaleSettings = {
@@ -86,7 +86,7 @@ in {
     };
   };
 
-  # Define a user account.
+  # Define a user account
   users = {
     users.${name} = {
       isNormalUser = true;
@@ -112,7 +112,7 @@ in {
     defaultUserShell = pkgs.fish;
   };
 
-  # Nix settings.
+  # Nix settings
   nix = {
     gc = {
       automatic = true;
@@ -125,7 +125,7 @@ in {
     };
   };
 
-  # Nixpkgs config.
+  # Nixpkgs config
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -135,7 +135,7 @@ in {
     };
   };
 
-  # Fonts.
+  # Fonts
   fonts = {
     fonts = with pkgs; [
       fira
@@ -639,7 +639,7 @@ in {
               nnoremap <silent> <Down> :resize -2<CR>
               nnoremap <silent> = <C-w>=
 
-              " Visua; select
+              " Visual select
               vnoremap <silent> > >gv
               vnoremap <silent> < <gv
 
@@ -1054,7 +1054,7 @@ in {
     };
   };
 
-  # Firewall.
+  # Firewall
   networking = {
     firewall = {
       enable = true;
@@ -1074,7 +1074,7 @@ in {
     };
   };
 
-  # System.
+  # System
   system = {
     autoUpgrade = {
       enable = true;
