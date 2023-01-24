@@ -1076,10 +1076,8 @@ in {
   # System.
   system = {
     autoUpgrade = {
-      allowReboot = true;
-    };
-    autoUpgrade = {
       enable = true;
+      allowReboot = false;
     };
     stateVersion = "21.11";
   };
