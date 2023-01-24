@@ -982,7 +982,13 @@ in {
         xterm
       ];
       layout = "${layout}";
-      libinput.enable = true;
+      libinput = {
+        enable = true;
+        touchpad = {
+          disableWhileTyping = true;
+          sendEventsMode = "disabled-on-external-mouse";
+        };
+      };
       videoDrivers = ["amdgpu"];
       wacom.enable = true;
       xkbVariant = "";
