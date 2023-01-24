@@ -274,7 +274,7 @@ in {
       zoom-us
 
       # Force sudo to doas
-      # (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
+      (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
 
       # RStudio system wide
       # failed to compiling:
