@@ -11,6 +11,14 @@ git clone git@gitlab.com:hervyqa/nixos-config.git
 cd nixos-config
 ```
 
+Symlink ke `/etc/nixos`.
+
+```sh
+sudo mv configuration.nix configuration.nix.bak
+sudo ln -s $PWD/configuration.nix /etc/nixos/
+
+```
+
 Ganti variabel dibawah ini sesuai dengan data Anda di `configuration.nix`.
 
 ```nix
@@ -23,12 +31,6 @@ Ganti variabel dibawah ini sesuai dengan data Anda di `configuration.nix`.
   extralocale = "id_ID.UTF-8";
   layout = "us";
 in {
-```
-
-Timpa ke direktori `/etc/nixos`.
-
-```sh
-sudo cp configuration.nix /etc/nixos/ -rfv
 ```
 
 ## Info Mesin
