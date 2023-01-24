@@ -219,7 +219,6 @@ in {
       dbeaver # database
       octaveFull # matlab
       sqlitebrowser # sqlite
-      texstudio # latex
 
       # Devops
       mongodb
@@ -234,11 +233,14 @@ in {
       vokoscreen
 
       # Office
-      kbibtex
-      kile
       libreoffice
       libreoffice-qt
       zotero
+
+      # Latex
+      kbibtex
+      kile
+      texstudio # latex
 
       # Communication
       tdesktop
