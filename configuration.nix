@@ -236,6 +236,7 @@ in {
       # Office
       libreoffice
       libreoffice-qt
+      zotero
 
       # Communication
       tdesktop
