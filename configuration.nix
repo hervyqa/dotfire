@@ -172,7 +172,6 @@ in {
       bottom
       dialog
       direnv
-      dnscrypt-proxy2
       efibootmgr
       git
       gitui
