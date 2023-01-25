@@ -397,6 +397,7 @@ in {
               bokeh
               cython
               click
+              dash
               dask
               datasette
               dill
