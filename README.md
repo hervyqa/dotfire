@@ -79,6 +79,7 @@ in {
 | `bluetooth.hsphfpd.enable = true;`        | Mengaktifkan fitur hsphfpd bluetooth.                                  |
 | `opengl.extraPackages = amdvlk`           | Menambahkan ekstra paket untuk dukungan vulkan.                        |
 | `kernelModules = ["amdgpu"];`             | Kernel modul tambahan `amdgpu`. (`hardware-configuration.nix`)         |
+| `autoUpgrade.enable = true;`              | Mengaktifkan pembaruan otomatis.                                       |
 | `system.stateVersion = "22.11";`          | Versi NixOS yang digunakan.                                            |
 
 ## Data science
