@@ -167,6 +167,7 @@ in {
       kteatime
       ktouch
       quazip
+      rsibreak
 
       # CLI packages
       axel
