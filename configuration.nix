@@ -248,7 +248,7 @@ in {
 
       # Mind mapping
       heimer
-      treesheets
+      umbrello
       vym
 
       # Communication
