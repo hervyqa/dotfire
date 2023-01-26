@@ -1,17 +1,17 @@
-# Data Sains
+# Data Science
 
-![img](img.webp)
+![image](img.webp)
 
-Konfigurasi minimalis sistem operasi Nixos dengan KDE Plasma Wayland (disk encrypted) untuk kebutuhan Data Sains.
+Minimalist configuration of Nixos operating system with KDE Plasma Wayland (disk encrypted) for Data Science needs.
 
-## Pemasangan
+## Installation
 
 ```sh
 git clone git@gitlab.com:hervyqa/nixos-config.git
 cd nixos-config
 ```
 
-Symlink ke `/etc/nixos`.
+Symlink to `/etc/nixos`.
 
 ```sh
 sudo mv configuration.nix configuration.nix.bak
@@ -19,10 +19,10 @@ sudo ln -s $PWD/configuration.nix /etc/nixos/
 
 ```
 
-Ganti variabel dibawah ini sesuai dengan data Anda di `configuration.nix`.
+Replace the variables below according to your data in `configuration.nix`.
 
 ```nix
-}: let
+let
   name = "hervyqa";
   fullname = "Hervy Qurrotul Ainur Rozi";
   email = "hervyqa@proton.me";
@@ -30,63 +30,60 @@ Ganti variabel dibawah ini sesuai dengan data Anda di `configuration.nix`.
   defaultlocale = "en_US.UTF-8";
   extralocale = "id_ID.UTF-8";
   layout = "us";
-in {
+in
 ```
 
-## Info Mesin
+## NixOS Info
 
-```sh
-➜  nix-info -m
- - system: `"x86_64-linux"`
- - host os: `Linux 5.15.89, NixOS, 22.11 (Raccoon), 22.11.1777.cdead16a444`
- - multi-user?: `yes`
- - sandbox: `yes`
- - version: `nix-env (Nix) 2.11.1`
- - channels(hervyqa): `""`
- - channels(root): `"nixos-22.11"`
- - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
-```
+- system: `"x86_64-linux"`
+- host os: `Linux 5.15.89, NixOS, 22.11 (Raccoon), 22.11.1777.cdead16a444`
+- multi-user?: `yes`
+- sandbox: `yes`
+- version: `nix-env (Nix) 2.11.1`
+- channels(hervyqa): `""`
+- channels(root): `"nixos-22.11"`
+- nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
 
-### Pengaturan
+### Settings
 
-| Konfigurasi                               | Deskripsi                                                              |
-| :---------------------------------------- | :--------------------------------------------------------------------- |
-| `vm.swappiness = 10;`                     | Nilai swappines.                                                       |
-| `tmpOnTmpfs = true;`                      | Pengunaan tmpfs.                                                       |
-| `defaultUserShell = pkgs.fish;`           | Fish sebagai shell utama.                                              |
-| `auto-optimise-store = true;`             | Optimasi berkas/direktori nix store agar penggunaan disk yang minimal. |
-| `allowUnfree = true;`                     | Perizinan memasang aplikasi nonfree.                                   |
-| `adb.enable = true;`                      | Menyambungkan perangkat Android.                                       |
-| `dconf.enable = true;`                    | Mengaktifkan tema GTK.                                                 |
-| `gamemode.enable = true;`                 | Mengaktifkan layanan `gamemode`.                                       |
-| `java.enable = true;`                     | Lingkungan java.                                                       |
-| `kdeconnect.enable = true;`               | Fitur kde connect untuk transfer berkas secara intan.                  |
-| `light.enable = true;`                    | Pengatur kecerahan dengan cli.                                         |
-| `mtr.enable = true;`                      | Mengaktifkan perkakas diagnosa jaringan.                               |
-| `neovim.defaultEditor = true;`            | Penyunting teks cli utama adalah neovim.                               |
-| `enablePlasmaBrowserIntegration = false;` | Menonaktifkan integrasi firefox dengan plasma                          |
-| `autoLogin.enable = true;`                | Otomatis login saat pertama kali booting.                              |
-| `dnscrypt-proxy2.enable = true;`          | Mengaktifkan layanan enkripsi dns.                                     |
-| `earlyoom.enable = true;`                 | Mengaktifkan layanan jika terjadi limit memori.                        |
-| `fstrim.enable = true;`                   | Mengaktifkan layanan periodik trim SSD.                                |
-| `mysql.enable = true;`                    | Mengaktifkan layanan mysql basisdata.                                  |
-| `pipewire.enable = true;`                 | Mengaktifkan layanan pipewire audio.                                   |
-| `thermald.enable = true;`                 | Mengaktifkan layanan thermald pengatur suhu.                           |
-| `doas.enable = true;`                     | Mengaktifkan program doas pengganti sudo.                              |
-| `sudo.enable = false;`                    | Menghapus program sudo.                                                |
-| `systemd.oomd.enable = false;`            | Menonaktifkan layanan systemd-oom karena sudah menggunakan earlyoom.   |
-| `defaultSession = "plasmawayland";`       | Plasms Wayland sebagai sesi utama.                                     |
-| `bluetooth.hsphfpd.enable = true;`        | Mengaktifkan fitur hsphfpd bluetooth.                                  |
-| `opengl.extraPackages = amdvlk`           | Menambahkan ekstra paket untuk dukungan vulkan.                        |
-| `kernelModules = ["amdgpu"];`             | Kernel modul tambahan `amdgpu`. (`hardware-configuration.nix`)         |
-| `autoUpgrade.enable = true;`              | Mengaktifkan pembaruan otomatis.                                       |
-| `system.stateVersion = "22.11";`          | Versi NixOS yang digunakan.                                            |
+| Configuration                             |
+| :---------------------------------------- |
+| `vm.swappiness = 10;`                     |
+| `tmpOnTmpfs = true;`                      |
+| `defaultUserShell = pkgs.fish;`           |
+| `auto-optimise-store = true;`             |
+| `allowUnfree = true;`                     |
+| `adb.enable = true;`                      |
+| `dconf.enable = true;`                    |
+| `gamemode.enable = true;`                 |
+| `java.enable = true;`                     |
+| `kdeconnect.enable = true;`               |
+| `light.enable = true;`                    |
+| `mtr.enable = true;`                      |
+| `neovim.defaultEditor = true;`            |
+| `enablePlasmaBrowserIntegration = false;` |
+| `autoLogin.enable = true;`                |
+| `dnscrypt-proxy2.enable = true;`          |
+| `earlyoom.enable = true;`                 |
+| `fstrim.enable = true;`                   |
+| `mysql.enable = true;`                    |
+| `pipewire.enable = true;`                 |
+| `thermald.enable = true;`                 |
+| `doas.enable = true;`                     |
+| `sudo.enable = false;`                    |
+| `systemd.oomd.enable = false;`            |
+| `defaultSession = "plasmawayland";`       |
+| `bluetooth.hsphfpd.enable = true;`        |
+| `opengl.extraPackages = amdvlk`           |
+| `kernelModules = ["amdgpu"];`             |
+| `autoUpgrade.enable = true;`              |
+| `system.stateVersion = "22.11";`          |
 
 ## Data science
 
 ### R
 
-Daftar paket `R` yang terinstall ada di bagian `rstudioWrapper.override`:
+The list of installed `R` packages is in the `rstudioWrapper.override` section:
 
 ```sh
 rstudioWrapper.override {
@@ -97,7 +94,7 @@ rstudioWrapper.override {
 ```
 
 <details>
-<summary><b>Lihat pustaka R.</b></summary>
+<summary><b>See all module list of R.</b></summary>
 
 ```sh
 Cairo
@@ -199,7 +196,7 @@ zoo
 
 ### Python3
 
-Daftar paket `python3` yang terinstall ada di bagian `python3.withPackages`:
+The list of installed `python3` packages is in the `python3.withPackages` section:
 
 ```sh
 python3.withPackages (
@@ -211,7 +208,7 @@ python3.withPackages (
 ```
 
 <details>
-<summary><b>Lihat pustaka Python3.</b></summary>
+<summary><b>See the Python3 library.</b></summary>
 
 ```sh
 Theano
@@ -290,19 +287,19 @@ xarray
 
 </details>
 
-### Pemrograman lainnya
+### Other programming languages
 
-Selain `R` dan `python3`, juga sudah terdapat `julia`, `rakudo`, dan `scala`
+In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
 
 ## IDE
 
 ### Spyder
 
-Khusus untuk pemrograman python. Paket ini sudah termasuk di bagian `python3.withPackages` diatas dan sudah terintegrasi dengan pustaka pandas, numpy, matplotlib, scikit-learn, dan lain-lain.
+Especially for python programming. This package is included in the `python3.withPackages` section above and is already integrated with the pandas, numpy, matplotlib, scikit-learn, and other libraries.
 
 ### VSCodium
 
-Daftar plugin vscodium yang terinstall (configuration.nix):
+List of installed vscodium plugins (configuration.nix):
 
 ```sh
 vscode-with-extensions.override {
@@ -314,7 +311,7 @@ vscode-with-extensions.override {
 ```
 
 <details>
-<summary><b>Lihat ekstensi VSCodium.</b></summary>
+<summary><b>See the VSCodium extensions.</b></summary>
 
 ```sh
 azdavis.millet
@@ -348,7 +345,7 @@ streetsidesoftware.code-spell-checker
 
 ### Neovim
 
-Manajemen plugin neovim menggunakan `coc-nvim`. Daftar plugin yang terinstall ada di bagian `neovim.override`:
+Neovim plugin management uses `coc-nvim`. The list of installed plugins is in the `neovim.override` section:
 
 ```sh
 neovim.override {
@@ -362,7 +359,7 @@ neovim.override {
 ```
 
 <details>
-<summary><b>Lihat plugin Neovim.</b></summary>
+<summary><b>See the Neovim plugins.</b></summary>
 
 ```sh
 coc-clangd
@@ -439,30 +436,32 @@ vim-wayland-clipboard
 
 </details>
 
-### Lainnya
+### Others
 
-Selain `spyder`, `vscodium`, `neovim` juga terdapat aplikasi gui lainnya seperti:
+In addition to `spyder`, `vscodium`, `neovim` there are also other gui applications such as:
 
-- `dbeaver` pengolah basis data.
-- `octaveFull` perhitungan numerik matlab.
-- `sqlitebrowser` pengolah basis data sqlite.
-- `texstudio` pengolah dokumen `LaTex`.
-- `paraview` visualisasi data.
-- `wxmaxima` perhitungan numerik.
+- `dbeaver` database processor.
+- `octaveFull` numerical calculation matlab.
+- `sqlitebrowser` sqlite database processor.
+- `texstudio` document processor `LaTex`.
+- `paraview` data visualization.
+- `wxmaxima` numerical calculations.
 
-Aplikasi cli:
+Other tools:
 
 - `clickhouse`
 - `duckdb`
 - `gnuplot`
 - `grafana`
+- `jupyter`
+- `jupyterlab`
 - `kaggle`
 - `luigi`
 - `metabase`
 - `tabula`
 - `visidata`
 
-## Lisensi
+## License
 
 MIT License
 
