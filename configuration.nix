@@ -248,8 +248,8 @@ in {
 
       # Mind mapping
       heimer
-      semantik
       treesheets
+      vym
 
       # Communication
       tdesktop
