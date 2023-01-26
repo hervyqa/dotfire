@@ -246,6 +246,11 @@ in {
       texlive.combined.scheme-medium
       texstudio
 
+      # Mind mapping
+      heimer
+      semantik
+      treesheets
+
       # Communication
       tdesktop
 
