@@ -285,6 +285,11 @@ wordcloud
 xarray
 ```
 
+### SQL
+
+* MariaDB enables by default, `mysql.enable = true;`.
+* PostgreSQL and Mongodb is installed, but disabled. `postgresql.enable = false;`, `mongodb.enable = false;`.
+
 </details>
 
 ### Other programming languages
