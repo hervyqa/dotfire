@@ -195,7 +195,6 @@ in {
       # Data science
       R
       clickhouse
-      duckdb
       gnuplot
       grafana
       kaggle
@@ -223,6 +222,7 @@ in {
       dbeaver # database
       octaveFull # matlab
       sqlitebrowser # sqlite
+      beekeeper-studio # database
 
       # Devops
       mongodb
@@ -316,6 +316,7 @@ in {
             devtools
             diffobj
             dplyr
+            duckdb
             dygraphs
             echarts4r
             esquisse
@@ -404,12 +405,13 @@ in {
               av
               beautifulsoup4
               bokeh
-              cython
               click
+              cython
               dash
               dask
               datasette
               dill
+              duckdb
               flask
               future
               h5py
