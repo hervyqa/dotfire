@@ -779,13 +779,11 @@ in {
         core = {
           editor = "nvim";
         };
-        user = {
-          email = "${email}";
-          name = "${fullname}";
-          signingKey = "${gpgkey}";
-        };
         init = {
           defaultBranch = "main";
+        };
+        pull = {
+          rebase = "true";
         };
         url = {
           "https://git.sr.ht/" = {
@@ -793,6 +791,11 @@ in {
               "sh:"
             ];
           };
+        };
+        user = {
+          email = "${email}";
+          name = "${fullname}";
+          signingKey = "${gpgkey}";
         };
         status = {
           short = true;
