@@ -847,7 +847,7 @@ in {
 
         gf = "git fetch";
         gfa = "git fetch --all --prune";
-        gfo = "git fetch origin";
+        gfo = "git fetch sh";
 
         gignore = "git update-index --assume-unchanged";
 
@@ -860,11 +860,11 @@ in {
         gloa = "git log --oneline --decorate --graph --all";
 
         gm = "git merge";
-        gmom = "git merge origin/main";
+        gmom = "git merge sh/main";
         gmt = "git mergetool --no-prompt";
 
         gp = "git push";
-        gpom = "git push -u origin main";
+        gpom = "git push -u sh main";
         gpd = "git push --dry-run";
         gpv = "git push -v";
 
