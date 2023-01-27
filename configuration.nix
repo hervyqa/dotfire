@@ -772,6 +772,9 @@ in {
     git = {
       enable = true;
       config = {
+        commit = {
+          gpgsign = "true";
+        };
         core = {
           editor = "nvim";
         };
