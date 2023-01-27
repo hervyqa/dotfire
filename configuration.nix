@@ -786,9 +786,19 @@ in {
           rebase = "true";
         };
         url = {
-          "https://git.sr.ht/" = {
+          "git@git.sr.ht:" = {
             insteadOf = [
-              "sh:"
+              "https://git.sr.ht/"
+            ];
+          };
+          "git@github.com:" = {
+            insteadOf = [
+              "https://github.com/"
+            ];
+          };
+          "git@gitlab.com:" = {
+            insteadOf = [
+              "https://gitlab.com/"
             ];
           };
         };
