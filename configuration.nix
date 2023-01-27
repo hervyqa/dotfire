@@ -832,7 +832,7 @@ in {
         gcm = "git commit -m";
         gcam = "git commit --amend";
         gcs = "git commit -S";
-        gcsm = "git commit -Sm";
+        gcsm = "git commit -S -m";
 
         gcb = "git checkout -b";
         gcf = "git config --list";
