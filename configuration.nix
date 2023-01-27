@@ -788,10 +788,9 @@ in {
           defaultBranch = "main";
         };
         url = {
-          "https://github.com/" = {
+          "https://git.sr.ht/" = {
             insteadOf = [
-              "gh:"
-              "github:"
+              "sh:"
             ];
           };
         };
