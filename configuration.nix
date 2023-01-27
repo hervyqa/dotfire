@@ -832,6 +832,8 @@ in {
         gc = "git commit";
         gcm = "git commit -m";
         gcam = "git commit --amend";
+        gcs = "git commit -S";
+        gcsm = "git commit -Sm";
 
         gcb = "git checkout -b";
         gcf = "git config --list";
@@ -839,7 +841,6 @@ in {
         gcl = "git clone --recursive";
         gcln = "git clean -fd";
         gcp = "git cherry-pick";
-        gcs = "git commit -S";
 
         gd = "git diff";
         gdca = "git diff --cached";
