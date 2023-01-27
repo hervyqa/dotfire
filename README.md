@@ -30,6 +30,7 @@ let
   defaultlocale = "en_US.UTF-8";
   extralocale = "id_ID.UTF-8";
   layout = "us";
+  gpgkey = "85161EB8";
 in
 ```
 
@@ -115,6 +116,7 @@ datapasta
 devtools
 diffobj
 dplyr
+duckdb
 dygraphs
 echarts4r
 esquisse
@@ -212,13 +214,16 @@ python3.withPackages (
 
 ```sh
 Theano
+av
 beautifulsoup4
 bokeh
-cython
 click
+cython
+dash
 dask
 datasette
 dill
+duckdb
 flask
 future
 h5py
@@ -455,7 +460,6 @@ In addition to `spyder`, `vscodium`, `neovim` there are also other gui applicati
 Other tools:
 
 - `clickhouse`
-- `duckdb`
 - `gnuplot`
 - `grafana`
 - `jupyter`
