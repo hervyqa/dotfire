@@ -164,6 +164,7 @@ in {
       applet-window-buttons
       ark
       kate
+      kgpg
       kteatime
       ktouch
       quazip
