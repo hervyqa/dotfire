@@ -850,6 +850,8 @@ in {
         gf = "git fetch";
         gfa = "git fetch --all --prune";
         gfs = "git fetch sh";
+        gfg = "git fetch gh";
+        gfl = "git fetch gl";
 
         gignore = "git update-index --assume-unchanged";
 
@@ -863,10 +865,14 @@ in {
 
         gm = "git merge";
         gmsm = "git merge sh/main";
+        gmgm = "git merge gh/main";
+        gmlm = "git merge gl/main";
         gmt = "git mergetool --no-prompt";
 
         gp = "git push";
         gpsm = "git push -u sh main";
+        gpgm = "git push -u gh main";
+        gplm = "git push -u gl main";
         gpd = "git push --dry-run";
         gpv = "git push -v";
 
