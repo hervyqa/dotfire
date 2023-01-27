@@ -11,6 +11,7 @@
   defaultlocale = "en_US.UTF-8";
   extralocale = "id_ID.UTF-8";
   layout = "us";
+  gpgkey = "85161EB8";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -781,6 +782,7 @@ in {
         user = {
           email = "${email}";
           name = "${fullname}";
+          signingKey = "${gpgkey}";
         };
         init = {
           defaultBranch = "main";
