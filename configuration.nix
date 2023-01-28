@@ -355,6 +355,7 @@ in {
             profvis
             purrr
             quantmod
+            quarto
             reactable
             readr
             readxl
