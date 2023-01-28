@@ -309,6 +309,7 @@ in {
             Rcpp
             XML
             beepr
+            caret
             colourpicker
             dataCompareR
             data_table
@@ -387,6 +388,7 @@ in {
             tsbox
             usethis
             validate
+            vetiver
             vroom
             xts
             yaml
