@@ -526,32 +526,19 @@ in {
           configure = {
             packages.myPlugins = with pkgs.vimPlugins; {
               start = [
-                coc-clangd
                 coc-clap
-                coc-cmake
-                coc-css
-                coc-denite
                 coc-diagnostic
-                coc-docker
-                coc-emmet
                 coc-eslint
                 coc-explorer
-                coc-flutter
                 coc-fzf
                 coc-git
-                coc-go
                 coc-haxe
                 coc-highlight
-                coc-html
                 coc-java
-                coc-jest
                 coc-json
                 coc-lists
-                coc-lua
                 coc-markdownlint
                 coc-metals
-                coc-neco
-                coc-nginx
                 coc-nvim
                 coc-pairs
                 coc-prettier
@@ -559,40 +546,33 @@ in {
                 coc-python
                 coc-r-lsp
                 coc-rls
-                coc-rust-analyzer
                 coc-sh
                 coc-smartf
-                coc-snippets
-                coc-solargraph
                 coc-spell-checker
                 coc-sqlfluff
                 coc-stylelint
                 coc-sumneko-lua
-                coc-svelte
-                coc-tabnine
-                coc-tailwindcss
                 coc-texlab
                 coc-toml
-                coc-tslint
-                coc-tslint-plugin
-                coc-tsserver
                 coc-ultisnips
-                coc-vetur
                 coc-vimlsp
                 coc-vimtex
                 coc-wxml
                 coc-yaml
                 coc-yank
                 julia-vim
+                nvim-autopairs
+                nvim-comment
+                nvim-lastplace
+                nvim-web-devicons
                 scope-nvim
                 scrollbar-nvim
                 statix
                 surround-nvim
                 tabline-nvim
+                telescope-nvim
                 vim-airline
                 vim-airline-themes
-                vim-commentary
-                vim-lastplace
                 vim-lightline-coc
                 vim-nix
                 vim-wayland-clipboard
@@ -1014,7 +994,7 @@ in {
         xterm.enable = false;
       };
       displayManager = {
-        defaultSession = "plasmawayland";
+        defaultSession = "plasma"; # or plasmawayland
         sddm = {
           enable = true;
           autoNumlock = true;
