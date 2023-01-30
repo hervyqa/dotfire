@@ -253,9 +253,6 @@ in {
       umbrello
       vym
 
-      # Communication
-      tdesktop
-
       # Theme/Icon
       papirus-icon-theme
 
@@ -284,6 +281,9 @@ in {
       hugo
       mdbook
       mdbook-linkcheck
+
+      # Communication
+      tdesktop
 
       # Nonfree
       discord
