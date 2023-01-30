@@ -972,7 +972,7 @@ in {
     };
 
     postgresql = {
-      enable = false;
+      enable = true;
     };
 
     printing = {
