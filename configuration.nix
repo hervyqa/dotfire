@@ -1044,7 +1044,9 @@ in {
   # Hardware
   sound.enable = true;
   hardware = {
-    pulseaudio.enable = false;
+    pulseaudio = {
+      enable = false;
+    };
     bluetooth = {
       enable = true;
       hsphfpd.enable = true;
