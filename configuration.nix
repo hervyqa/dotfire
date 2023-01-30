@@ -582,6 +582,7 @@ in {
             customRC = ''
               filetype indent on
               filetype on
+              set autoindent
               set backspace=indent,eol,start
               set clipboard+=unnamedplus
               set encoding=utf-8
@@ -592,7 +593,6 @@ in {
               set incsearch
               set linebreak breakindent
               set list listchars=tab:>>,trail:~
-              set nobackup
               set nobackup
               set nocompatible
               set nomodified
@@ -696,7 +696,6 @@ in {
               else
                 inoremap <silent><expr> <c-@> coc#refresh()
               endif
-
             '';
           };
         }
