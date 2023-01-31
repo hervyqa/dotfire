@@ -1015,7 +1015,9 @@ in {
         };
       };
       videoDrivers = ["amdgpu"];
-      wacom.enable = true;
+      wacom = {
+        enable = true;
+      };
       xkbVariant = "";
     };
   };
