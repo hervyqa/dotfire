@@ -27,7 +27,7 @@ in {
         efiSysMountPoint = "/boot/efi";
       };
       grub = {
-        useOSProber = false; # true: if dual boot.
+        useOSProber = false; # true: If dual boot.
       };
     };
     initrd.secrets = {
@@ -200,7 +200,6 @@ in {
       kaggle
       luigi
       metabase
-      paraview
       tabula
       visidata
       wxmaxima
