@@ -718,6 +718,7 @@ in {
     light.enable = true;
     mtr.enable = true;
     neovim.defaultEditor = true;
+    obs-studio.enable = true;
     partition-manager.enable = true;
 
     firefox = {
