@@ -493,6 +493,7 @@ in {
             bbenoist.nix
             bmalehorn.vscode-fish
             davidanson.vscode-markdownlint
+            donjayamanne.githistory
             editorconfig.editorconfig
             esbenp.prettier-vscode
             formulahendry.code-runner
@@ -502,17 +503,20 @@ in {
             mhutchie.git-graph
             ms-pyright.pyright
             ms-python.python
+            ms-python.vscode-pylance
             ms-toolsai.jupyter
             ms-toolsai.jupyter-keymap
             ms-toolsai.jupyter-renderers
             ms-toolsai.vscode-jupyter-cell-tags
             ms-toolsai.vscode-jupyter-slideshow
             ms-vscode.anycode
+            naumovs.color-highlight
             pkief.material-icon-theme
             scala-lang.scala
             shardulm94.trailing-spaces
             shd101wyy.markdown-preview-enhanced
             streetsidesoftware.code-spell-checker
+            yzhang.markdown-all-in-one
           ];
         }
       )
