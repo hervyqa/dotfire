@@ -548,7 +548,6 @@ in {
                 coc-rls
                 coc-sh
                 coc-smartf
-                coc-spell-checker
                 coc-sqlfluff
                 coc-stylelint
                 coc-sumneko-lua
