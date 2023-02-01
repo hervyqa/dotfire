@@ -235,6 +235,7 @@ in {
       # Multimedia
       vlc
       vokoscreen
+      obs-studio
 
       # Office
       libreoffice
@@ -517,188 +518,6 @@ in {
         }
       )
 
-      # Neovim system wide
-      (
-        neovim.override {
-          viAlias = true;
-          vimAlias = true;
-          withNodeJs = true;
-          configure = {
-            packages.myPlugins = with pkgs.vimPlugins; {
-              start = [
-                coc-clap
-                coc-diagnostic
-                coc-eslint
-                coc-explorer
-                coc-fzf
-                coc-git
-                coc-haxe
-                coc-highlight
-                coc-java
-                coc-json
-                coc-lists
-                coc-markdownlint
-                coc-metals
-                coc-nvim
-                coc-pairs
-                coc-prettier
-                coc-pyright
-                coc-python
-                coc-r-lsp
-                coc-rls
-                coc-sh
-                coc-smartf
-                coc-sqlfluff
-                coc-stylelint
-                coc-sumneko-lua
-                coc-texlab
-                coc-toml
-                coc-ultisnips
-                coc-vimlsp
-                coc-vimtex
-                coc-wxml
-                coc-yaml
-                coc-yank
-                julia-vim
-                nvim-autopairs
-                nvim-comment
-                nvim-lastplace
-                nvim-web-devicons
-                scope-nvim
-                scrollbar-nvim
-                statix
-                surround-nvim
-                tabline-nvim
-                telescope-nvim
-                vim-airline
-                vim-airline-themes
-                vim-lightline-coc
-                vim-nix
-                vim-wayland-clipboard
-              ];
-              opt = [];
-            };
-            customRC = ''
-              filetype indent on
-              filetype on
-              set autoindent
-              set backspace=indent,eol,start
-              set clipboard+=unnamedplus
-              set encoding=utf-8
-              set expandtab
-              set history=1000
-              set hlsearch
-              set ignorecase
-              set incsearch
-              set linebreak breakindent
-              set list listchars=tab:>>,trail:~
-              set nobackup
-              set nocompatible
-              set nomodified
-              set nowrap
-              set nowritebackup
-              set number relativenumber
-              set scrolloff=10
-              set shiftwidth=2
-              set showcmd
-              set showmatch
-              set showmode
-              set signcolumn=yes
-              set smartcase
-              set smarttab
-              set splitbelow
-              set splitright
-              set t_Co=256
-              set tabstop=2
-              set undofile
-              set undolevels=50000
-              set updatetime=100
-              syntax on
-
-              " Default leader
-              let g:mapleader = "\<Space>"
-
-              " Navigation
-              tnoremap <Esc> <C-\><C-n>
-              tnoremap <A-h> <C-\><C-N><C-w>h
-              tnoremap <A-j> <C-\><C-N><C-w>j
-              tnoremap <A-k> <C-\><C-N><C-w>k
-              tnoremap <A-l> <C-\><C-N><C-w>l
-              inoremap <A-h> <C-\><C-N><C-w>h
-              inoremap <A-j> <C-\><C-N><C-w>j
-              inoremap <A-k> <C-\><C-N><C-w>k
-              inoremap <A-l> <C-\><C-N><C-w>l
-              nnoremap <A-h> <C-w>h
-              nnoremap <A-j> <C-w>j
-              nnoremap <A-k> <C-w>k
-              nnoremap <A-l> <C-w>l
-
-              " Resize panes
-              nnoremap <silent> <Left> :vertical resize +2<CR>
-              nnoremap <silent> <Right> :vertical resize -2<CR>
-              nnoremap <silent> <Up> :resize +2<CR>
-              nnoremap <silent> <Down> :resize -2<CR>
-              nnoremap <silent> = <C-w>=
-
-              " Visual select
-              vnoremap <silent> > >gv
-              vnoremap <silent> < <gv
-
-              " Split pane
-              nnoremap <silent> _ <C-W>s<C-W><Down>
-              nnoremap <silent> <Bar> <C-W>v<C-W><Right>
-
-              " Quit
-              nnoremap <silent> <Leader>q :q<CR>
-              nnoremap <silent> <leader>Q :bd<CR>
-
-              " Save
-              nnoremap <silent> <leader>w :w<CR>
-
-              " Clipboard
-              vnoremap <leader>p "+p
-              nnoremap <leader>P "+P
-              vnoremap <leader>P "+P
-              nnoremap <leader>y "+y
-              vnoremap <leader>y "+y
-              nnoremap <leader>Y "+y$
-
-              " Terminal
-              nnoremap <silent> <Leader>t :terminal<CR>
-
-              " Open explorer
-              nnoremap <silent> <leader>e :CocCommand explorer
-                \ --sources=buffer+,file+<CR>
-
-              " Use tab for trigger completion with characters ahead and navigate
-              inoremap <silent><expr> <Tab>
-                \ coc#pum#visible() ? coc#pum#next(1) :
-                \ CheckBackspace() ? "\<Tab>" :
-                \ coc#refresh()
-
-              inoremap <expr> <Tab>
-                \ coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
-              inoremap <expr> <S-Tab>
-                \ coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
-
-              inoremap <silent><expr> <CR>
-                \ coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-              function! CheckBackspace() abort
-                let col = col('.') - 1
-                return !col || getline('.')[col - 1]  =~# '\s'
-              endfunction
-
-              " Use <c-space> to trigger completion
-              if has('nvim')
-                inoremap <silent><expr> <c-space> coc#refresh()
-              else
-                inoremap <silent><expr> <c-@> coc#refresh()
-              endif
-            '';
-          };
-        }
-      )
     ];
   };
 
@@ -717,8 +536,6 @@ in {
     kdeconnect.enable = true;
     light.enable = true;
     mtr.enable = true;
-    neovim.defaultEditor = true;
-    obs-studio.enable = true;
     partition-manager.enable = true;
 
     firefox = {
@@ -888,10 +705,193 @@ in {
 
       shellAliases = {};
     };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      withNodeJs = true;
+      withPython3 = true;
+      withRuby = true;
+      configure = {
+        packages.myPlugins = with pkgs.vimPlugins; {
+          start = [
+            coc-clap
+            coc-diagnostic
+            coc-eslint
+            coc-explorer
+            coc-fzf
+            coc-git
+            coc-haxe
+            coc-highlight
+            coc-java
+            coc-json
+            coc-lists
+            coc-markdownlint
+            coc-metals
+            coc-nvim
+            coc-pairs
+            coc-prettier
+            coc-pyright
+            coc-python
+            coc-r-lsp
+            coc-rls
+            coc-sh
+            coc-smartf
+            coc-sqlfluff
+            coc-stylelint
+            coc-sumneko-lua
+            coc-texlab
+            coc-toml
+            coc-ultisnips
+            coc-vimlsp
+            coc-vimtex
+            coc-wxml
+            coc-yaml
+            coc-yank
+            julia-vim
+            nvim-autopairs
+            nvim-comment
+            nvim-lastplace
+            nvim-web-devicons
+            scope-nvim
+            scrollbar-nvim
+            statix
+            surround-nvim
+            tabline-nvim
+            telescope-nvim
+            vim-airline
+            vim-airline-themes
+            vim-lightline-coc
+            vim-nix
+            vim-wayland-clipboard
+          ];
+          opt = [];
+        };
+        customRC = ''
+          filetype indent on
+          filetype on
+          set autoindent
+          set backspace=indent,eol,start
+          set clipboard+=unnamedplus
+          set encoding=utf-8
+          set expandtab
+          set history=1000
+          set hlsearch
+          set ignorecase
+          set incsearch
+          set linebreak breakindent
+          set list listchars=tab:>>,trail:~
+          set nobackup
+          set nocompatible
+          set nomodified
+          set nowrap
+          set nowritebackup
+          set number relativenumber
+          set scrolloff=10
+          set shiftwidth=2
+          set showcmd
+          set showmatch
+          set showmode
+          set signcolumn=yes
+          set smartcase
+          set smarttab
+          set splitbelow
+          set splitright
+          set t_Co=256
+          set tabstop=2
+          set undofile
+          set undolevels=50000
+          set updatetime=100
+          syntax on
+
+          " Default leader
+          let g:mapleader = "\<Space>"
+
+          " Navigation
+          tnoremap <Esc> <C-\><C-n>
+          tnoremap <A-h> <C-\><C-N><C-w>h
+          tnoremap <A-j> <C-\><C-N><C-w>j
+          tnoremap <A-k> <C-\><C-N><C-w>k
+          tnoremap <A-l> <C-\><C-N><C-w>l
+          inoremap <A-h> <C-\><C-N><C-w>h
+          inoremap <A-j> <C-\><C-N><C-w>j
+          inoremap <A-k> <C-\><C-N><C-w>k
+          inoremap <A-l> <C-\><C-N><C-w>l
+          nnoremap <A-h> <C-w>h
+          nnoremap <A-j> <C-w>j
+          nnoremap <A-k> <C-w>k
+          nnoremap <A-l> <C-w>l
+
+          " Resize panes
+          nnoremap <silent> <Left> :vertical resize +2<CR>
+          nnoremap <silent> <Right> :vertical resize -2<CR>
+          nnoremap <silent> <Up> :resize +2<CR>
+          nnoremap <silent> <Down> :resize -2<CR>
+          nnoremap <silent> = <C-w>=
+
+          " Visual select
+          vnoremap <silent> > >gv
+          vnoremap <silent> < <gv
+
+          " Split pane
+          nnoremap <silent> _ <C-W>s<C-W><Down>
+          nnoremap <silent> <Bar> <C-W>v<C-W><Right>
+
+          " Quit
+          nnoremap <silent> <Leader>q :q<CR>
+          nnoremap <silent> <leader>Q :bd<CR>
+
+          " Save
+          nnoremap <silent> <leader>w :w<CR>
+
+          " Clipboard
+          vnoremap <leader>p "+p
+          nnoremap <leader>P "+P
+          vnoremap <leader>P "+P
+          nnoremap <leader>y "+y
+          vnoremap <leader>y "+y
+          nnoremap <leader>Y "+y$
+
+          " Terminal
+          nnoremap <silent> <Leader>t :terminal<CR>
+
+          " Open explorer
+          nnoremap <silent> <leader>e :CocCommand explorer
+            \ --sources=buffer+,file+<CR>
+
+          " Use tab for trigger completion with characters ahead and navigate
+          inoremap <silent><expr> <Tab>
+            \ coc#pum#visible() ? coc#pum#next(1) :
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
+
+          inoremap <expr> <Tab>
+            \ coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+          inoremap <expr> <S-Tab>
+            \ coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
+          inoremap <silent><expr> <CR>
+            \ coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+          function! CheckBackspace() abort
+            let col = col('.') - 1
+            return !col || getline('.')[col - 1]  =~# '\s'
+          endfunction
+
+          " Use <c-space> to trigger completion
+          if has('nvim')
+            inoremap <silent><expr> <c-space> coc#refresh()
+          else
+            inoremap <silent><expr> <c-@> coc#refresh()
+          endif
+        '';
+      };
+    };
   };
 
   xdg = {
-    enable = true;
     mime = {
       enable = true;
       defaultApplications =
@@ -957,7 +957,6 @@ in {
           "x-scheme-handler/discord" = discord;
           "x-scheme-handler/ftp" = browsers;
           "x-scheme-handler/geo" = marble;
-          "x-scheme-handler/http" = browsers;
           "x-scheme-handler/http" = browsers;
           "x-scheme-handler/https" = browsers;
           "x-scheme-handler/mailto" = kmail2;
