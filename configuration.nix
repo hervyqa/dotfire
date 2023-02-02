@@ -200,6 +200,7 @@ in {
       kaggle
       luigi
       metabase
+      paraview
       tabula
       visidata
       wxmaxima
@@ -487,40 +488,48 @@ in {
       (
         vscode-with-extensions.override {
           vscode = vscodium;
-          vscodeExtensions = with vscode-extensions; [
-            azdavis.millet
-            b4dm4n.vscode-nixpkgs-fmt
-            bbenoist.nix
-            bmalehorn.vscode-fish
-            davidanson.vscode-markdownlint
-            donjayamanne.githistory
-            editorconfig.editorconfig
-            esbenp.prettier-vscode
-            formulahendry.code-runner
-            grapecity.gc-excelviewer
-            kamadorueda.alejandra
-            mechatroner.rainbow-csv
-            mhutchie.git-graph
-            ms-pyright.pyright
-            ms-python.python
-            ms-python.vscode-pylance
-            ms-toolsai.jupyter
-            ms-toolsai.jupyter-keymap
-            ms-toolsai.jupyter-renderers
-            ms-toolsai.vscode-jupyter-cell-tags
-            ms-toolsai.vscode-jupyter-slideshow
-            ms-vscode.anycode
-            naumovs.color-highlight
-            pkief.material-icon-theme
-            scala-lang.scala
-            shardulm94.trailing-spaces
-            shd101wyy.markdown-preview-enhanced
-            streetsidesoftware.code-spell-checker
-            yzhang.markdown-all-in-one
-          ];
+          vscodeExtensions = with vscode-extensions;
+            [
+              azdavis.millet
+              b4dm4n.vscode-nixpkgs-fmt
+              bbenoist.nix
+              bmalehorn.vscode-fish
+              davidanson.vscode-markdownlint
+              donjayamanne.githistory
+              editorconfig.editorconfig
+              esbenp.prettier-vscode
+              formulahendry.code-runner
+              grapecity.gc-excelviewer
+              kamadorueda.alejandra
+              mechatroner.rainbow-csv
+              mhutchie.git-graph
+              ms-pyright.pyright
+              ms-python.python
+              ms-python.vscode-pylance
+              ms-toolsai.jupyter
+              ms-toolsai.jupyter-keymap
+              ms-toolsai.jupyter-renderers
+              ms-toolsai.vscode-jupyter-cell-tags
+              ms-toolsai.vscode-jupyter-slideshow
+              ms-vscode.anycode
+              naumovs.color-highlight
+              pkief.material-icon-theme
+              scala-lang.scala
+              shardulm94.trailing-spaces
+              shd101wyy.markdown-preview-enhanced
+              streetsidesoftware.code-spell-checker
+              yzhang.markdown-all-in-one
+            ]
+            ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+              {
+                name = "language-julia";
+                publisher = "julialang";
+                version = "1.38.2";
+                sha256 = "07b8c8748f85dfd99a5ff23eadf7c88e64b9f7e07d6adb2be6bcd7f9cfbe5aa9";
+              }
+            ];
         }
       )
-
     ];
   };
 
@@ -755,7 +764,6 @@ in {
             coc-yank
             julia-vim
             nvim-autopairs
-            nvim-comment
             nvim-lastplace
             nvim-web-devicons
             scope-nvim
@@ -766,6 +774,7 @@ in {
             telescope-nvim
             vim-airline
             vim-airline-themes
+            vim-commentary
             vim-lightline-coc
             vim-nix
             vim-wayland-clipboard
@@ -897,75 +906,73 @@ in {
   xdg = {
     mime = {
       enable = true;
-      defaultApplications =
-        let
-          browsers = [ "firefox.desktop" ];
-          discord = [ "discord.desktop" ];
-          dolphin = [ "org.kde.dolphin.desktop" ];
-          elisa = [ "org.kde.elisa.desktop" ];
-          gimp = [ "gimp.desktop" ];
-          gwenview = [ "org.kde.gwenview.desktop" ];
-          inkscape = [ "org.inkscape.Inkscape.desktop" ];
-          kate = [ "org.kde.kate.desktop" ];
-          kdeconnect = [ "org.kde.kdeconnect.handler.desktop" ];
-          kmail2 = [ "org.kde.kmail2.desktop" ];
-          krita = [ "krita_psd.desktop" ];
-          ktorrent = [ "org.kde.ktorrent.desktop" ];
-          marble = [ "marble_geo.desktop" ];
-          okular = [ "org.kde.okular.desktop" ];
-          vlc = [ "vlc.desktop" ];
-          wine = [ "wine.desktop" ];
-        in
-        {
-          "application/pdf" = okular;
-          "application/vnd.ms-publisher" = kate;
-          "application/x-bittorrent" = ktorrent;
-          "application/x-extension-htm" = browsers;
-          "application/x-extension-html" = browsers;
-          "application/x-extension-shtml" = browsers;
-          "application/x-extension-xht" = browsers;
-          "application/x-extension-xhtml" = browsers;
-          "application/x-ms-dos-executable" = wine;
-          "application/xhtml+xml" = browsers;
-          "application/xml" = kate;
-          "audio/aac" = elisa;
-          "audio/flac" = elisa;
-          "audio/mp4" = elisa;
-          "audio/mpeg" = elisa;
-          "audio/ogg" = elisa;
-          "audio/x-wav" = elisa;
-          "image/gif" = gwenview;
-          "image/jpeg" = gwenview;
-          "image/png" = gwenview;
-          "image/svg+xml" = inkscape;
-          "image/vnd.adobe.photoshop" = krita;
-          "image/webp" = gwenview;
-          "image/x-eps" = inkscape;
-          "image/x-xcf" = gimp;
-          "inode/directory" = dolphin;
-          "text/html" = browsers;
-          "text/markdown" = kate;
-          "text/plain" = kate;
-          "text/uri-list" = browsers;
-          "video/mp4" = vlc;
-          "video/ogg" = vlc;
-          "video/webm" = vlc;
-          "video/x-flv" = vlc;
-          "video/x-matroska" = vlc;
-          "video/x-ms-wmv" = vlc;
-          "video/x-ogm+ogg" = vlc;
-          "video/x-theora+ogg" = vlc;
-          "x-scheme-handler/about" = browsers;
-          "x-scheme-handler/chrome" = browsers;
-          "x-scheme-handler/discord" = discord;
-          "x-scheme-handler/ftp" = browsers;
-          "x-scheme-handler/geo" = marble;
-          "x-scheme-handler/http" = browsers;
-          "x-scheme-handler/https" = browsers;
-          "x-scheme-handler/mailto" = kmail2;
-          "x-scheme-handler/tel" = kdeconnect;
-          "x-scheme-handler/unknown" = browsers;
-        };
+      defaultApplications = let
+        browsers = ["firefox.desktop"];
+        discord = ["discord.desktop"];
+        dolphin = ["org.kde.dolphin.desktop"];
+        elisa = ["org.kde.elisa.desktop"];
+        gimp = ["gimp.desktop"];
+        gwenview = ["org.kde.gwenview.desktop"];
+        inkscape = ["org.inkscape.Inkscape.desktop"];
+        kate = ["org.kde.kate.desktop"];
+        kdeconnect = ["org.kde.kdeconnect.handler.desktop"];
+        kmail2 = ["org.kde.kmail2.desktop"];
+        krita = ["krita_psd.desktop"];
+        ktorrent = ["org.kde.ktorrent.desktop"];
+        marble = ["marble_geo.desktop"];
+        okular = ["org.kde.okular.desktop"];
+        vlc = ["vlc.desktop"];
+        wine = ["wine.desktop"];
+      in {
+        "application/pdf" = okular;
+        "application/vnd.ms-publisher" = kate;
+        "application/x-bittorrent" = ktorrent;
+        "application/x-extension-htm" = browsers;
+        "application/x-extension-html" = browsers;
+        "application/x-extension-shtml" = browsers;
+        "application/x-extension-xht" = browsers;
+        "application/x-extension-xhtml" = browsers;
+        "application/x-ms-dos-executable" = wine;
+        "application/xhtml+xml" = browsers;
+        "application/xml" = kate;
+        "audio/aac" = elisa;
+        "audio/flac" = elisa;
+        "audio/mp4" = elisa;
+        "audio/mpeg" = elisa;
+        "audio/ogg" = elisa;
+        "audio/x-wav" = elisa;
+        "image/gif" = gwenview;
+        "image/jpeg" = gwenview;
+        "image/png" = gwenview;
+        "image/svg+xml" = inkscape;
+        "image/vnd.adobe.photoshop" = krita;
+        "image/webp" = gwenview;
+        "image/x-eps" = inkscape;
+        "image/x-xcf" = gimp;
+        "inode/directory" = dolphin;
+        "text/html" = browsers;
+        "text/markdown" = kate;
+        "text/plain" = kate;
+        "text/uri-list" = browsers;
+        "video/mp4" = vlc;
+        "video/ogg" = vlc;
+        "video/webm" = vlc;
+        "video/x-flv" = vlc;
+        "video/x-matroska" = vlc;
+        "video/x-ms-wmv" = vlc;
+        "video/x-ogm+ogg" = vlc;
+        "video/x-theora+ogg" = vlc;
+        "x-scheme-handler/about" = browsers;
+        "x-scheme-handler/chrome" = browsers;
+        "x-scheme-handler/discord" = discord;
+        "x-scheme-handler/ftp" = browsers;
+        "x-scheme-handler/geo" = marble;
+        "x-scheme-handler/http" = browsers;
+        "x-scheme-handler/https" = browsers;
+        "x-scheme-handler/mailto" = kmail2;
+        "x-scheme-handler/tel" = kdeconnect;
+        "x-scheme-handler/unknown" = browsers;
+      };
     };
     portal = {
       enable = true;
