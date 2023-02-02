@@ -466,6 +466,7 @@ in {
               spyder
               spyder-kernels
               statsmodels
+              sympy
               tableaudocumentapi
               tables
               tensorflow
