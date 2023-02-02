@@ -160,7 +160,8 @@ in {
     };
 
     systemPackages = with pkgs;
-    with libsForQt5; [
+    with libsForQt5;
+    with nodePackages; [
       # Plasma5 extra
       applet-window-buttons
       ark
