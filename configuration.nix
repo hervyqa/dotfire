@@ -295,7 +295,7 @@ in {
 
       # RStudio system wide
       # failed to compiling:
-      # arrow, Hmisc (interp), ggforce, prophet
+      # arrow, Hmisc (interp), ggforce, prophet, torch
       (
         rstudioWrapper.override {
           packages = with rPackages; [
@@ -309,6 +309,7 @@ in {
             RColorBrewer
             Rcpp
             XML
+            baseline
             beepr
             caret
             colourpicker
@@ -333,6 +334,7 @@ in {
             glue
             gmodels
             gridExtra
+            gym
             here
             httr
             installr
@@ -377,6 +379,7 @@ in {
             splitstackshape
             sqldf
             stringr
+            tensorflow
             testthat
             tidycensus
             tidygeocoder
@@ -408,6 +411,7 @@ in {
             with ps; [
               Theano
               av
+              baseline
               beautifulsoup4
               bokeh
               click
@@ -419,6 +423,7 @@ in {
               duckdb
               flask
               future
+              gym
               h5py
               ibm-watson
               imbalanced-learn
