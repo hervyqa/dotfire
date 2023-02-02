@@ -361,6 +361,7 @@ in {
             purrr
             quantmod
             quarto
+            r5r
             reactable
             readr
             readxl
