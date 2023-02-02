@@ -346,6 +346,7 @@ in {
             magrittr
             mapsapi
             officer
+            openNLP
             openxlsx
             optparse
             pacman
@@ -419,6 +420,7 @@ in {
               flask
               future
               h5py
+              ibm-watson
               imbalanced-learn
               ipykernel
               ipython
@@ -451,11 +453,13 @@ in {
               pydot
               pyls-spyder
               pynvim
+              pyspark
               pytest
               pytorch
               pyyaml
               qdarkstyle
               requests
+              sagemaker
               scikit-learn
               scikitimage
               scipy
