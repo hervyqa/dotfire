@@ -229,10 +229,6 @@ in {
       mongodb
       sqlite
 
-      # Design
-      inkscape
-      krita
-
       # Multimedia
       vlc
       vokoscreen
@@ -284,7 +280,12 @@ in {
       mdbook
       mdbook-linkcheck
 
+      # Design
+      inkscape
+      krita
+
       # Communication
+      media-downloader
       tdesktop
 
       # Nonfree
