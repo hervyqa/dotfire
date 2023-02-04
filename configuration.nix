@@ -167,6 +167,7 @@ in {
       ark
       kate
       kgpg
+      krename
       kteatime
       ktouch
       quazip
