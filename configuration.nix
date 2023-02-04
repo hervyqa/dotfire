@@ -313,6 +313,9 @@ in {
             XML
             baseline
             beepr
+            blogdown
+            bookdown
+            bookdownplus
             caret
             colourpicker
             dataCompareR
@@ -493,6 +496,7 @@ in {
               virtualenvwrapper
               wordcloud
               xarray
+              yt-dlp
             ]
         )
       )
