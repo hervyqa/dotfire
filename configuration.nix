@@ -448,6 +448,14 @@ in {
               lightgbm
               mahotas
               matplotlib
+              mkdocs
+              mkdocs-autorefs
+              mkdocs-jupyter
+              mkdocs-material
+              mkdocs-material-extensions
+              mkdocs-minify
+              mkdocstrings
+              mkdocstrings-python
               moviepy
               mypy
               nbdime
