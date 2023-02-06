@@ -767,7 +767,6 @@ in {
             coc-json
             coc-lists
             coc-markdownlint
-            coc-metals
             coc-nvim
             coc-pairs
             coc-prettier
@@ -791,6 +790,7 @@ in {
             julia-vim
             nvim-autopairs
             nvim-lastplace
+            nvim-metals
             nvim-web-devicons
             scope-nvim
             scrollbar-nvim
