@@ -1,6 +1,6 @@
 # Data Science
 
-![image](img.webp)
+![image](img.png)
 
 Minimalist configuration of Nixos operating system with KDE Plasma Wayland (disk encrypted) for Data Science needs.
 
@@ -16,7 +16,6 @@ Symlink to `/etc/nixos`.
 ```sh
 sudo mv configuration.nix configuration.nix.bak
 sudo ln -s $PWD/configuration.nix /etc/nixos/
-
 ```
 
 Replace the variables below according to your data in `configuration.nix`.
@@ -67,6 +66,7 @@ in
 | `earlyoom.enable = true;`                 |
 | `fstrim.enable = true;`                   |
 | `mysql.enable = true;`                    |
+| `postgresql.enable = true;`               |
 | `pipewire.enable = true;`                 |
 | `thermald.enable = true;`                 |
 | `doas.enable = true;`                     |
