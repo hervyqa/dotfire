@@ -61,7 +61,6 @@ in
 | `kdeconnect.enable = true;`               |
 | `light.enable = true;`                    |
 | `mtr.enable = true;`                      |
-| `neovim.defaultEditor = true;`            |
 | `enablePlasmaBrowserIntegration = false;` |
 | `autoLogin.enable = true;`                |
 | `dnscrypt-proxy2.enable = true;`          |
@@ -312,8 +311,8 @@ yt-dlp
 
 ### SQL
 
-* MariaDB enables by default, `mysql.enable = true;`.
-* PostgreSQL and Mongodb is installed, but disabled. `postgresql.enable = false;`, `mongodb.enable = false;`.
+* MariaDB & PostgreSQL enables by default, `mysql.enable = true;`, `postgresql.enable = false;`.
+* Mongodb is disabled `mongodb.enable = false;`.
 
 ### Other programming languages
 
@@ -371,81 +370,9 @@ streetsidesoftware.code-spell-checker
 
 </details>
 
-### Neovim
-
-Neovim plugin management uses `coc-nvim`. The list of installed plugins is in the `neovim.override` section:
-
-```sh
-neovim.override {
-  ...
-    packages.myPlugins = with pkgs.vimPlugins; {
-      start = [
-        ...
-    ]
-  }
-}
-```
-
-<details>
-<summary><b>See the Neovim plugins.</b></summary>
-
-```sh
-coc-clap
-coc-diagnostic
-coc-eslint
-coc-explorer
-coc-fzf
-coc-git
-coc-haxe
-coc-highlight
-coc-java
-coc-json
-coc-lists
-coc-markdownlint
-coc-metals
-coc-nvim
-coc-pairs
-coc-prettier
-coc-pyright
-coc-python
-coc-r-lsp
-coc-rls
-coc-sh
-coc-smartf
-coc-sqlfluff
-coc-stylelint
-coc-sumneko-lua
-coc-texlab
-coc-toml
-coc-ultisnips
-coc-vimlsp
-coc-vimtex
-coc-wxml
-coc-yaml
-coc-yank
-julia-vim
-nvim-autopairs
-nvim-lastplace
-nvim-web-devicons
-scope-nvim
-scrollbar-nvim
-statix
-surround-nvim
-tabline-nvim
-telescope-nvim
-vim-airline
-vim-airline-themes
-vim-commentary
-vim-lightline-coc
-vim-nix
-vim-wayland-clipboard
-```
-
-</details>
-
 ### Others
 
-In addition to `spyder`, `vscodium`, `neovim` there are also other gui applications such as:
+In addition to `spyder`, `vscodium`, `hx` there are also other gui applications such as:
 
 - `dbeaver` database processor.
 - `octaveFull` numerical calculation matlab.
