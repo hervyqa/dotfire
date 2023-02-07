@@ -562,7 +562,7 @@ in {
                 name = "r";
                 publisher = "REditorSupport";
                 version = "2.7.0";
-                sha256 = "9f7e7d305012efad50aca1c507e6abeda9919c15b8bfd52cd4480311a50c7d9f";
+                sha256 = "385a57ebc52093b209d3eba9a66b9c2f069e7b7223e7a82e1af46b1c30337825";
               }
             ];
         }
