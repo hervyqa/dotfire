@@ -231,6 +231,17 @@ in {
       mongodb
       sqlite
 
+      # LSP
+      bash-language-server
+      dockerfile-language-server-nodejs
+      java-language-server
+      python-language-server
+      typescript-language-server
+      vim-language-server
+      yaml-language-server
+      ltex-ls
+      marksman
+
       # Multimedia
       vlc
       vokoscreen
