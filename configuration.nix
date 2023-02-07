@@ -35,7 +35,7 @@ in {
     };
     kernel = {
       sysctl = {
-        "vm.swappiness" = 10;
+        "vm.swappiness" = 60;
       };
     };
     tmpOnTmpfs = true;
