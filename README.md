@@ -2,7 +2,8 @@
 
 ![image](img.png)
 
-Minimalist configuration of Nixos operating system with KDE Plasma Wayland (disk encrypted) for Data Science needs.
+Minimalist configuration of Nixos operating system with KDE Plasma (disk
+encrypted) for Data Science.
 
 ## Installation
 
@@ -46,38 +47,38 @@ in
 
 ### Settings
 
-| Configuration                             |
-| :---------------------------------------- |
-| `vm.swappiness = 10;`                     |
-| `tmpOnTmpfs = true;`                      |
-| `defaultUserShell = pkgs.fish;`           |
-| `auto-optimise-store = true;`             |
-| `allowUnfree = true;`                     |
-| `adb.enable = true;`                      |
-| `dconf.enable = true;`                    |
-| `gamemode.enable = true;`                 |
-| `java.enable = true;`                     |
-| `kdeconnect.enable = true;`               |
-| `light.enable = true;`                    |
-| `mtr.enable = true;`                      |
-| `enablePlasmaBrowserIntegration = false;` |
-| `autoLogin.enable = true;`                |
-| `dnscrypt-proxy2.enable = true;`          |
-| `earlyoom.enable = true;`                 |
-| `fstrim.enable = true;`                   |
-| `mysql.enable = true;`                    |
-| `postgresql.enable = true;`               |
-| `pipewire.enable = true;`                 |
-| `thermald.enable = true;`                 |
-| `doas.enable = true;`                     |
-| `sudo.enable = false;`                    |
-| `systemd.oomd.enable = false;`            |
-| `defaultSession = "plasmawayland";`       |
-| `bluetooth.hsphfpd.enable = true;`        |
-| `opengl.extraPackages = amdvlk`           |
-| `kernelModules = ["amdgpu"];`             |
-| `autoUpgrade.enable = true;`              |
-| `system.stateVersion = "22.11";`          |
+| Configuration                             | Description                                                                                                        |
+| :---------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `vm.swappiness = 60;`                     | Runtime parameters of the Linux kernel, as set by sysctl(8).                                                       |
+| `tmpOnTmpfs = true;`                      | Whether to mount a tmpfs on /tmp during boot.                                                                      |
+| `defaultUserShell = pkgs.fish;`           | Defines the default shell assigned to user accounts                                                                |
+| `auto-optimise-store = true;`             | Replaces files in the store that have identical contents with hard links to a single copy. This saves disk space.  |
+| `allowUnfree = true;`                     | The configuration of the Nix Packages collection to allow unfree packages.                                         |
+| `adb.enable = true;`                      | Whether to configure system to use Android Debug Bridge (adb).                                                     |
+| `dconf.enable = true;`                    | Whether to enable dconf.                                                                                           |
+| `gamemode.enable = true;`                 | Whether to enable GameMode to optimise system performance on demand.                                               |
+| `java.enable = true;`                     | Install and setup the Java development kit.                                                                        |
+| `kdeconnect.enable = true;`               | Whether to enable kdeconnect.                                                                                      |
+| `light.enable = true;`                    | Whether to install Light backlight control command and udev rules granting access to members of the "video" group. |
+| `mtr.enable = true;`                      | Whether to add mtr to the global environment and configure a setcap wrapper for it.                                |
+| `enablePlasmaBrowserIntegration = false;` | The configuration of the Nix Packages collection to disable plasma browser integration for Firefox.                |
+| `autoLogin.enable = true;`                | Automatically log in as autoLogin.user.                                                                            |
+| `dnscrypt-proxy2.enable = true;`          | Whether to enable dnscrypt-proxy2.                                                                                 |
+| `earlyoom.enable = true;`                 | Whether to enable Early out of memory killing.                                                                     |
+| `fstrim.enable = true;`                   | Whether to enable periodic SSD TRIM of mounted partitions in background.                                           |
+| `mysql.enable = true;`                    | Whether to enable MySQL server (MariaDB).                                                                          |
+| `postgresql.enable = true;`               | Whether to enable PostgreSQL Server.                                                                               |
+| `pipewire.enable = true;`                 | Whether to enable pipewire service.                                                                                |
+| `thermald.enable = true;`                 | Whether to enable thermald, the temperature management daemon.                                                     |
+| `doas.enable = true;`                     | Whether to enable the doas command, which allows non-root users to execute commands as root.                       |
+| `sudo.enable = false;`                    | Whether to disable the sudo command, which allows non-root users to execute commands as root.                      |
+| `systemd.oomd.enable = false;`            | Whether to disable the systemd-oomd OOM killer.                                                                    |
+| `defaultSession = "plasma";`              | Graphical session to pre-select in the session chooser. (plasma/plasmawayland)                                     |
+| `bluetooth.hsphfpd.enable = true;`        | Whether to enable support for hsphfpd[-prototype] implementation.                                                  |
+| `opengl.extraPackages = amdvlk`           | Additional packages to add to OpenGL drivers.                                                                      |
+| `boot.initrd.kernelModules = ["amdgpu"];` | List of modules that are always loaded by the initrd. (hardware-configuration.nix)                                 |
+| `autoUpgrade.enable = true;`              | Whether to periodically upgrade NixOS to the latest version.                                                       |
+| `system.stateVersion = "22.11";`          | NixOS system release                                                                                               |
 
 ## Data science
 
@@ -208,7 +209,8 @@ zoo
 
 ### Python3
 
-The list of installed `python3` packages is in the `python3.withPackages` section:
+The list of installed `python3` packages is in the
+`python3.withPackages` section:
 
 ```sh
 python3.withPackages (
@@ -310,10 +312,11 @@ yt-dlp
 
 ### SQL
 
-* MariaDB & PostgreSQL enables by default, `mysql.enable = true;`, `postgresql.enable = false;`.
-* Mongodb is disabled `mongodb.enable = false;`.
+- MariaDB & PostgreSQL enables by default, `mysql.enable =
+true;`, `postgresql.enable = false;`.
+- Mongodb is disabled `mongodb.enable = false;`.
 
-### Other programming languages
+### Other languages
 
 In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
 
@@ -321,11 +324,25 @@ In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
 
 ### Spyder
 
-Especially for python programming. This package is included in the `python3.withPackages` section above and is already integrated with the pandas, numpy, matplotlib, scikit-learn, and other libraries.
+[Spyder IDE](https://www.spyder-ide.org) is a free and open source
+scientific environment written in Python, for Python, and designed by and for
+scientists, engineers and data analysts. It features a unique combination of the
+advanced editing, analysis, debugging, and profiling functionality of a
+comprehensive development tool with the data exploration, interactive execution,
+deep inspection, and beautiful visualization capabilities of a scientific
+package.
+
+Especially for python programming. This package is included in
+the `python3.withPackages` section above and is already integrated with the
+pandas, numpy, matplotlib, scikit-learn, and other libraries.
 
 ### VSCodium
 
-List of installed vscodium plugins (configuration.nix):
+The [VSCodium](https://vscodium.com) Free/Libre Open Source Software Binaries
+of VS Code. VSCodium is a community-driven, freely-licensed binary distribution
+of Microsoft’s editor VS Code. Telemetry is disabled.
+
+List of installed `vscodium` plugins (configuration.nix):
 
 ```sh
 vscode-with-extensions.override {
@@ -369,29 +386,54 @@ streetsidesoftware.code-spell-checker
 
 </details>
 
-### Others
+### Helix
 
-In addition to `spyder`, `vscodium`, `hx` there are also other gui applications such as:
+[Helix Editor](https://helix-editor.com) A zero config post-modern CLI
+text editor similiar VIM or Neovim.
 
-- `dbeaver` database processor.
-- `octaveFull` numerical calculation matlab.
-- `sqlitebrowser` sqlite database processor.
-- `texstudio` document processor `LaTex`.
-- `paraview` data visualization.
-- `wxmaxima` numerical calculations.
+My helix configuration at `~/.config/helix/config.toml` is just this:
 
-Other tools:
+```sh
+theme = "base16_terminal"
 
-- `clickhouse`
-- `gnuplot`
-- `grafana`
-- `jupyter`
-- `jupyterlab`
-- `kaggle`
-- `luigi`
-- `metabase`
-- `tabula`
-- `visidata`
+[editor]
+line-number = "relative"
+cursorline = true
+
+[editor.lsp]
+display-messages = true
+```
+
+### Others applications
+
+**GUI tools:**
+
+In addition to `spyder` & `vscodium` there are also other gui applications such
+as:
+
+- `dbeaver` Universal SQL Client for developers, DBA and analysts.
+Supports MySQL, PostgreSQL, MariaDB, SQLite, and more.
+- `octaveFull` Scientific Programming Language.
+- `sqlitebrowser` DB Browser for SQLite.
+- `texstudio` TeX and LaTeX editor.
+- `paraview` 3D Data analysis and visualization application.
+- `wxmaxima` Cross platform GUI for the computer algebra system Maxima.
+
+**CLI tools:**
+
+- `clickhouse` Column-oriented database management system.
+- `gnuplot` Portable command-line driven graphing utility for many platforms.
+- `grafana` Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB
+& OpenTSDB.
+- `jupyter` Web-based notebook environment for interactive computing.
+- `jupyterlab` Jupyter lab environment notebook server extension.
+- `kaggle` Official API for https://www.kaggle.com, accessible using a command
+line tool implemented in Python 3.
+- `luigi` Python package that helps you build complex pipelines of batch jobs.
+- `metabase` The easy, open source way for everyone in your company to ask
+questions and learn from data.
+- `tabula` Liberating data tables locked inside PDF files.
+- `visidata` Interactive terminal multitool for tabular data.
 
 ## License
 
