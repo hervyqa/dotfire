@@ -213,6 +213,7 @@ in {
 
       # Scala
       scala
+      metals
 
       # Rakudo
       rakudo
@@ -221,21 +222,17 @@ in {
       nodejs
       yarn
 
+      # Markdown
+      marksman
+
+      # Language-tool
+      ltex-ls
+
       # IDE unwrapped
       dbeaver # database
       octaveFull # matlab
       sqlitebrowser # sqlite
       beekeeper-studio # database
-
-      # Devops
-      mongodb
-      sqlite
-
-      # LSP
-      ltex-ls # language-tool
-      marksman # markdown
-      metals # scala
-      bash-language-server # bash (nodejs)
 
       # Multimedia
       vlc
@@ -563,6 +560,12 @@ in {
                 publisher = "julialang";
                 version = "1.38.2";
                 sha256 = "07b8c8748f85dfd99a5ff23eadf7c88e64b9f7e07d6adb2be6bcd7f9cfbe5aa9";
+              }
+              {
+                name = "r";
+                publisher = "REditorSupport";
+                version = "2.7.0";
+                sha256 = "9f7e7d305012efad50aca1c507e6abeda9919c15b8bfd52cd4480311a50c7d9f";
               }
             ];
         }
