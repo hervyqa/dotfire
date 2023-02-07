@@ -232,15 +232,10 @@ in {
       sqlite
 
       # LSP
-      bash-language-server
-      dockerfile-language-server-nodejs
-      java-language-server
-      python-language-server
-      typescript-language-server
-      vim-language-server
-      yaml-language-server
-      ltex-ls
-      marksman
+      ltex-ls # language-tool
+      marksman # markdown
+      metals # scala
+      bash-language-server # bash (nodejs)
 
       # Multimedia
       vlc
@@ -359,6 +354,8 @@ in {
             janitor
             jsonlite
             knitr
+            languageserver
+            languageserversetup
             leaflet
             listviewer
             lme4
@@ -486,6 +483,8 @@ in {
               pyls-spyder
               pyspark
               pytest
+              python-lsp-jsonrpc
+              python-lsp-server
               pytorch
               pyyaml
               qdarkstyle
@@ -552,6 +551,7 @@ in {
               naumovs.color-highlight
               pkief.material-icon-theme
               scala-lang.scala
+              scalameta.metals
               shardulm94.trailing-spaces
               shd101wyy.markdown-preview-enhanced
               streetsidesoftware.code-spell-checker
@@ -743,6 +743,7 @@ in {
         gta = "git tag -a";
       };
     };
+  };
 
   xdg = {
     mime = {
