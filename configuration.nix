@@ -225,9 +225,6 @@ in {
       # Markdown
       marksman
 
-      # Language-tool
-      ltex-ls
-
       # IDE unwrapped
       dbeaver # database
       octaveFull # matlab
