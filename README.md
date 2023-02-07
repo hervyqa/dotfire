@@ -271,7 +271,6 @@ plotly
 plotnine
 pydot
 pyls-spyder
-pynvim
 pyspark
 pytest
 pytorch
