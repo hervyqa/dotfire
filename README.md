@@ -47,38 +47,38 @@ in
 
 ### Settings
 
-| Configuration                             | Description                                                                                                        |
-| :---------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `vm.swappiness = 60;`                     | Runtime parameters of the Linux kernel, as set by sysctl(8).                                                       |
-| `tmpOnTmpfs = true;`                      | Whether to mount a tmpfs on /tmp during boot.                                                                      |
-| `defaultUserShell = pkgs.fish;`           | Defines the default shell assigned to user accounts                                                                |
-| `auto-optimise-store = true;`             | Replaces files in the store that have identical contents with hard links to a single copy. This saves disk space.  |
-| `allowUnfree = true;`                     | The configuration of the Nix Packages collection to allow unfree packages.                                         |
-| `adb.enable = true;`                      | Whether to configure system to use Android Debug Bridge (adb).                                                     |
-| `dconf.enable = true;`                    | Whether to enable dconf.                                                                                           |
-| `gamemode.enable = true;`                 | Whether to enable GameMode to optimise system performance on demand.                                               |
-| `java.enable = true;`                     | Install and setup the Java development kit.                                                                        |
-| `kdeconnect.enable = true;`               | Whether to enable kdeconnect.                                                                                      |
-| `light.enable = true;`                    | Whether to install Light backlight control command and udev rules granting access to members of the "video" group. |
-| `mtr.enable = true;`                      | Whether to add mtr to the global environment and configure a setcap wrapper for it.                                |
-| `enablePlasmaBrowserIntegration = false;` | The configuration of the Nix Packages collection to disable plasma browser integration for Firefox.                |
-| `autoLogin.enable = true;`                | Automatically log in as autoLogin.user.                                                                            |
-| `dnscrypt-proxy2.enable = true;`          | Whether to enable dnscrypt-proxy2.                                                                                 |
-| `earlyoom.enable = true;`                 | Whether to enable Early out of memory killing.                                                                     |
-| `fstrim.enable = true;`                   | Whether to enable periodic SSD TRIM of mounted partitions in background.                                           |
-| `mysql.enable = true;`                    | Whether to enable MySQL server (MariaDB).                                                                          |
-| `postgresql.enable = true;`               | Whether to enable PostgreSQL Server.                                                                               |
-| `pipewire.enable = true;`                 | Whether to enable pipewire service.                                                                                |
-| `thermald.enable = true;`                 | Whether to enable thermald, the temperature management daemon.                                                     |
-| `doas.enable = true;`                     | Whether to enable the doas command, which allows non-root users to execute commands as root.                       |
-| `sudo.enable = false;`                    | Whether to disable the sudo command, which allows non-root users to execute commands as root.                      |
-| `systemd.oomd.enable = false;`            | Whether to disable the systemd-oomd OOM killer.                                                                    |
-| `defaultSession = "plasma";`              | Graphical session to pre-select in the session chooser. (plasma/plasmawayland)                                     |
-| `bluetooth.hsphfpd.enable = true;`        | Whether to enable support for hsphfpd[-prototype] implementation.                                                  |
-| `opengl.extraPackages = amdvlk`           | Additional packages to add to OpenGL drivers.                                                                      |
-| `boot.initrd.kernelModules = ["amdgpu"];` | List of modules that are always loaded by the initrd. (hardware-configuration.nix)                                 |
-| `autoUpgrade.enable = true;`              | Whether to periodically upgrade NixOS to the latest version.                                                       |
-| `system.stateVersion = "22.11";`          | NixOS system release                                                                                               |
+Configuration | Description
+:------------ | :----------
+`vm.swappiness = 60;` | Runtime parameters of the Linux kernel, as set by sysctl(8).
+`tmpOnTmpfs = true;` | Whether to mount a tmpfs on /tmp during boot.
+`defaultUserShell = pkgs.fish;` | Defines the default shell assigned to user accounts.
+`auto-optimise-store = true;` | Replaces files in the store that have identical contents with hard links to a single copy. This saves disk space.
+`allowUnfree = true;` | The configuration of the Nix Packages collection to allow unfree packages.
+`adb.enable = true;` | Whether to configure system to use Android Debug Bridge (adb).
+`dconf.enable = true;` | Whether to enable dconf.
+`gamemode.enable = true;` | Whether to enable GameMode to optimise system performance on demand.
+`java.enable = true;` | Install and setup the Java development kit.
+`kdeconnect.enable = true;` | Whether to enable kdeconnect.
+`light.enable = true;` | Whether to install Light backlight control command and udev rules granting access to members of the `video` group.
+`mtr.enable = true;` | Whether to add mtr to the global environment and configure a setcap wrapper for it.
+`enablePlasmaBrowserIntegration = false;` | The configuration of the Nix Packages collection to disable plasma browser integration for Firefox.
+`autoLogin.enable = true;` | Automatically log in as autoLogin.user.
+`dnscrypt-proxy2.enable = true;` | Whether to enable dnscrypt-proxy2.
+`earlyoom.enable = true;` | Whether to enable Early out of memory killing.
+`fstrim.enable = true;` | Whether to enable periodic SSD TRIM of mounted partitions in background.
+`mysql.enable = true;` | Whether to enable MySQL server (MariaDB).
+`postgresql.enable = true;` | Whether to enable PostgreSQL Server.
+`pipewire.enable = true;` | Whether to enable pipewire service.
+`thermald.enable = true;` | Whether to enable thermald, the temperature management daemon.
+`doas.enable = true;` | Whether to enable the doas command, which allows non-root users to execute commands as root.
+`sudo.enable = false;` | Whether to disable the sudo command, which allows non-root users to execute commands as root.
+`systemd.oomd.enable = false;` | Whether to disable the systemd-oomd OOM killer.
+`defaultSession = "plasma";` | Graphical session to pre-select in the session chooser. (plasma/plasmawayland).
+`bluetooth.hsphfpd.enable = true;` | Whether to enable support for hsphfpd implementation.
+`opengl.extraPackages = amdvlk` | Additional packages to add to OpenGL drivers.
+`boot.initrd.kernelModules = ["amdgpu"];` | List of modules that are always loaded by the initrd. (hardware-configuration.nix).
+`autoUpgrade.enable = true;` | Whether to periodically upgrade NixOS to the latest version.
+`system.stateVersion = "22.11";` | NixOS system release.
 
 ## Data science
 
