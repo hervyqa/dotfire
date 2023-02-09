@@ -425,6 +425,7 @@ in {
               beautifulsoup4
               bokeh
               click
+              conda
               cython
               dash
               dask
@@ -473,6 +474,7 @@ in {
               pims
               plotly
               plotnine
+              poetry
               pydot
               pyls-spyder
               pyspark
