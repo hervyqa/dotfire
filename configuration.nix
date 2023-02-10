@@ -597,6 +597,7 @@ in {
     light.enable = true;
     mtr.enable = true;
     partition-manager.enable = true;
+    command-not-found.enable = false;
 
     firefox = {
       enable = true;
