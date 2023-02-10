@@ -934,7 +934,6 @@ in {
     };
     bluetooth = {
       enable = true;
-      hsphfpd.enable = true;
     };
     opengl = {
       driSupport = true;
