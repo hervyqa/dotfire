@@ -306,6 +306,14 @@ in {
       media-downloader
       tdesktop
 
+      # Privider
+      awscli2 # aws
+      gh # github
+      glab # gitlab
+      hut # sourcehut
+      netlify-cli # netlify
+      vercel # vercel
+
       # Nonfree
       discord
       zoom-us
