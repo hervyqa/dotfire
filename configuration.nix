@@ -234,15 +234,16 @@ in {
       marksman
 
       # Versioning
-      gg
       git
       gitui
+      gg-scm
       git-cola
 
       # IDE unwrapped
       dbeaver # database
       octaveFull # matlab
       sqlitebrowser # sqlite
+      litecli # sqlite
       beekeeper-studio # database
       robo3t # mongodb
 
@@ -306,13 +307,10 @@ in {
       media-downloader
       tdesktop
 
-      # Privider
-      awscli2 # aws
+      # Provider
       gh # github
       glab # gitlab
       hut # sourcehut
-      netlify-cli # netlify
-      vercel # vercel
 
       # Nonfree
       discord
