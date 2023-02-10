@@ -152,6 +152,8 @@ in {
     };
   };
 
+  qt5.platformTheme = "kde"; # lxqt/kde
+
   # Packages
   environment = {
     sessionVariables = {
@@ -162,8 +164,8 @@ in {
     systemPackages = with pkgs;
     with libsForQt5;
     with nodePackages; [
+
       # Plasma5 extra
-      applet-window-buttons
       ark
       kate
       kgpg
@@ -172,6 +174,13 @@ in {
       ktouch
       quazip
       rsibreak
+
+      ## Lxqt extra
+      # arc-theme
+      # arc-kde-theme
+      # nm-tray
+      # picom
+      # themechanger
 
       # CLI packages
       axel
@@ -298,7 +307,7 @@ in {
       # Force sudo to doas
       (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
 
-      # RStudio system wide
+      ## RStudio system wide
       # failed to compiling:
       # arrow, Hmisc (interp), ggforce, prophet, torch
       (
@@ -820,7 +829,17 @@ in {
     };
     portal = {
       enable = true;
-      wlr.enable = true;
+      lxqt = {
+        enable = false;
+        styles = [
+          pkgs.libsForQt5.qtstyleplugin-kvantum
+          pkgs.breeze-qt5
+          pkgs.qtcurve
+        ];
+      };
+      wlr = {
+        enable = true;
+      };
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
         pkgs.xdg-desktop-portal-wlr
@@ -912,6 +931,9 @@ in {
     xserver = {
       enable = true;
       desktopManager = {
+        lxqt = {
+          enable = false;
+        };
         plasma5 = {
           enable = true;
           excludePackages = with pkgs.libsForQt5; [
@@ -922,8 +944,8 @@ in {
         xterm.enable = false;
       };
       displayManager = {
-        defaultSession = "plasma"; # or plasmawayland
-        sddm = {
+        defaultSession = "plasma"; # lxqt/plasma/plasmawayland
+        sddm = { # for lxqt/plasma
           enable = true;
           autoNumlock = true;
         };
