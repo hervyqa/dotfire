@@ -301,7 +301,8 @@ in {
       inkscape
       krita
 
-      # Communication
+      # Internet
+      keepassxc
       media-downloader
       tdesktop
 
