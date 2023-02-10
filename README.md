@@ -68,13 +68,13 @@ Configuration | Description
 `fstrim.enable = true;` | Whether to enable periodic SSD TRIM of mounted partitions in background.
 `mysql.enable = true;` | Whether to enable MySQL server (MariaDB).
 `postgresql.enable = true;` | Whether to enable PostgreSQL Server.
+`mongodb.enable = true;` | Whether to enable MongoDB Server.
 `pipewire.enable = true;` | Whether to enable pipewire service.
 `thermald.enable = true;` | Whether to enable thermald, the temperature management daemon.
 `doas.enable = true;` | Whether to enable the doas command, which allows non-root users to execute commands as root.
 `sudo.enable = false;` | Whether to disable the sudo command, which allows non-root users to execute commands as root.
 `systemd.oomd.enable = false;` | Whether to disable the systemd-oomd OOM killer.
 `defaultSession = "plasma";` | Graphical session to pre-select in the session chooser. (plasma/plasmawayland).
-`bluetooth.hsphfpd.enable = true;` | Whether to enable support for hsphfpd implementation.
 `opengl.extraPackages = amdvlk` | Additional packages to add to OpenGL drivers.
 `boot.initrd.kernelModules = ["amdgpu"];` | List of modules that are always loaded by the initrd. (hardware-configuration.nix).
 `autoUpgrade.enable = true;` | Whether to periodically upgrade NixOS to the latest version.
@@ -312,9 +312,7 @@ yt-dlp
 
 ### SQL
 
-- MariaDB & PostgreSQL enables by default, `mysql.enable =
-true;`, `postgresql.enable = false;`.
-- Mongodb is disabled `mongodb.enable = false;`.
+* MariaDB, PostgreSQL& MongoDB enables by default.
 
 ### Other languages
 
