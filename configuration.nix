@@ -879,7 +879,7 @@ in {
     };
 
     mongodb = {
-      enable = false;
+      enable = true;
     };
 
     mysql = {
