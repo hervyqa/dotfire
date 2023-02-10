@@ -35,6 +35,10 @@
     kernelModules = [
       "kvm-amd"
     ];
+    kernelPackages = pkgs.linuxPackages_xanmod;
+    plymouth = {
+      enable = true;
+    };
     extraModulePackages = [];
   };
 
