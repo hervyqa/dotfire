@@ -244,6 +244,7 @@ in {
       octaveFull # matlab
       sqlitebrowser # sqlite
       beekeeper-studio # database
+      robo3t # mongodb
 
       # Multimedia
       vlc
