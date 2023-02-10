@@ -492,6 +492,7 @@ in {
               poetry
               pydot
               pyls-spyder
+              pymongo
               pyspark
               pytest
               python-lsp-jsonrpc
