@@ -188,8 +188,6 @@ in {
       dialog
       direnv
       efibootmgr
-      git
-      gitui
       glxinfo
       gnumake
       helix
@@ -234,6 +232,12 @@ in {
 
       # Markdown
       marksman
+
+      # Versioning
+      git
+      gitui
+      git-cola
+      subversion
 
       # IDE unwrapped
       dbeaver # database
