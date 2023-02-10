@@ -189,6 +189,7 @@ in {
       inxi
       joshuto
       nixos-option
+      pfetch
       translate-shell
       vulkan-tools
       wget
@@ -425,7 +426,6 @@ in {
               beautifulsoup4
               bokeh
               click
-              conda
               cython
               dash
               dask
