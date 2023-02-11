@@ -702,6 +702,7 @@ in {
         nim = "nix-shell -p nix-info --run 'nix-info -m'";
         nrd = "doas nixos-rebuild dry-build";
         nrs = "doas nixos-rebuild switch";
+        ncg = "doas nix-collect-garbage -d";
         nsgc = "doas nix-store --gc";
 
         ga = "git add";
