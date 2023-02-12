@@ -1,4 +1,4 @@
-# Data Science
+# NixOS for Data Science
 
 ![image](img.png)
 
