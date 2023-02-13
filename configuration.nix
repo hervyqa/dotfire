@@ -500,6 +500,7 @@ in {
               pymongo
               pyspark
               pytest
+              python
               python-lsp-jsonrpc
               python-lsp-server
               pytorch
