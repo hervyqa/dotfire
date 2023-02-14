@@ -240,6 +240,7 @@ in {
 
       # IDE unwrapped
       dbeaver # database
+      lapce # julia
       octaveFull # matlab
       sqlitebrowser # sqlite
       litecli # sqlite
