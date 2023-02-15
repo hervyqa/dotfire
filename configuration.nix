@@ -267,6 +267,7 @@ in {
 
       # Multimedia
       vlc
+      v4l-utils
       vokoscreen
       obs-studio
 
