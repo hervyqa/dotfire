@@ -12,6 +12,7 @@
   extralocale = "id_ID.UTF-8";
   layout = "us";
   gpgkey = "85161EB8";
+  hostname = "nixos";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -42,7 +43,7 @@ in {
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = "${hostname}";
     networkmanager = {
       enable = true; # Enables via NetworkManager.
     };
