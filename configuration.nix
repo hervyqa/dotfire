@@ -29,7 +29,9 @@ in {
       };
       grub = {
         useOSProber = false; # true: If dual boot.
+        splashImage = null;
       };
+      timeout = 2;
     };
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
@@ -964,6 +966,11 @@ in {
         sddm = { # for lxqt/plasma
           enable = true;
           autoNumlock = true;
+          settings = {
+            Theme = {
+              CursorTheme = "breeze_cursors";
+            };
+          };
         };
         autoLogin = {
           enable = true;
