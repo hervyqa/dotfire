@@ -185,7 +185,7 @@ in {
       # picom
       # themechanger
 
-      # CLI packages
+      # Basic
       axel
       bottom
       dialog
