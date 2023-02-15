@@ -194,6 +194,7 @@ in {
       glxinfo
       gnumake
       helix
+      home-manager
       htop
       imagemagick
       inxi
