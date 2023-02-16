@@ -16,9 +16,6 @@ in {
   nixpkgs = {
     config = {
       allowUnfree = true;
-      # firefox = {
-      #   enablePlasmaBrowserIntegration = false;
-      # };
     };
   };
 
