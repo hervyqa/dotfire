@@ -346,7 +346,7 @@ In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
 
 ## IDE
 
-### Spyder
+### Spyder IDE
 
 [Spyder IDE](https://www.spyder-ide.org) is a free and open source
 scientific environment written in Python, for Python, and designed by and for
@@ -410,23 +410,10 @@ streetsidesoftware.code-spell-checker
 
 </details>
 
-### Helix
+### Helix Editor
 
 [Helix Editor](https://helix-editor.com) A zero config post-modern CLI
 text editor similiar VIM or Neovim.
-
-My helix configuration at `~/.config/helix/config.toml` is just this:
-
-```sh
-theme = "base16_terminal"
-
-[editor]
-line-number = "relative"
-cursorline = true
-
-[editor.lsp]
-display-messages = true
-```
 
 ### Others applications
 
