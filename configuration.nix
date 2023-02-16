@@ -659,6 +659,10 @@ in {
         yank
       ];
       extraConfig = ''
+      unbind C-b
+      set-option -g prefix C-a
+      bind-key C-a send-prefix
+
       set -as terminal-overrides ",*:Tc"
       run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux
 
