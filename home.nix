@@ -615,7 +615,53 @@ in {
     helix = {
       enable = true;
       settings = {
-        themes = {
+        theme = "dotfire";
+
+        editor = {
+          #bufferline = "always"
+          cursorline = true;
+          # cursorcolumn = true
+          line-number = "relative";
+          rulers = [80];
+          true-color = true;
+
+          indent-guides = {
+            render = true;
+            character = "┊";
+            skip-levels = 5;
+          };
+
+          lsp = {
+            display-messages = true;
+          };
+
+          whitespace.render = {
+            space = "none";
+            tab = "all";
+            newline = "none";
+          };
+        };
+
+        keys = {
+          normal = {
+            C-w = ":w";
+            C-q = ":q";
+          };
+          insert = {
+            up = "no_op";
+            down = "no_op";
+            left = "no_op";
+            right = "no_op";
+            pageup = "no_op";
+            pagedown = "no_op";
+            home = "no_op";
+            end = "no_op";
+          };
+        };
+      };
+
+      themes = {
+        dotfire = {
           "ui.background" = {fg = "white";};
           "ui.background.separator" = {fg = "gray";};
           "ui.menu" = {fg = "white";};
@@ -740,48 +786,6 @@ in {
               color = "light-red";
               style = "curl";
             };
-          };
-        };
-
-        editor = {
-          #bufferline = "always"
-          cursorline = true;
-          # cursorcolumn = true
-          line-number = "relative";
-          rulers = [80];
-          true-color = true;
-
-          indent-guides = {
-            render = true;
-            character = "┊";
-            skip-levels = 5;
-          };
-
-          lsp = {
-            display-messages = true;
-          };
-
-          whitespace.render = {
-            space = "none";
-            tab = "all";
-            newline = "none";
-          };
-        };
-
-        keys = {
-          normal = {
-            C-w = ":w";
-            C-q = ":q";
-          };
-          insert = {
-            up = "no_op";
-            down = "no_op";
-            left = "no_op";
-            right = "no_op";
-            pageup = "no_op";
-            pagedown = "no_op";
-            home = "no_op";
-            end = "no_op";
           };
         };
       };
