@@ -92,6 +92,7 @@ in {
 
   # Define a user account
   users = {
+    defaultUserShell = pkgs.fish;
     users.${name} = {
       isNormalUser = true;
       description = "${fullname}";
@@ -113,7 +114,6 @@ in {
         "wheel"
       ];
     };
-    defaultUserShell = pkgs.fish;
   };
 
   # Nix settings
