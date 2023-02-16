@@ -17,6 +17,7 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    <home-manager/nixos>
   ];
 
   # Bootloader
@@ -195,7 +196,6 @@ in {
       gnumake
       helix
       home-manager
-      htop
       imagemagick
       inxi
       joshuto
@@ -1087,4 +1087,18 @@ in {
     };
     stateVersion = "21.11";
   };
+
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    users.${name} = { pkgs, ... }: {
+      home = {
+        packages = with pkgs; [
+          htop
+        ];
+        stateVersion = "22.11";
+      };
+    };
+  };
 }
+
