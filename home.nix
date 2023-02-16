@@ -498,9 +498,9 @@ in {
         ll = "ls -lha";
         lsf = "lsblk -o name,fstype,fsavail,fsused,size,mountpoint";
 
-        ncu = "doas nix-channel --update";
         neq = "nix-env -qaP";
         nim = "nix-shell -p nix-info --run 'nix-info -m'";
+        ncu = "doas nix-channel --update";
         nrd = "doas nixos-rebuild dry-build";
         nrs = "doas nixos-rebuild switch";
         ncg = "doas nix-collect-garbage -d";
