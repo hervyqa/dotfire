@@ -194,7 +194,6 @@ in {
       efibootmgr
       glxinfo
       gnumake
-      home-manager
       imagemagick
       inxi
       joshuto
