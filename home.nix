@@ -493,6 +493,7 @@ in {
       shellAbbrs = {
         h = "hx";
         g = "git";
+        t = "tmux";
 
         ll = "ls -lha";
         lsf = "lsblk -o name,fstype,fsavail,fsused,size,mountpoint";
