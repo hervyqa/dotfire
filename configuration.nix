@@ -13,6 +13,7 @@
   layout = "us";
   gpgkey = "85161EB8";
   hostname = "nixos";
+  version = "22.11";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -1084,7 +1085,7 @@ in {
       enable = true;
       allowReboot = false;
     };
-    stateVersion = "21.11";
+    stateVersion = "${version}";
   };
 
   home-manager = {
@@ -1095,7 +1096,7 @@ in {
         packages = with pkgs; [
           htop
         ];
-        stateVersion = "22.11";
+        stateVersion = "${version}";
       };
     };
   };
