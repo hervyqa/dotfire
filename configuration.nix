@@ -215,7 +215,6 @@ in {
       kaggle
       luigi
       metabase
-      paraview
       tabula
       visidata
       wxmaxima
