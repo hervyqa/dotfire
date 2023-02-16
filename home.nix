@@ -19,6 +19,12 @@ in {
     };
   };
 
+  gtk = {
+    cursorTheme = "breeze_cursors";
+    iconTheme = "Papirus-Dark";
+    theme = "Breeze";
+  };
+
   home.packages = with pkgs;
   with libsForQt5;
   with nodePackages; [
