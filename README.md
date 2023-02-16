@@ -49,27 +49,27 @@ sudo ln -s $PWD/home.nix $HOME/.config/nixpkgs/
 
 * Install Home manager standalone
 
-```
+```sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
 nix-channel update
 ```
 
 * Generate home manager
 
-```
+```sh
 nix-shell '<home-manager>' -A install
 ```
 
 ## NixOS Info
 
-- system: `"x86_64-linux"`
-- host os: `Linux 5.15.89, NixOS, 22.11 (Raccoon), 22.11.1777.cdead16a444`
-- multi-user?: `yes`
-- sandbox: `yes`
-- version: `nix-env (Nix) 2.11.1`
-- channels(hervyqa): `""`
-- channels(root): `"nixos-22.11"`
-- nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
+* system: `"x86_64-linux"`
+* host os: `Linux 5.15.89, NixOS, 22.11 (Raccoon), 22.11.1777.cdead16a444`
+* multi-user?: `yes`
+* sandbox: `yes`
+* version: `nix-env (Nix) 2.11.1`
+* channels(hervyqa): `""`
+* channels(root): `"nixos-22.11"`
+* nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
 
 ## Settings
 
@@ -121,7 +121,7 @@ rstudioWrapper.override {
 ```
 
 <details>
-<summary><b>See all module list of R.</b></summary>
+<summary>See all module list of R.</summary>
 
 ```sh
 Cairo
@@ -248,7 +248,7 @@ python3.withPackages (
 ```
 
 <details>
-<summary><b>See the Python3 library.</b></summary>
+<summary>See the Python3 library.</summary>
 
 ```sh
 Theano
@@ -378,7 +378,7 @@ vscode-with-extensions.override {
 ```
 
 <details>
-<summary><b>See the VSCodium extensions.</b></summary>
+<summary>See the VSCodium extensions.</summary>
 
 ```sh
 azdavis.millet
@@ -435,29 +435,28 @@ display-messages = true
 In addition to `spyder` & `vscodium` there are also other gui applications such
 as:
 
-- `dbeaver` Universal SQL Client for developers, DBA and analysts.
+* `dbeaver` Universal SQL Client for developers, DBA and analysts.
 Supports MySQL, PostgreSQL, MariaDB, SQLite, and more.
-- `octaveFull` Scientific Programming Language.
-- `sqlitebrowser` DB Browser for SQLite.
-- `texstudio` TeX and LaTeX editor.
-- `paraview` 3D Data analysis and visualization application.
-- `wxmaxima` Cross platform GUI for the computer algebra system Maxima.
+* `octaveFull` Scientific Programming Language.
+* `sqlitebrowser` DB Browser for SQLite.
+* `texstudio` TeX and LaTeX editor.
+* `wxmaxima` Cross platform GUI for the computer algebra system Maxima.
 
 **CLI tools:**
 
-- `clickhouse` Column-oriented database management system.
-- `gnuplot` Portable command-line driven graphing utility for many platforms.
-- `grafana` Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB
+* `clickhouse` Column-oriented database management system.
+* `gnuplot` Portable command-line driven graphing utility for many platforms.
+* `grafana` Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB
 & OpenTSDB.
-- `jupyter` Web-based notebook environment for interactive computing.
-- `jupyterlab` Jupyter lab environment notebook server extension.
-- `kaggle` Official API for https://www.kaggle.com, accessible using a command
+* `jupyter` Web-based notebook environment for interactive computing.
+* `jupyterlab` Jupyter lab environment notebook server extension.
+* `kaggle` Official API for <https://www.kaggle.com>, accessible using a command
 line tool implemented in Python 3.
-- `luigi` Python package that helps you build complex pipelines of batch jobs.
-- `metabase` The easy, open source way for everyone in your company to ask
+* `luigi` Python package that helps you build complex pipelines of batch jobs.
+* `metabase` The easy, open source way for everyone in your company to ask
 questions and learn from data.
-- `tabula` Liberating data tables locked inside PDF files.
-- `visidata` Interactive terminal multitool for tabular data.
+* `tabula` Liberating data tables locked inside PDF files.
+* `visidata` Interactive terminal multitool for tabular data.
 
 ## License
 
