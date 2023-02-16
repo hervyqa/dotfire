@@ -425,6 +425,7 @@ as:
 * `dbeaver` Universal SQL Client for developers, DBA and analysts.
 Supports MySQL, PostgreSQL, MariaDB, SQLite, and more.
 * `octaveFull` Scientific Programming Language.
+* `robo3t` Query GUI for mongodb. Formerly called Robomongo.
 * `sqlitebrowser` DB Browser for SQLite.
 * `texstudio` TeX and LaTeX editor.
 * `wxmaxima` Cross platform GUI for the computer algebra system Maxima.
