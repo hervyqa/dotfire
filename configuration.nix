@@ -16,8 +16,7 @@
   version = "22.11";
 in {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   # Bootloader
@@ -194,6 +193,8 @@ in {
       efibootmgr
       glxinfo
       gnumake
+      helix
+      htop
       imagemagick
       inxi
       joshuto
@@ -844,6 +845,7 @@ in {
         "x-scheme-handler/unknown" = browsers;
       };
     };
+
     portal = {
       enable = true;
       lxqt = {
