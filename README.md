@@ -5,21 +5,9 @@
 Minimalist configuration of Nixos operating system with KDE Plasma (disk
 encrypted) for Data Science.
 
-## Installation
+## Variable
 
-```sh
-git clone git@gitlab.com:hervyqa/nixos-config.git
-cd nixos-config
-```
-
-Symlink to `/etc/nixos`.
-
-```sh
-sudo mv configuration.nix configuration.nix.bak
-sudo ln -s $PWD/configuration.nix /etc/nixos/
-```
-
-Replace the variables below according to your data in `configuration.nix`.
+Replace the variables below according to your data in `configuration.nix` and `home.nix`.
 
 ```nix
 let
@@ -34,6 +22,44 @@ let
 in
 ```
 
+## Installation
+
+* Clone source
+
+```sh
+git clone git@gitlab.com:hervyqa/nixos-config.git
+cd nixos-config
+```
+
+* System wide config
+
+Symlink to `/etc/nixos`.
+
+```sh
+sudo mv configuration.nix configuration.nix.bak
+sudo ln -s $PWD/configuration.nix /etc/nixos/
+```
+
+* Home manager config
+
+```sh
+mkdir ~/.config/nixpkgs
+sudo ln -s $PWD/home.nix $HOME/.config/nixpkgs/
+```
+
+* Install Home manager standalone
+
+```
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
+nix-channel update
+```
+
+* Generate home manager
+
+```
+nix-shell '<home-manager>' -A install
+```
+
 ## NixOS Info
 
 - system: `"x86_64-linux"`
@@ -45,7 +71,7 @@ in
 - channels(root): `"nixos-22.11"`
 - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
 
-### Settings
+## Settings
 
 Configuration | Description
 :------------ | :----------
