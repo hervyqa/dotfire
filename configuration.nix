@@ -647,6 +647,17 @@ in {
       clock24 = true;
       terminal = "screen-256color";
       historyLimit = 5000;
+      plugins = with pkgs.tmuxPlugins; [
+        battery
+        better-mouse-mode
+        continuum
+        jump
+        pain-control
+        prefix-highlight
+        resurrect
+        tilish
+        yank
+      ];
     };
 
     git = {
