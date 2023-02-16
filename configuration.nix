@@ -18,7 +18,6 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <home-manager/nixos>
   ];
 
   # Bootloader
@@ -195,7 +194,6 @@ in {
       efibootmgr
       glxinfo
       gnumake
-      helix
       home-manager
       imagemagick
       inxi
@@ -1086,19 +1084,6 @@ in {
       allowReboot = false;
     };
     stateVersion = "${version}";
-  };
-
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    users.${name} = { pkgs, ... }: {
-      home = {
-        packages = with pkgs; [
-          htop
-        ];
-        stateVersion = "${version}";
-      };
-    };
   };
 }
 
