@@ -192,6 +192,7 @@ in {
             duckdb
             flask
             future
+            grip
             gym
             h5py
             ibm-watson
@@ -453,7 +454,6 @@ in {
   services = {
     kdeconnect = {
       enable = true;
-      indicator = true;
     };
   };
 
