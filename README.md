@@ -24,14 +24,14 @@ in
 
 ## Installation
 
-* Clone source
+### Clone Source
 
 ```sh
 git clone git@gitlab.com:hervyqa/nixos-config.git
 cd nixos-config
 ```
 
-* System wide config
+### System Wide Config
 
 Symlink to `/etc/nixos`.
 
@@ -40,36 +40,25 @@ sudo mv configuration.nix configuration.nix.bak
 sudo ln -s $PWD/configuration.nix /etc/nixos/
 ```
 
-* Home manager config
+### Home manager config
 
 ```sh
 mkdir ~/.config/nixpkgs
 sudo ln -s $PWD/home.nix $HOME/.config/nixpkgs/
 ```
 
-* Install Home manager standalone
+### Install Home manager standalone
 
 ```sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
 nix-channel update
 ```
 
-* Generate home manager
+### Generate home manager
 
 ```sh
 nix-shell '<home-manager>' -A install
 ```
-
-## NixOS Info
-
-* system: `"x86_64-linux"`
-* host os: `Linux 5.15.89, NixOS, 22.11 (Raccoon), 22.11.1777.cdead16a444`
-* multi-user?: `yes`
-* sandbox: `yes`
-* version: `nix-env (Nix) 2.11.1`
-* channels(hervyqa): `""`
-* channels(root): `"nixos-22.11"`
-* nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
 
 ## Settings
 
@@ -106,19 +95,16 @@ Configuration | Description
 `autoUpgrade.enable = true;` | Whether to periodically upgrade NixOS to the latest version.
 `system.stateVersion = "22.11";` | NixOS system release.
 
-## Data science
+## Open Source Data Science
 
-### R
+### RStudio for R
 
-The list of installed `R` packages is in the `rstudioWrapper.override` section:
-
-```sh
-rstudioWrapper.override {
-  packages = with rPackages; [
-    ...
-    ]
-  }
-```
+[RStudio](https://posit.co/products/open-source/rstudio/) is an integrated
+development environment (IDE) for R and Python. It includes a console,
+syntax-highlighting editor that supports direct code execution, and tools for
+plotting, history, debugging, and workspace management. RStudio is available
+in open source and commercial editions and runs on the desktop (Windows, Mac,
+and Linux).
 
 <details>
 <summary>See all module list of R.</summary>
@@ -233,7 +219,19 @@ zoo
 
 </details>
 
-### Python3
+### Spyder IDE for Python
+
+[Spyder IDE](https://www.spyder-ide.org) is a free and open source
+scientific environment written in Python, for Python, and designed by and for
+scientists, engineers and data analysts. It features a unique combination of the
+advanced editing, analysis, debugging, and profiling functionality of a
+comprehensive development tool with the data exploration, interactive execution,
+deep inspection, and beautiful visualization capabilities of a scientific
+package.
+
+Especially for python programming. This package is included in
+the `python3.withPackages` section bellow and is already integrated with the
+pandas, numpy, matplotlib, scikit-learn, and other libraries.
 
 The list of installed `python3` packages is in the
 `python3.withPackages` section:
@@ -336,30 +334,6 @@ yt-dlp
 
 </details>
 
-### SQL
-
-* MariaDB, PostgreSQL& MongoDB enables by default.
-
-### Other languages
-
-In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
-
-## IDE
-
-### Spyder IDE
-
-[Spyder IDE](https://www.spyder-ide.org) is a free and open source
-scientific environment written in Python, for Python, and designed by and for
-scientists, engineers and data analysts. It features a unique combination of the
-advanced editing, analysis, debugging, and profiling functionality of a
-comprehensive development tool with the data exploration, interactive execution,
-deep inspection, and beautiful visualization capabilities of a scientific
-package.
-
-Especially for python programming. This package is included in
-the `python3.withPackages` section above and is already integrated with the
-pandas, numpy, matplotlib, scikit-learn, and other libraries.
-
 ### VSCodium
 
 The [VSCodium](https://vscodium.com) Free/Libre Open Source Software Binaries
@@ -410,23 +384,61 @@ streetsidesoftware.code-spell-checker
 
 </details>
 
+### JupyterLab
+
+[JupyterLab](https://jupyter.org) is the latest web-based interactive
+development environment for notebooks, code, and data. Its flexible interface
+allows users to configure and arrange workflows in data science, scientific
+computing, computational journalism, and machine learning. A modular design
+invites extensions to expand and enrich functionality.
+
+### DBeaver for Database
+
+[DBeaver](https://dbeaver.io) Free multi-platform database tool for developers, database administrators,
+analysts and all people who need to work with databases.
+Supports all popular databases: MySQL, PostgreSQL, SQLite, Oracle, DB2,
+SQL Server, Sybase, MS Access, Teradata, Firebird, Apache Hive, Phoenix,
+Presto, etc.
+
+### Beekeeper Studio
+
+[Beekeeper Studio](https://www.beekeeperstudio.io) A modern, easy to use, and
+good looking SQL client for MySQL, Postgres, SQLite, SQL Server, and more.
+
+### Robo3T for MongoDB
+
+[Robo 3T (formerly Robomongo)](https://robomongo.org) is the free, lightweight,
+open-source MongoDB GUI with an embedded mongo shell, real auto-completion,
+and support for MongoDB 4.0.
+
+### SQLite Browser
+
+[DB Browser for SQLite (DB4S)](https://sqlitebrowser.org) is a high quality,
+visual, open source tool to create, design, and edit database files compatible
+with SQLite.
+
+DB4S is for users and developers who want to create, search, and edit databases.
+DB4S uses a familiar spreadsheet-like interface, and complicated SQL commands
+do not have to be learned.
+
+### GNU Octave
+
+[GNU Octave](https://octave.org/index) The Octave syntax is largely compatible
+with Matlab. The Octave interpreter can be run in GUI mode, as a console, or
+invoked as part of a shell script.
+
 ### Helix Editor
 
 [Helix Editor](https://helix-editor.com) A zero config post-modern CLI
 text editor similiar VIM or Neovim.
 
-### Others applications
+### Others Rpplications
 
 **GUI tools:**
 
 In addition to `spyder` & `vscodium` there are also other gui applications such
 as:
 
-* `dbeaver` Universal SQL Client for developers, DBA and analysts.
-Supports MySQL, PostgreSQL, MariaDB, SQLite, and more.
-* `octaveFull` Scientific Programming Language.
-* `robo3t` Query GUI for mongodb. Formerly called Robomongo.
-* `sqlitebrowser` DB Browser for SQLite.
 * `texstudio` TeX and LaTeX editor.
 * `wxmaxima` Cross platform GUI for the computer algebra system Maxima.
 
@@ -436,8 +448,6 @@ Supports MySQL, PostgreSQL, MariaDB, SQLite, and more.
 * `gnuplot` Portable command-line driven graphing utility for many platforms.
 * `grafana` Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB
 & OpenTSDB.
-* `jupyter` Web-based notebook environment for interactive computing.
-* `jupyterlab` Jupyter lab environment notebook server extension.
 * `kaggle` Official API for <https://www.kaggle.com>, accessible using a command
 line tool implemented in Python 3.
 * `luigi` Python package that helps you build complex pipelines of batch jobs.
@@ -445,6 +455,10 @@ line tool implemented in Python 3.
 questions and learn from data.
 * `tabula` Liberating data tables locked inside PDF files.
 * `visidata` Interactive terminal multitool for tabular data.
+
+### Other Programming Languages
+
+In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
 
 ## License
 
