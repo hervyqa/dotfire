@@ -20,6 +20,8 @@ let
   extralocale = "id_ID.UTF-8";
   layout = "us";
   gpgkey = "85161EB8";
+  hostname = "nixos";
+  version = "22.11";
 in
 ```
 
