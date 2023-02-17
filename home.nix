@@ -475,20 +475,6 @@ in {
       profiles.${name}.search = {
         default = "DuckDuckGo";
         force = true;
-      # policies = {
-      #   CaptivePortal = false;
-      #   DisableFirefoxAccounts = true;
-      #   DisableFirefoxStudies = true;
-      #   DisablePocket = true;
-      #   DisableTelemetry = true;
-      #   FirefoxHome = {
-      #     Pocket = false;
-      #     Snippets = false;
-      #   };
-      #   UserMessaging = {
-      #     ExtensionRecommendations = false;
-      #     SkipOnboarding = true;
-      #   };
       };
     };
 
