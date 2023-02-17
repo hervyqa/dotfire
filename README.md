@@ -7,7 +7,8 @@ encrypted) for Data Science.
 
 ## Variable
 
-Replace the variables below according to your data in `configuration.nix` and `home.nix`.
+Replace the variables below according to your data in `configuration.nix`
+and `home.nix`.
 
 ```nix
 let
@@ -370,10 +371,10 @@ invites extensions to expand and enrich functionality.
 
 ### DBeaver for Database
 
-[DBeaver](https://dbeaver.io) Free multi-platform database tool for developers, database administrators,
-analysts and all people who need to work with databases.
-Supports all popular databases: MySQL, PostgreSQL, SQLite, Oracle, DB2,
-SQL Server, Sybase, MS Access, Teradata, Firebird, Apache Hive, Phoenix,
+[DBeaver](https://dbeaver.io) Free multi-platform database tool for developers,
+database administrators, analysts and all people who need to work with
+databases. Supports all popular databases: MySQL, PostgreSQL, SQLite, Oracle,
+DB2, SQL Server, Sybase, MS Access, Teradata, Firebird, Apache Hive, Phoenix,
 Presto, etc.
 
 ### Beekeeper Studio
