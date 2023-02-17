@@ -39,7 +39,7 @@ cd nixos-config
 Symlink to `/etc/nixos`.
 
 ```sh
-sudo mv configuration.nix configuration.nix.bak
+sudo mv /etc/configuration.nix /etc/configuration.nix.backup
 sudo ln -s $PWD/configuration.nix /etc/nixos/
 ```
 
@@ -417,7 +417,7 @@ invoked as part of a shell script.
 [Helix Editor](https://helix-editor.com) A zero config post-modern CLI
 text editor similiar VIM or Neovim.
 
-### Others Rpplications
+### Others Applications
 
 **GUI tools:**
 
