@@ -164,9 +164,8 @@ in {
       MOZ_ENABLE_WAYLAND = "1";
     };
 
-    systemPackages = with pkgs;
-    with libsForQt5;
-    with nodePackages; [
+    systemPackages = with pkgs; [
+    # System packages
     ];
   };
 
@@ -181,16 +180,10 @@ in {
     adb.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
+    kdeconnect.enable = true;
     mtr.enable = true;
     partition-manager.enable = true;
     command-not-found.enable = false;
-
-    gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
   };
 
   xdg = {
