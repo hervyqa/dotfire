@@ -63,6 +63,12 @@ nix-channel update
 nix-shell '<home-manager>' -A install
 ```
 
+For next build.
+
+```sh
+home-manager switch -b backup
+```
+
 ## Settings
 
 Configuration | Description
