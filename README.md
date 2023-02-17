@@ -76,7 +76,6 @@ Configuration | Description
 `kdeconnect.enable = true;` | Whether to enable kdeconnect.
 `light.enable = true;` | Whether to install Light backlight control command and udev rules granting access to members of the `video` group.
 `mtr.enable = true;` | Whether to add mtr to the global environment and configure a setcap wrapper for it.
-`enablePlasmaBrowserIntegration = false;` | The configuration of the Nix Packages collection to disable plasma browser integration for Firefox.
 `autoLogin.enable = true;` | Automatically log in as autoLogin.user.
 `dnscrypt-proxy2.enable = true;` | Whether to enable dnscrypt-proxy2.
 `earlyoom.enable = true;` | Whether to enable Early out of memory killing.
