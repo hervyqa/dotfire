@@ -233,18 +233,6 @@ Especially for python programming. This package is included in
 the `python3.withPackages` section bellow and is already integrated with the
 pandas, numpy, matplotlib, scikit-learn, and other libraries.
 
-The list of installed `python3` packages is in the
-`python3.withPackages` section:
-
-```sh
-python3.withPackages (
-  ps:
-    with ps; [
-      ...
-    ]
-  )
-```
-
 <details>
 <summary>See the Python3 library.</summary>
 
@@ -339,17 +327,6 @@ yt-dlp
 The [VSCodium](https://vscodium.com) Free/Libre Open Source Software Binaries
 of VS Code. VSCodium is a community-driven, freely-licensed binary distribution
 of Microsoft’s editor VS Code. Telemetry is disabled.
-
-List of installed `vscodium` plugins (configuration.nix):
-
-```sh
-vscode-with-extensions.override {
-  vscode = vscodium;
-  vscodeExtensions = with vscode-extensions; [
-    ...
-    ]
-  }
-```
 
 <details>
 <summary>See the VSCodium extensions.</summary>
