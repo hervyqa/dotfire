@@ -173,7 +173,7 @@ in {
     discord
     zoom-us
 
-    # Python3 system wide
+    # Python3
     (
       python3.withPackages (
         ps:
@@ -277,7 +277,7 @@ in {
       )
     )
 
-    ## RStudio system wide
+    ## RStudio
     # failed to compiling:
     # arrow, Hmisc (interp), ggforce, prophet, torch
     (
@@ -394,7 +394,7 @@ in {
       }
     )
 
-    # VSCodium system wide
+    # VSCodium
     (
       vscode-with-extensions.override {
         vscode = vscodium;
@@ -452,8 +452,9 @@ in {
   home.stateVersion = "${version}";
 
   services = {
-    kdeconnect = {
+    gpg-agent = {
       enable = true;
+      enableSshSupport = true;
     };
   };
 
@@ -471,7 +472,9 @@ in {
 
     firefox = {
       enable = true;
-      profiles.${name}.search.default = "DuckDuckGo";
+      profiles.${name}.search = {
+        default = "DuckDuckGo";
+        force = true;
       # policies = {
       #   CaptivePortal = false;
       #   DisableFirefoxAccounts = true;
@@ -486,6 +489,7 @@ in {
       #     ExtensionRecommendations = false;
       #     SkipOnboarding = true;
       #   };
+      };
     };
 
     fish = {
@@ -500,11 +504,18 @@ in {
 
         neq = "nix-env -qaP";
         nim = "nix-shell -p nix-info --run 'nix-info -m'";
-        ncu = "doas nix-channel --update";
-        nrd = "doas nixos-rebuild dry-build";
-        nrs = "doas nixos-rebuild switch";
-        ncg = "doas nix-collect-garbage -d";
-        nsgc = "doas nix-store --gc";
+
+        ncu = "nix-channel --update";
+        nrd = "nixos-rebuild dry-build";
+        nrs = "nixos-rebuild switch";
+        ncg = "nix-collect-garbage -d";
+        nsgc = "nix-store --gc";
+
+        dncu = "doas nix-channel --update";
+        dnrd = "doas nixos-rebuild dry-build";
+        dnrs = "doas nixos-rebuild switch";
+        dncg = "doas nix-collect-garbage -d";
+        dnsgc = "doas nix-store --gc";
 
         hms = "home-manager switch";
         hmp = "home-manager packages";
