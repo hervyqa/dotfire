@@ -20,7 +20,7 @@ encrypted) for Data Science.
 
 ## Variable
 
-```nix
+```plain
 name = "hervyqa";
 fullname = "Hervy Qurrotul Ainur Rozi";
 email = "hervyqa@proton.me";
