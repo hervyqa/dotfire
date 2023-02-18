@@ -1,73 +1,42 @@
 # NixOS for Data Science
 
-![image](img.png)
+![image](image/img.png)
 
 Minimalist configuration of Nixos operating system with KDE Plasma (disk
 encrypted) for Data Science.
 
-## Variable
-
-Replace the variables below according to your data in `configuration.nix`
-and `home.nix`.
-
-```nix
-let
-  name = "hervyqa";
-  fullname = "Hervy Qurrotul Ainur Rozi";
-  email = "hervyqa@proton.me";
-  timezone = "Asia/Jakarta";
-  defaultlocale = "en_US.UTF-8";
-  extralocale = "id_ID.UTF-8";
-  layout = "us";
-  gpgkey = "85161EB8";
-  hostname = "nixos";
-  version = "22.11";
-in
-```
-
 ## Installation
 
-### Clone Source
+1. Cloning.
+    ```sh
+    git clone git@gitlab.com:hervyqa/nixos-config.git
+    cd nixos-config
+    ```
+2. Symlink.
+    ```sh
+    sudo mv /etc/configuration.nix /etc/configuration.nix.backup
+    sudo ln -s $PWD/configuration.nix /etc/nixos/
+    ```
 
-```sh
-git clone git@gitlab.com:hervyqa/nixos-config.git
-cd nixos-config
+## Variable
+
+```nix
+name = "hervyqa";
+fullname = "Hervy Qurrotul Ainur Rozi";
+email = "hervyqa@proton.me";
+timezone = "Asia/Jakarta";
+defaultlocale = "en_US.UTF-8";
+extralocale = "id_ID.UTF-8";
+layout = "us";
+gpgkey = "85161EB8";
+hostname = "nixos";
+version = "22.11";
 ```
 
-### System Wide Config
-
-Symlink to `/etc/nixos`.
-
-```sh
-sudo mv /etc/configuration.nix /etc/configuration.nix.backup
-sudo ln -s $PWD/configuration.nix /etc/nixos/
-```
-
-### Home manager config
-
-```sh
-mkdir ~/.config/nixpkgs
-sudo ln -s $PWD/home.nix $HOME/.config/nixpkgs/
-```
-
-### Install Home manager standalone
-
-```sh
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
-nix-channel update
-```
-
-### Generate home manager
-
-```sh
-nix-shell '<home-manager>' -A install
-```
-
-For next build.
-
-```sh
-home-manager switch -b backup
-```
+Replace the variables above according to your data in:
+1. packages: `git`
+2. system: `locale`, `network`, `nix`, `system`, `timezone`, `users`
+3. services: `xserver`
 
 ## Settings
 
