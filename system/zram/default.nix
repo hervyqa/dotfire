@@ -6,6 +6,7 @@
 }: {
   zramSwap = {
     enable = true;
-    algorithm = "zstd"; # default
+    algorithm = "zstd";
+    memoryPercent = 50;
   };
 }
