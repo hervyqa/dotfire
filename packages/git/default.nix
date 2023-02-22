@@ -5,9 +5,11 @@
 }: {
   environment = {
     systemPackages = with pkgs; [
-      gh # github
-      glab # gitlab
-      hut # sourcehut
+      gh
+      gitless
+      gitlint
+      glab
+      hut
     ];
   };
 }
