@@ -11,6 +11,7 @@
         h = "hx";
         g = "git";
         t = "tmux";
+        r = "ranger";
 
         ll = "ls -lha";
         lsf = "lsblk -o name,fstype,fsavail,fsused,size,mountpoint";

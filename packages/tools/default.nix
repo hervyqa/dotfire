@@ -17,10 +17,10 @@
       htop
       imagemagick
       inxi
-      joshuto
       marksman
       nixos-option
       pfetch
+      ranger
       tmux
       translate-shell
       vulkan-tools
