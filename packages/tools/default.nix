@@ -27,6 +27,7 @@
       wget
       wl-clipboard
       xclip
+      yadm
     ];
   };
 }
