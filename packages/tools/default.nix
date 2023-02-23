@@ -14,9 +14,9 @@
       glxinfo
       gnumake
       helix
-      htop
       imagemagick
       inxi
+      joshuto
       marksman
       nixos-option
       pfetch

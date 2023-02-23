@@ -8,6 +8,7 @@
     ./gamemode
     ./git
     ./gnupg
+    ./htop
     ./java
     ./kdeconnect
     ./mtr
