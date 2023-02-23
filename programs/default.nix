@@ -3,6 +3,7 @@
     ./adb
     ./command-not-found
     ./dconf
+    ./droidcam
     ./firefox
     ./fish
     ./gamemode
