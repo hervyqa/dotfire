@@ -24,7 +24,7 @@ in {
         xterm.enable = false;
       };
       displayManager = {
-        defaultSession = "plasma"; # lxqt/plasma/plasmawayland
+        defaultSession = "plasmawayland"; # lxqt/plasma/plasmawayland
         sddm = {
           # for lxqt/plasma
           enable = true;
