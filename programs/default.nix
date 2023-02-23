@@ -2,6 +2,7 @@
   imports = [
     ./adb
     ./command-not-found
+    ./corectrl
     ./dconf
     ./droidcam
     ./firefox
