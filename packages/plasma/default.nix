@@ -8,6 +8,7 @@
     with libsForQt5; [
       ark
       kate
+      kcolorpicker
       kgpg
       krename
       kteatime
