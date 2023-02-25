@@ -8,11 +8,11 @@
     mime = {
       enable = true;
       defaultApplications = let
-        browsers = ["firefox.desktop"];
         discord = ["discord.desktop"];
         dolphin = ["org.kde.dolphin.desktop"];
         dragonplayer = ["org.kde.dragonplayer.desktop"];
         elisa = ["org.kde.elisa.desktop"];
+        firefox = ["firefox.desktop"];
         gimp = ["gimp.desktop"];
         gwenview = ["org.kde.gwenview.desktop"];
         inkscape = ["org.inkscape.Inkscape.desktop"];
@@ -29,13 +29,13 @@
         "application/pdf" = okular;
         "application/vnd.ms-publisher" = kate;
         "application/x-bittorrent" = ktorrent;
-        "application/x-extension-htm" = browsers;
-        "application/x-extension-html" = browsers;
-        "application/x-extension-shtml" = browsers;
-        "application/x-extension-xht" = browsers;
-        "application/x-extension-xhtml" = browsers;
+        "application/x-extension-htm" = firefox;
+        "application/x-extension-html" = firefox;
+        "application/x-extension-shtml" = firefox;
+        "application/x-extension-xht" = firefox;
+        "application/x-extension-xhtml" = firefox;
         "application/x-ms-dos-executable" = wine;
-        "application/xhtml+xml" = browsers;
+        "application/xhtml+xml" = firefox;
         "application/xml" = kate;
         "audio/aac" = elisa;
         "audio/flac" = elisa;
@@ -52,10 +52,10 @@
         "image/x-eps" = inkscape;
         "image/x-xcf" = gimp;
         "inode/directory" = dolphin;
-        "text/html" = browsers;
+        "text/html" = firefox;
         "text/markdown" = kate;
         "text/plain" = kate;
-        "text/uri-list" = browsers;
+        "text/uri-list" = firefox;
         "video/mp4" = dragonplayer;
         "video/ogg" = dragonplayer;
         "video/webm" = dragonplayer;
@@ -64,16 +64,16 @@
         "video/x-ms-wmv" = dragonplayer;
         "video/x-ogm+ogg" = dragonplayer;
         "video/x-theora+ogg" = dragonplayer;
-        "x-scheme-handler/about" = browsers;
-        "x-scheme-handler/chrome" = browsers;
+        "x-scheme-handler/about" = firefox;
+        "x-scheme-handler/chrome" = firefox;
         "x-scheme-handler/discord" = discord;
-        "x-scheme-handler/ftp" = browsers;
+        "x-scheme-handler/ftp" = firefox;
         "x-scheme-handler/geo" = marble;
-        "x-scheme-handler/http" = browsers;
-        "x-scheme-handler/https" = browsers;
+        "x-scheme-handler/http" = firefox;
+        "x-scheme-handler/https" = firefox;
         "x-scheme-handler/mailto" = kmail2;
         "x-scheme-handler/tel" = kdeconnect;
-        "x-scheme-handler/unknown" = browsers;
+        "x-scheme-handler/unknown" = firefox;
       };
     };
   };
