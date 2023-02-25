@@ -8,7 +8,6 @@
       audacity
       obs-studio
       v4l-utils
-      vlc
       vokoscreen
     ];
   };
