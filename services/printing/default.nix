@@ -17,7 +17,7 @@
         gutenprint
         hplip
         splix
-      ]
+      ];
     };
     system-config-printer = {
       enable = true;
