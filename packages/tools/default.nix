@@ -7,6 +7,7 @@
     systemPackages = with pkgs; [
       axel
       bottom
+      bootiso
       dialog
       direnv
       efibootmgr
