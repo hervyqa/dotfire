@@ -24,6 +24,7 @@
       tmux
       translate-shell
       vulkan-tools
+      wayland-utils
       wget
       wl-clipboard
       xclip
