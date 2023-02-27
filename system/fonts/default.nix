@@ -6,6 +6,7 @@
 }: {
   fonts = {
     fonts = with pkgs; [
+      amiri
       fira
       fira-code
       font-awesome
