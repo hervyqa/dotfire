@@ -11,6 +11,7 @@
       dialog
       direnv
       efibootmgr
+      ffmpeg
       git
       glxinfo
       gnumake
