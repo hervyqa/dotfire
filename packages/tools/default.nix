@@ -8,6 +8,7 @@
       axel
       bottom
       bootiso
+      chezmoi
       dialog
       direnv
       efibootmgr
