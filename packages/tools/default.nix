@@ -6,12 +6,15 @@
   environment = {
     systemPackages = with pkgs; [
       axel
+      bat
       bottom
       bootiso
+      catdoc
       chezmoi
       dialog
       direnv
       efibootmgr
+      exiftool
       ffmpeg
       git
       glxinfo
@@ -20,7 +23,9 @@
       imagemagick
       inxi
       joshuto
+      jq
       marksman
+      mediainfo
       nixos-option
       odt2txt
       pandoc
