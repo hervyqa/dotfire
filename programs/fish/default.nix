@@ -14,6 +14,13 @@
         r = "ranger";
         j = "joshuto";
 
+        c = "chezmoi";
+        cma = "chezmoi add";
+        cmd = "chezmoi diff";
+        cmp = "chezmoi apply";
+        cms = "chezmoi status";
+        cmc = "chezmoi cd";
+
         ll = "ls -lha";
         lsf = "lsblk -o name,fstype,fsavail,fsused,size,mountpoint";
 
