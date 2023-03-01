@@ -10,6 +10,7 @@
       fira
       fira-code
       font-awesome
+      google-fonts
       ibm-plex
       jetbrains-mono
       source-han-sans
