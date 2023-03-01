@@ -22,6 +22,7 @@
       joshuto
       marksman
       nixos-option
+      pandoc
       pfetch
       ranger
       tmux
