@@ -33,6 +33,7 @@
       wget
       wl-clipboard
       xclip
+      xlsx2csv
       yadm
     ];
   };
