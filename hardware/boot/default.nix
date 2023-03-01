@@ -30,7 +30,7 @@
     ];
     kernelPackages = pkgs.linuxPackages_xanmod;
     plymouth = {
-      enable = true;
+      enable = false;
     };
     extraModulePackages = [];
   };
