@@ -22,6 +22,7 @@
       joshuto
       marksman
       nixos-option
+      odt2txt
       pandoc
       pfetch
       ranger
