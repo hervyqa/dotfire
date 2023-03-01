@@ -5,6 +5,7 @@
 }: {
   environment = {
     systemPackages = with pkgs; [
+      atool
       bzip2
       gzip
       libarchive
