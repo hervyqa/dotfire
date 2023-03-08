@@ -15,7 +15,7 @@
         useOSProber = false; # true: If dual boot.
         splashImage = null;
       };
-      timeout = 2;
+      timeout = 0;
     };
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
