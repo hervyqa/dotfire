@@ -414,6 +414,13 @@ questions and learn from data.
 
 In addition to `R` and `python3`, there are also `julia`, `rakudo`, and `scala`.
 
+### Art & Multimedia
+
+Sometimes i am work to make visualisations, infographics, edit photo,
+short videos, and other works of art. I need to install `inkscape`, `krita`,
+`kdenlive` in `art.nix`.
+Maybe you need to remove these packages.
+
 ## License
 
 MIT License
