@@ -20,7 +20,6 @@
     ./octave
     ./rstudio
     ./vscodium
-    #./neovim
 
     # desktop
     ./art
