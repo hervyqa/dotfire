@@ -17,6 +17,7 @@
     # editor
     ./ide
     ./latex
+    ./octave
     ./rstudio
     ./vscodium
     #./neovim
