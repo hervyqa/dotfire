@@ -6,7 +6,7 @@
   environment = {
     systemPackages = with pkgs;
     with octavePackages; [
-      octave
+      octaveFull
       database
       dataframe
       data-smoothing
@@ -15,7 +15,6 @@
       fpl
       general
       gsl
-      image
       linear-algebra
       nan
       splines
