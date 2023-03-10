@@ -33,6 +33,7 @@
       pfetch
       tmux
       translate-shell
+      upterm
       vulkan-tools
       w3m
       wayland-utils
