@@ -4,7 +4,7 @@
     ./archiver
     ./git
     ./ssg
-    ./tools
+    ./base
 
     # programming
     ./julia
@@ -31,5 +31,6 @@
     ./office
     ./plasma
     ./theme
+    ./tools
   ];
 }

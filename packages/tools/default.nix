@@ -5,41 +5,7 @@
 }: {
   environment = {
     systemPackages = with pkgs; [
-      axel
-      bat
-      bottom
-      bootiso
-      catdoc
-      chezmoi
-      dialog
-      direnv
-      efibootmgr
-      exiftool
-      ffmpeg
-      git
-      glxinfo
-      gnumake
-      helix
-      imagemagick
-      inxi
-      joshuto
-      jq
-      marksman
-      mdcat
-      mediainfo
-      nixos-option
-      odt2txt
-      pandoc
-      pfetch
-      tmux
-      translate-shell
-      vulkan-tools
-      w3m
-      wayland-utils
-      wget
-      wl-clipboard
-      xclip
-      xlsx2csv
+      usbimager
     ];
   };
 }
