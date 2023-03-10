@@ -25,12 +25,12 @@
       joshuto
       jq
       marksman
+      mdcat
       mediainfo
       nixos-option
       odt2txt
       pandoc
       pfetch
-      ranger
       tmux
       translate-shell
       vulkan-tools
