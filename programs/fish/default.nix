@@ -26,6 +26,9 @@
 
         neq = "nix-env -qaP";
         nim = "nix-shell -p nix-info --run 'nix-info -m'";
+        nei = "doas nix-env -iA";
+        neu = "doas nix-env --uninstall";
+        nel = "doas nix-env -p /nix/var/nix/profiles/system --list-generations";
 
         ncu = "doas nix-channel --update";
         nrd = "doas nixos-rebuild dry-build";
