@@ -36,6 +36,7 @@
             dplyr
             duckdb
             dygraphs
+            e1071
             echarts4r
             esquisse
             flexdashboard
@@ -46,11 +47,15 @@
             geofacet
             ggiraph
             ggplot2
+            ggvis
+            ggraph
+            glmnet
             glue
             gmodels
             gridExtra
             gym
             here
+            htmlwidgets
             httr
             installr
             janitor
@@ -58,12 +63,14 @@
             knitr
             languageserver
             languageserversetup
+            lattice
             leaflet
             listviewer
             lme4
             lubridate
             magrittr
             mapsapi
+            mlr3
             officer
             openNLP
             openxlsx
@@ -78,6 +85,7 @@
             quantmod
             quarto
             r5r
+            randomForest
             reactable
             readr
             readxl
@@ -85,6 +93,7 @@
             remotes
             reshape2
             reticulate
+            rgl
             rio
             rmarkdown
             roxygen2
@@ -113,8 +122,11 @@
             usethis
             validate
             vetiver
+            vcd
             vioplot
             vroom
+            xgboost
+            xmlr
             xts
             yaml
             ymlthis

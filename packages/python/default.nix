@@ -104,6 +104,7 @@
               virtualenvwrapper
               wordcloud
               xarray
+              xgboost
               yfinance
               yt-dlp
             ]
