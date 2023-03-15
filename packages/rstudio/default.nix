@@ -30,6 +30,7 @@
             dataCompareR
             data_table
             datapasta
+            dbplyr
             devtools
             diffobj
             dplyr
