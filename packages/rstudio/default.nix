@@ -112,6 +112,7 @@
             usethis
             validate
             vetiver
+            vioplot
             vroom
             xts
             yaml
